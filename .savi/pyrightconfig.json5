@@ -1,0 +1,8 @@
+{
+  // Pyright configuration overrides
+  // JSON5 supports comments, trailing commas, and more
+  //
+  // Example:
+  // "include": ["src", "tests"],
+  // "reportUnusedVariable": "none",
+}

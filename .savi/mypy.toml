@@ -1,0 +1,9 @@
+# MyPy configuration overrides
+# Add TOML settings below. Top-level keys go to [mypy] section.
+# Nested tables create per-module sections.
+#
+# Example:
+# warn_return_any = false
+#
+# ["mypy-tests.*"]
+# disallow_untyped_defs = false

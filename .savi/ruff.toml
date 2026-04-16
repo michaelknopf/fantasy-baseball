@@ -1,0 +1,8 @@
+# Ruff configuration overrides
+# Add TOML settings below. These merge on top of the base profile.
+#
+# Example:
+# line-length = 100
+#
+# [lint]
+# extend-select = ["CUSTOM"]

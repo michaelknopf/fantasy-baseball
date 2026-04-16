@@ -1,0 +1,74 @@
+[project]
+name = "fbb"
+version = "0.1.0"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "typer>=0.20.0",
+    "rich>=14.0.0",
+    "httpx>=0.28.0",
+    "pydantic>=2.11.0",
+    "pydantic-settings>=2.9.0",
+]
+
+[project.scripts]
+fbb = 'fbb.cli.main:app'
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fbb"]
+
+[dependency-groups]
+dev = [
+    "savi-python-base>=1.3.28",
+    "respx>=0.22.0",
+]
+
+# CodeArtifact index - requires authentication via keyring
+[[tool.uv.index]]
+name = "codeartifact"
+url = "https://aws@savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/"
+default = true
+
+################################################################################
+#                                    pytest                                    #
+################################################################################
+
+[tool.pytest.ini_options]
+pythonpath = ["tests"]
+addopts = ["-s"]
+testpaths = ["tests/fbb_test/unit"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+################################################################################
+#                              Savi Python Config                              #
+################################################################################
+
+[tool.savi-python-base.ruff]
+enabled = true
+profile = "strict"
+
+[tool.savi-python-base.mypy]
+enabled = true
+profile = "strict"
+
+[tool.savi-python-base.mypy.overrides]
+python_version = "3.13"
+mypy_path = ["src"]
+packages = ["fbb"]
+
+[tool.savi-python-base.pyright]
+enabled = true
+profile = "strict"
+
+[tool.savi-python-base.pyright.overrides]
+include = ["src"]
+exclude = ["**/__pycache__"]
+
+[tool.savi-python-base.just]
+enabled = true
+profile = "strict"

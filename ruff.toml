@@ -1,0 +1,35 @@
+target-version = "py313"
+line-length = 88
+
+[lint]
+select = [
+    "E",
+    "W",
+    "F",
+    "I",
+    "B",
+    "C4",
+    "UP",
+    "RSE",
+    "PT",
+    "UP034",
+    "A",
+]
+ignore = [
+    "E501",
+]
+fixable = [
+    "ALL",
+]
+unfixable = []
+
+[lint.per-file-ignores]
+"tests/**/*" = [
+    "E501",
+]
+
+[format]
+quote-style = "single"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"

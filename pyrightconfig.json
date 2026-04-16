@@ -1,0 +1,27 @@
+{
+  "typeCheckingMode": "strict",
+  "pythonVersion": "3.13",
+  "pythonPlatform": "All",
+  "reportMissingImports": "error",
+  "reportMissingTypeStubs": "error",
+  "reportMissingParameterType": "error",
+  "reportUnknownParameterType": "error",
+  "reportUnknownVariableType": "error",
+  "reportUnknownMemberType": "error",
+  "reportUnknownArgumentType": "error",
+  "reportUnknownLambdaType": "error",
+  "reportImplicitStringConcatenation": "error",
+  "reportUndefinedVariable": "error",
+  "reportAssertAlwaysTrue": "error",
+  "reportSelfClsParameterName": "error",
+  "reportImplicitOverride": "error",
+  "reportIncompatibleMethodOverride": "error",
+  "reportIncompatibleVariableOverride": "error",
+  "reportOverlappingOverload": "error",
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/__pycache__"
+  ]
+}
