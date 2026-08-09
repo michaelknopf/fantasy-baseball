@@ -38,8 +38,9 @@ the escape hatch is there.
 - **Each team's claim budget** — remaining FA bidding dollars.
 - **All ten rosters** — every player, with roster status (active / reserve / injured
   reserve), lineup slot, positions, MLB team, and the stat row Fantrax renders.
-- **Free-agent starting pitchers with an upcoming probable start** — opponent,
-  home/away, and start time, plus their stat row.
+- **Free-agent starting pitchers, swept across every upcoming date** — opponent,
+  home/away, start time, and the date, plus their stat row. One entry per
+  pitcher-date, so a pitcher probable twice appears twice.
 
 ## The API
 
@@ -74,10 +75,19 @@ fetches both per team and merges them.
 | `statusOrTeamFilter` | `ALL_AVAILABLE` | Unowned players only |
 | `posOrGroup` | `POS_015` | Starting pitchers |
 | `miscDisplayType` | `7` | "1-2 starts" — only pitchers with a probable start |
-| `datePlaying` | `2026-08-10` | Optional; probable starters on one date |
+| `datePlaying` | `2026-08-10` | Probable starters on one date |
 
 The next start arrives as a rendered cell — `LAD<br/>Sun 1:10PM`, or `@BOS<br/>...` when
 away — which the collector parses into opponent, home/away, and time.
+
+**`datePlaying` is not optional in practice.** Without it the query returns only the
+current day's probables (17 pitchers), which is nowhere near enough to plan a two-week
+round. The collector therefore issues one query per date and merges the results — 90
+unique pitchers across 177 pitcher-dates in a representative run.
+
+The sweep stops at the first empty date. MLB publishes probable starters only ~12 days
+out, so the tail is genuinely empty rather than truncated, and querying past it would
+just burn requests. Cost is roughly one request per populated date.
 
 ## Layout
 

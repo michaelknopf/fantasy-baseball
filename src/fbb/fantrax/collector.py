@@ -138,28 +138,66 @@ class SnapshotCollector:
                 )
         return TeamRoster(team_id=team.team_id, team_name=team.name, players=players)
 
-    def _free_agent_pitchers(self, max_players: int = 100) -> list[FreeAgentPitcher]:
-        """Available starting pitchers who have a probable start coming up."""
+    def _free_agent_pitchers(self) -> list[FreeAgentPitcher]:
+        """
+        Available starting pitchers with a probable start, swept date by date.
+
+        The unfiltered query only returns the current day's probables, which is far
+        less than a two-week round needs. Each date is a separate query, so one entry
+        is produced per pitcher-date: a pitcher starting twice appears twice.
+        """
         collected: list[FreeAgentPitcher] = []
+        for date in self._probable_start_dates():
+            rows = self._free_agent_page(date)
+            if not rows:
+                # MLB publishes probables ~12 days out; past the horizon every
+                # later date is empty too, so stop rather than keep querying.
+                break
+            collected.extend(self._free_agent(row, date) for row in rows)
+        return collected
+
+    def _probable_start_dates(self) -> list[str]:
+        """The dates Fantrax offers, from today forward."""
+        data = self._client.call(
+            'getPlayerStats',
+            {
+                'statusOrTeamFilter': _STATUS_AVAILABLE,
+                'posOrGroup': _POS_STARTING_PITCHER,
+                'miscDisplayType': _MISC_UPCOMING_STARTS,
+                'view': 'STATS',
+            },
+        )
+        self._store('freeAgents', 'dateList', data)
+        offered = payload.rows(payload.obj(data, 'displayedLists'), 'datePlayingDates')
+        return [
+            date
+            for entry in offered
+            if (date := payload.text(entry, 'id')) and date != 'ALL'
+        ]
+
+    def _free_agent_page(self, date: str) -> list[Json]:
+        """Every available probable starter on one date, following pagination."""
+        rows: list[Json] = []
         page = 1
-        while len(collected) < max_players:
+        while True:
             data = self._client.call(
                 'getPlayerStats',
                 {
                     'statusOrTeamFilter': _STATUS_AVAILABLE,
                     'posOrGroup': _POS_STARTING_PITCHER,
                     'miscDisplayType': _MISC_UPCOMING_STARTS,
+                    'datePlaying': date,
                     'pageNumber': str(page),
                     'maxResultsPerPage': str(_PAGE_SIZE),
                     'view': 'STATS',
                 },
             )
-            self._store('freeAgents', f'page{page}', data)
+            self._store('freeAgents', f'{date}:page{page}', data)
 
-            rows = payload.rows(data, 'statsTable')
-            if not rows:
+            batch = payload.rows(data, 'statsTable')
+            if not batch:
                 break
-            collected.extend(self._free_agent(row) for row in rows)
+            rows.extend(batch)
 
             total_pages = payload.number(
                 payload.obj(data, 'paginatedResultSet'), 'totalNumPages'
@@ -167,9 +205,9 @@ class SnapshotCollector:
             if total_pages is None or page >= int(total_pages):
                 break
             page += 1
-        return collected[:max_players]
+        return rows
 
-    def _free_agent(self, row: Json) -> FreeAgentPitcher:
+    def _free_agent(self, row: Json, date: str) -> FreeAgentPitcher:
         scorer = payload.obj(row, 'scorer')
         contents = _cell_contents(row)
         return FreeAgentPitcher(
@@ -178,6 +216,7 @@ class SnapshotCollector:
             positions=_strip_markup(payload.text(scorer, 'posShortNames')),
             mlb_team=payload.text(scorer, 'teamShortName'),
             rank=_as_int(contents[0] if contents else None),
+            start_date=date,
             next_start=self._probable_start(contents),
             stats=contents,
         )

@@ -28,6 +28,9 @@ class StubClient(FantraxClient):
         # The starts cap and the roster come from the same method, split by `view`.
         if method == 'getTeamRosterInfo' and args.get('view') == 'GAMES_PER_POS':
             return self._responses['starts']
+        if method == 'getPlayerStats':
+            date = args.get('datePlaying')
+            return _free_agents_payload(date) if date else _date_list_payload()
         return self._responses[method]
 
 
@@ -95,10 +98,23 @@ def _teams_payload() -> Json:
     }
 
 
-def _free_agents_payload() -> Json:
+def _date_list_payload() -> Json:
     return {
-        'paginatedResultSet': {'totalNumPages': 1, 'pageNumber': 1},
-        'statsTable': [
+        'displayedLists': {
+            'datePlayingDates': [
+                {'id': 'ALL', 'name': 'All'},
+                {'id': '2026-08-09', 'name': 'Sun Aug 9'},
+                {'id': '2026-08-10', 'name': 'Mon Aug 10'},
+                {'id': '2026-08-11', 'name': 'Tue Aug 11'},
+            ]
+        }
+    }
+
+
+def _free_agents_payload(date: str) -> Json:
+    """One probable starter on 8/9 and 8/10; nothing on 8/11 (past the horizon)."""
+    by_date: dict[str, list[Json]] = {
+        '2026-08-09': [
             {
                 'scorer': {
                     'scorerId': 'fa1',
@@ -113,19 +129,41 @@ def _free_agents_payload() -> Json:
                 ],
             }
         ],
+        '2026-08-10': [
+            {
+                'scorer': {
+                    'scorerId': 'fa2',
+                    'name': 'Kumar Rocker',
+                    'posShortNames': '<b>SP</b>',
+                    'teamShortName': 'TEX',
+                },
+                'cells': [
+                    {'content': '85'},
+                    {'content': 'FA'},
+                    {'content': 'BAL<br/>Mon 6:38PM'},
+                ],
+            }
+        ],
+    }
+    return {
+        'paginatedResultSet': {'totalNumPages': 1, 'pageNumber': 1},
+        'statsTable': by_date.get(date, []),
     }
 
 
 @pytest.fixture
-def collector() -> SnapshotCollector:
-    client = StubClient(
+def client() -> StubClient:
+    return StubClient(
         {
             'getFantasyTeams': _teams_payload(),
             'getTeamRosterInfo': _roster_payload(),
             'starts': _starts_payload(),
-            'getPlayerStats': _free_agents_payload(),
         }
     )
+
+
+@pytest.fixture
+def collector(client: StubClient) -> SnapshotCollector:
     return SnapshotCollector(client, LEAGUE_ID)
 
 
@@ -163,10 +201,32 @@ def test_parses_probable_start_with_home_away(snapshot: LeagueSnapshot) -> None:
     pitcher = snapshot.free_agent_pitchers[0]
     assert pitcher.name == 'J.T. Ginn'
     assert pitcher.rank == 59
+    assert pitcher.start_date == '2026-08-09'
     assert pitcher.next_start is not None
     assert pitcher.next_start.opponent == 'BOS'
     assert pitcher.next_start.is_away is True
     assert pitcher.next_start.when == 'Sun 10:35AM'
+
+    home = snapshot.free_agent_pitchers[1]
+    assert home.start_date == '2026-08-10'
+    assert home.next_start is not None
+    assert home.next_start.is_away is False
+
+
+def test_sweeps_dates_and_stops_at_the_probables_horizon(client: StubClient) -> None:
+    """Each date is its own query, and the first empty date ends the sweep."""
+    snapshot = SnapshotCollector(client, LEAGUE_ID).collect()
+    assert [p.start_date for p in snapshot.free_agent_pitchers] == [
+        '2026-08-09',
+        '2026-08-10',
+    ]
+    swept = [
+        args['datePlaying']
+        for method, args in client.calls
+        if method == 'getPlayerStats' and 'datePlaying' in args
+    ]
+    # 8/11 is queried and comes back empty; nothing beyond it is requested.
+    assert swept == ['2026-08-09', '2026-08-10', '2026-08-11']
 
 
 def test_retains_raw_payloads_for_offline_analysis(

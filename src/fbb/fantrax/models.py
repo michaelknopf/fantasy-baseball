@@ -66,13 +66,19 @@ class ProbableStart(BaseModel):
 
 
 class FreeAgentPitcher(BaseModel):
-    """An unowned starting pitcher with an upcoming probable start."""
+    """
+    An unowned starting pitcher on one probable-start date.
+
+    One entry per pitcher-date: a pitcher probable twice in the collected window
+    appears twice, under different `start_date` values.
+    """
 
     player_id: str
     name: str
     positions: str | None = None
     mlb_team: str | None = None
     rank: int | None = None
+    start_date: str | None = None
     next_start: ProbableStart | None = None
     stats: list[Any] = []
 
