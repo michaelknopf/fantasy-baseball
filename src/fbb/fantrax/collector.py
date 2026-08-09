@@ -142,6 +142,7 @@ class SnapshotCollector:
 
         players: list[RosterPlayer] = []
         for table in payload.rows(data, 'tables'):
+            columns = _column_names(payload.obj(table, 'header'))
             for row in payload.rows(table, 'rows'):
                 scorer = payload.obj(row, 'scorer')
                 player_id = payload.text(scorer, 'scorerId')
@@ -157,7 +158,7 @@ class SnapshotCollector:
                             payload.text(row, 'statusId') or ''
                         ),
                         slot_position_id=payload.text(row, 'posId'),
-                        stats=_cell_contents(row),
+                        stats=_labelled(columns, _cell_contents(row)),
                     )
                 )
         return TeamRoster(team_id=team.team_id, team_name=team.name, players=players)
@@ -174,9 +175,8 @@ class SnapshotCollector:
         for day in self._probable_start_dates():
             if date.fromisoformat(day) > collect_through:
                 break
-            collected.extend(
-                self._free_agent(row, day) for row in self._free_agent_page(day)
-            )
+            columns, rows = self._free_agent_page(day)
+            collected.extend(self._free_agent(row, day, columns) for row in rows)
         return collected
 
     def _probable_start_dates(self) -> list[str]:
@@ -198,9 +198,10 @@ class SnapshotCollector:
             if (date := payload.text(entry, 'id')) and date != 'ALL'
         ]
 
-    def _free_agent_page(self, date: str) -> list[Json]:
-        """Every available probable starter on one date, following pagination."""
+    def _free_agent_page(self, date: str) -> tuple[list[str], list[Json]]:
+        """Every available probable starter on one date, with its column labels."""
         rows: list[Json] = []
+        columns: list[str] = []
         page = 1
         while True:
             data = self._client.call(
@@ -221,6 +222,7 @@ class SnapshotCollector:
             if not batch:
                 break
             rows.extend(batch)
+            columns = columns or _column_names(payload.obj(data, 'tableHeader'))
 
             total_pages = payload.number(
                 payload.obj(data, 'paginatedResultSet'), 'totalNumPages'
@@ -228,9 +230,9 @@ class SnapshotCollector:
             if total_pages is None or page >= int(total_pages):
                 break
             page += 1
-        return rows
+        return columns, rows
 
-    def _free_agent(self, row: Json, date: str) -> FreeAgentPitcher:
+    def _free_agent(self, row: Json, date: str, columns: list[str]) -> FreeAgentPitcher:
         scorer = payload.obj(row, 'scorer')
         contents = _cell_contents(row)
         mlb_team = payload.text(scorer, 'teamShortName')
@@ -242,7 +244,7 @@ class SnapshotCollector:
             rank=_as_int(contents[0] if contents else None),
             start_date=date,
             next_start=self._probable_start(contents, mlb_team),
-            stats=contents,
+            stats=_labelled(columns, contents),
         )
 
     @staticmethod
@@ -278,6 +280,24 @@ class SnapshotCollector:
 
 def _cell_contents(row: Json) -> list[str]:
     return [payload.text(cell, 'content') or '' for cell in payload.rows(row, 'cells')]
+
+
+def _column_names(header: Json) -> list[str]:
+    """Short column labels, e.g. ['Rk', 'Sta', 'Age', ...]."""
+    return [
+        payload.text(cell, 'shortName') or '' for cell in payload.rows(header, 'cells')
+    ]
+
+
+def _labelled(columns: list[str], values: list[str]) -> dict[str, str]:
+    """
+    Pair stat values with their column labels.
+
+    Fantrax returns stats as bare positional arrays whose meaning lives in a separate
+    header, and the schema differs per table. Without this the numbers are unreadable
+    once the raw payload is out of reach.
+    """
+    return dict(zip(columns, values, strict=False))
 
 
 def _strip_markup(value: str | None) -> str | None:

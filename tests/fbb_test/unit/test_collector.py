@@ -40,6 +40,9 @@ def _roster_payload() -> Json:
     return {
         'tables': [
             {
+                'header': {
+                    'cells': [{'shortName': 'Age'}, {'shortName': 'FPts'}]
+                },
                 'rows': [
                     {
                         'statusId': '1',
@@ -130,6 +133,7 @@ def _free_agents_payload(date: str) -> Json:
                     {'content': '59'},
                     {'content': 'FA'},
                     {'content': '@BOS<br/>Sun 10:35AM'},
+                    {'content': '3.41'},
                 ],
             }
         ],
@@ -145,6 +149,7 @@ def _free_agents_payload(date: str) -> Json:
                     {'content': '85'},
                     {'content': 'FA'},
                     {'content': 'BAL<br/>Mon 6:38PM'},
+                    {'content': '4.02'},
                 ],
             }
         ],
@@ -161,12 +166,21 @@ def _free_agents_payload(date: str) -> Json:
                     {'content': '57'},
                     {'content': 'FA'},
                     {'content': 'ATH 2<br/>@BOS 1'},
+                    {'content': '3.88'},
                 ],
             }
         ],
     }
     return {
         'paginatedResultSet': {'totalNumPages': 1, 'pageNumber': 1},
+        'tableHeader': {
+            'cells': [
+                {'shortName': 'Rk'},
+                {'shortName': 'Sta'},
+                {'shortName': 'Opp'},
+                {'shortName': 'ERA'},
+            ]
+        },
         'statsTable': by_date.get(date, []),
     }
 
@@ -217,6 +231,13 @@ def test_parses_roster_status_and_skips_total_rows(snapshot: LeagueSnapshot) -> 
 
 def test_strips_position_markup(snapshot: LeagueSnapshot) -> None:
     assert snapshot.rosters[0].players[0].positions == 'SP'
+
+
+def test_labels_stats_with_their_column_names(snapshot: LeagueSnapshot) -> None:
+    """Bare positional stats are meaningless once the raw payload is out of reach."""
+    assert snapshot.rosters[0].players[0].stats == {'Age': '1', 'FPts': '2.10'}
+    assert snapshot.free_agent_pitchers[0].stats['Rk'] == '59'
+    assert snapshot.free_agent_pitchers[0].stats['ERA'] == '3.41'
 
 
 def test_parses_probable_start_with_home_away(snapshot: LeagueSnapshot) -> None:

@@ -5,7 +5,6 @@ also keeps every raw payload, so analysis can reach anything not modelled here.
 """
 
 from datetime import date, datetime
-from typing import Any
 
 from pydantic import BaseModel
 
@@ -46,7 +45,7 @@ class RosterPlayer(BaseModel):
     mlb_team: str | None = None
     roster_status: str | None = None
     slot_position_id: str | None = None
-    stats: list[Any] = []
+    stats: dict[str, str] = {}
 
 
 class TeamRoster(BaseModel):
@@ -85,7 +84,7 @@ class FreeAgentPitcher(BaseModel):
     rank: int | None = None
     start_date: str | None = None
     next_start: ProbableStart | None = None
-    stats: list[Any] = []
+    stats: dict[str, str] = {}
 
 
 class LeagueSnapshot(BaseModel):
