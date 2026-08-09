@@ -13,6 +13,8 @@ from fbb.fantrax.models import (
     PlayerDetail,
     ProbableStart,
     RosterPlayer,
+    RosterSchedule,
+    ScheduledStart,
     TeamRoster,
     TeamStartsBudget,
 )
@@ -169,7 +171,68 @@ class SnapshotCollector:
                         stats=_labelled(columns, _cell_contents(row)),
                     )
                 )
-        return TeamRoster(team_id=team.team_id, team_name=team.name, players=players)
+        return TeamRoster(
+            team_id=team.team_id,
+            team_name=team.name,
+            players=players,
+            schedules=self._schedules(team),
+        )
+
+    def _schedules(self, team: FantasyTeam) -> list[RosterSchedule]:
+        """
+        When each of a team's pitchers is next scheduled to start.
+
+        The default roster view shows only today's game, but lineups move daily, so
+        a slot is only worth a starter on the day he actually pitches. This view lays
+        the roster out as a day-per-column grid and flags the probable starter.
+        """
+        data = self._client.call(
+            'getTeamRosterInfo', {'teamId': team.team_id, 'view': 'SCHEDULE_FULL'}
+        )
+        self._store('schedules', team.team_id, data)
+
+        schedules: list[RosterSchedule] = []
+        for table in payload.rows(data, 'tables'):
+            columns = _column_names(payload.obj(table, 'header'))
+            for row in payload.rows(table, 'rows'):
+                scorer = payload.obj(row, 'scorer')
+                player_id = payload.text(scorer, 'scorerId')
+                if not player_id:
+                    continue
+                starts = self._scheduled_starts(row, columns)
+                if starts:
+                    schedules.append(
+                        RosterSchedule(
+                            player_id=player_id,
+                            name=payload.text(scorer, 'name') or '',
+                            positions=_strip_markup(
+                                payload.text(scorer, 'posShortNames')
+                            ),
+                            starts=starts,
+                        )
+                    )
+        return schedules
+
+    @staticmethod
+    def _scheduled_starts(row: Json, columns: list[str]) -> list[ScheduledStart]:
+        """Day cells flagged `pitcher`, which marks this player as the starter."""
+        starts: list[ScheduledStart] = []
+        for index, cell in enumerate(payload.rows(row, 'cells')):
+            if cell.get('pitcher') is not True or index >= len(columns):
+                continue
+            matchup = (payload.text(cell, 'content') or '').split('<br/>')[0]
+            opponent = matchup.lstrip('@')
+            # The cell's popover names the pitcher the opposing team will start.
+            opposing = payload.obj(payload.obj(cell, 'popOver'), 'scorer')
+            starts.append(
+                ScheduledStart(
+                    date=columns[index],
+                    opponent=opponent,
+                    is_away=matchup.startswith('@'),
+                    opposing_pitcher=payload.text(opposing, 'name'),
+                )
+            )
+        return starts
 
     def _free_agent_pitchers(self, collect_through: date) -> list[FreeAgentPitcher]:
         """

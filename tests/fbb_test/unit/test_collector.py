@@ -31,6 +31,8 @@ class StubClient(FantraxClient):
         # The starts cap and the roster come from the same method, split by `view`.
         if method == 'getTeamRosterInfo' and args.get('view') == 'GAMES_PER_POS':
             return self._responses['starts']
+        if method == 'getTeamRosterInfo' and args.get('view') == 'SCHEDULE_FULL':
+            return _schedule_payload()
         if method == 'getTeamRosterInfo' and args.get('teamId') == RIVAL_ID:
             return _rival_roster_payload()
         if method == 'getPlayerProfile':
@@ -218,6 +220,57 @@ def _free_agents_payload(date: str) -> Json:
     }
 
 
+def _schedule_payload() -> Json:
+    """A day-per-column grid; `pitcher` marks the day this player starts."""
+    return {
+        'tables': [
+            {
+                'header': {
+                    'cells': [
+                        {'shortName': 'FP/G'},
+                        {'shortName': 'Mon 8/10'},
+                        {'shortName': 'Tue 8/11'},
+                    ]
+                },
+                'rows': [
+                    {
+                        'scorer': {
+                            'scorerId': 'p1',
+                            'name': 'Tarik Skubal',
+                            'posShortNames': '<b>SP</b>',
+                        },
+                        'cells': [
+                            {'content': '0'},
+                            {
+                                'content': 'KC<br/>Mon 7:10PM',
+                                'pitcher': True,
+                                'popOver': {'scorer': {'name': 'Noah Cameron'}},
+                            },
+                            {'content': 'KC<br/>Tue 7:10PM'},
+                        ],
+                    },
+                    {
+                        'scorer': {
+                            'scorerId': 'p2',
+                            'name': 'Dylan Cease',
+                            'posShortNames': 'SP',
+                        },
+                        'cells': [
+                            {'content': '0'},
+                            {'content': '@BOS<br/>Mon 6:40PM'},
+                            {
+                                'content': '@BOS<br/>Tue 6:40PM',
+                                'pitcher': True,
+                                'popOver': {'scorer': {'name': 'Garrett Crochet'}},
+                            },
+                        ],
+                    },
+                ],
+            }
+        ]
+    }
+
+
 def _game_log_payload() -> Json:
     return {
         'sectionContent': {
@@ -365,6 +418,22 @@ def test_details_cover_free_agents_and_my_roster_only(
     assert 'rival1' not in covered  # on someone else's
 
 
+def test_collects_when_my_pitchers_actually_start(snapshot: LeagueSnapshot) -> None:
+    """A starter only scores on the day he pitches, so the start day decides the slot."""
+    roster = next(r for r in snapshot.rosters if r.team_name == 'MK')
+    by_name = {s.name: s for s in roster.schedules}
+    skubal = by_name['Tarik Skubal'].starts
+    assert [(s.date, s.opponent, s.is_away) for s in skubal] == [
+        ('Mon 8/10', 'KC', False)
+    ]
+    assert skubal[0].opposing_pitcher == 'Noah Cameron'
+
+    cease = by_name['Dylan Cease'].starts
+    assert [(s.date, s.opponent, s.is_away) for s in cease] == [
+        ('Tue 8/11', 'BOS', True)
+    ]
+
+
 def _swept_dates(client: StubClient) -> list[str]:
     return [
         args['datePlaying']
@@ -421,4 +490,5 @@ def test_retains_raw_payloads_for_offline_analysis(
         'gamesPerPos',
         'freeAgents',
         'gameLogs',
+        'schedules',
     }

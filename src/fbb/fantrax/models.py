@@ -48,12 +48,36 @@ class RosterPlayer(BaseModel):
     stats: dict[str, str] = {}
 
 
+class ScheduledStart(BaseModel):
+    """A day on which a rostered pitcher is the probable starter.
+
+    With daily lineup moves, this is what decides a slot: a starter only scores on
+    the day he pitches, so knowing those days is what turns free slot-days into
+    streaming opportunities.
+    """
+
+    date: str  # column label as Fantrax renders it, e.g. 'Mon 8/10'
+    opponent: str
+    is_away: bool
+    opposing_pitcher: str | None = None
+
+
+class RosterSchedule(BaseModel):
+    """When each pitcher on a roster is scheduled to start."""
+
+    player_id: str
+    name: str
+    positions: str | None = None
+    starts: list[ScheduledStart] = []
+
+
 class TeamRoster(BaseModel):
     """A team's full roster."""
 
     team_id: str
     team_name: str
     players: list[RosterPlayer] = []
+    schedules: list[RosterSchedule] = []
 
 
 class ProbableStart(BaseModel):
