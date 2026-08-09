@@ -87,6 +87,31 @@ class FreeAgentPitcher(BaseModel):
     stats: dict[str, str] = {}
 
 
+class GameLogEntry(BaseModel):
+    """One game a player appeared in, with the fantasy points it produced."""
+
+    date: str | None = None
+    team: str | None = None
+    opponent: str | None = None
+    score: str | None = None
+    fantasy_points: float | None = None
+    stats: dict[str, str] = {}
+
+
+class PlayerDetail(BaseModel):
+    """Per-player depth: every game this season, with its full stat line.
+
+    Trailing windows (last 30 days, last 60, and so on) are not stored: each entry
+    is dated and carries its own stat line, so any window is a sum over these rows.
+    Deriving them offline beats fetching them, since Fantrax only serves full stat
+    lines for date ranges on a handful of players at a time.
+    """
+
+    player_id: str
+    name: str
+    game_log: list[GameLogEntry] = []
+
+
 class LeagueSnapshot(BaseModel):
     """Everything collected in one run.
 
@@ -102,3 +127,4 @@ class LeagueSnapshot(BaseModel):
     starts_budgets: list[TeamStartsBudget] = []
     rosters: list[TeamRoster] = []
     free_agent_pitchers: list[FreeAgentPitcher] = []
+    player_details: list[PlayerDetail] = []

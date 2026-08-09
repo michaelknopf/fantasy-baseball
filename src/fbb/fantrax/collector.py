@@ -8,7 +8,9 @@ from fbb.fantrax.client import FantraxClient
 from fbb.fantrax.models import (
     FantasyTeam,
     FreeAgentPitcher,
+    GameLogEntry,
     LeagueSnapshot,
+    PlayerDetail,
     ProbableStart,
     RosterPlayer,
     TeamRoster,
@@ -64,14 +66,18 @@ class SnapshotCollector:
         self._now = now or datetime.now()
         self.raw: dict[str, object] = {}
         self._rosters_raw: dict[str, Json] = {}
+        self._my_team_ids: set[str] = set()
 
     def collect(self) -> LeagueSnapshot:
         teams = self._fantasy_teams()
         # Rosters first: the starts view lacks the claim budget, so `_starts_budget`
         # reads it back out of the roster payload cached here.
         rosters = [self._roster(t) for t in teams]
+        for team in teams:
+            team.is_mine = team.team_id in self._my_team_ids
         budgets = [self._starts_budget(t) for t in teams]
         collect_through = self._schedule.collection_end(self._now, self._periods_ahead)
+        free_agents = self._free_agent_pitchers(collect_through)
         return LeagueSnapshot(
             league_id=self._league_id,
             collected_at=datetime.now(UTC),
@@ -80,19 +86,18 @@ class SnapshotCollector:
             teams=teams,
             starts_budgets=budgets,
             rosters=rosters,
-            free_agent_pitchers=self._free_agent_pitchers(collect_through),
+            free_agent_pitchers=free_agents,
+            player_details=self._player_details(free_agents, rosters),
         )
 
     def _fantasy_teams(self) -> list[FantasyTeam]:
         data = self._client.call('getFantasyTeams')
         self.raw['getFantasyTeams'] = data
-        my_ids = set(payload.strings(data, 'myTeamIds'))
         return [
             FantasyTeam(
                 team_id=str(team.get('id', '')),
                 name=payload.text(team, 'name') or '',
                 short_name=payload.text(team, 'shortName'),
-                is_mine=str(team.get('id', '')) in my_ids,
             )
             for team in payload.rows(data, 'fantasyTeams')
         ]
@@ -139,6 +144,9 @@ class SnapshotCollector:
         data = self._client.call('getTeamRosterInfo', {'teamId': team.team_id})
         self._store('rosters', team.team_id, data)
         self._rosters_raw[team.team_id] = data
+        # `getFantasyTeams` does not say which team is ours, but every roster
+        # response does.
+        self._my_team_ids.update(payload.strings(data, 'myTeamIds'))
 
         players: list[RosterPlayer] = []
         for table in payload.rows(data, 'tables'):
@@ -178,6 +186,55 @@ class SnapshotCollector:
             columns, rows = self._free_agent_page(day)
             collected.extend(self._free_agent(row, day, columns) for row in rows)
         return collected
+
+    def _player_details(
+        self, free_agents: list[FreeAgentPitcher], rosters: list[TeamRoster]
+    ) -> list[PlayerDetail]:
+        """
+        Recent games and trailing-window stat lines, per player.
+
+        Covers every free-agent starter plus your own roster. Other teams' players are
+        deliberately skipped: you cannot acquire them, so their game logs inform no
+        move. One request per player for the log, plus one per trailing window.
+        """
+        wanted: dict[str, str] = {p.player_id: p.name for p in free_agents}
+        for roster in rosters:
+            if roster.team_id in self._my_team_ids:
+                wanted.update({p.player_id: p.name for p in roster.players})
+
+        return [
+            PlayerDetail(
+                player_id=player_id,
+                name=name,
+                game_log=self._game_log(player_id),
+            )
+            for player_id, name in wanted.items()
+        ]
+
+    def _game_log(self, player_id: str) -> list[GameLogEntry]:
+        """Every game this season, most recent first."""
+        data = self._client.call(
+            'getPlayerProfile', {'playerId': player_id, 'tab': 'GAME_LOG_FANTASY'}
+        )
+        self._store('gameLogs', player_id, data)
+
+        section = payload.obj(payload.obj(data, 'sectionContent'), 'GAME_LOG_FANTASY')
+        entries: list[GameLogEntry] = []
+        for table in payload.rows(section, 'tables'):
+            columns = _column_names(payload.obj(table, 'header'))
+            for row in payload.rows(table, 'rows'):
+                labelled = _labelled(columns, _cell_contents(row))
+                entries.append(
+                    GameLogEntry(
+                        date=labelled.get('Date'),
+                        team=labelled.get('Team'),
+                        opponent=labelled.get('Opp'),
+                        score=labelled.get('Score'),
+                        fantasy_points=_as_float(labelled.get('FPts')),
+                        stats=labelled,
+                    )
+                )
+        return entries
 
     def _probable_start_dates(self) -> list[str]:
         """The dates Fantrax offers, from today forward."""

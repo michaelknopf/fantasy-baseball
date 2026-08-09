@@ -15,6 +15,7 @@ from fbb.fantrax.payload import Json
 
 LEAGUE_ID = 'test-league'
 TEAM_ID = 'team-1'
+RIVAL_ID = 'team-2'
 
 
 class StubClient(FantraxClient):
@@ -30,6 +31,10 @@ class StubClient(FantraxClient):
         # The starts cap and the roster come from the same method, split by `view`.
         if method == 'getTeamRosterInfo' and args.get('view') == 'GAMES_PER_POS':
             return self._responses['starts']
+        if method == 'getTeamRosterInfo' and args.get('teamId') == RIVAL_ID:
+            return _rival_roster_payload()
+        if method == 'getPlayerProfile':
+            return _game_log_payload()
         if method == 'getPlayerStats':
             date = args.get('datePlaying')
             return _free_agents_payload(date) if date else _date_list_payload()
@@ -40,9 +45,7 @@ def _roster_payload() -> Json:
     return {
         'tables': [
             {
-                'header': {
-                    'cells': [{'shortName': 'Age'}, {'shortName': 'FPts'}]
-                },
+                'header': {'cells': [{'shortName': 'Age'}, {'shortName': 'FPts'}]},
                 'rows': [
                     {
                         'statusId': '1',
@@ -68,7 +71,7 @@ def _roster_payload() -> Json:
                     },
                     # Total rows carry no scorer and must be skipped.
                     {'statusId': '1', 'cells': [{'content': 'Totals'}]},
-                ]
+                ],
             }
         ],
         'miscData': {
@@ -76,6 +79,8 @@ def _roster_payload() -> Json:
                 {'key': 'claimBudget', 'value': '228', 'display': '$228'}
             ]
         },
+        # Every roster response names our own team; getFantasyTeams does not.
+        'myTeamIds': [TEAM_ID],
     }
 
 
@@ -98,7 +103,35 @@ def _starts_payload() -> Json:
 
 def _teams_payload() -> Json:
     return {
-        'fantasyTeams': [{'id': TEAM_ID, 'name': 'MK', 'shortName': 'MK'}],
+        'fantasyTeams': [
+            {'id': TEAM_ID, 'name': 'MK', 'shortName': 'MK'},
+            {'id': RIVAL_ID, 'name': 'Randy', 'shortName': 'RAN'},
+        ],
+        'myTeamIds': [TEAM_ID],
+    }
+
+
+def _rival_roster_payload() -> Json:
+    return {
+        'tables': [
+            {
+                'header': {'cells': [{'shortName': 'Age'}]},
+                'rows': [
+                    {
+                        'statusId': '1',
+                        'posId': '015',
+                        'scorer': {
+                            'scorerId': 'rival1',
+                            'name': 'Paul Skenes',
+                            'posShortNames': 'SP',
+                            'teamShortName': 'PIT',
+                        },
+                        'cells': [{'content': '23'}],
+                    }
+                ],
+            }
+        ],
+        'miscData': {},
         'myTeamIds': [TEAM_ID],
     }
 
@@ -185,6 +218,51 @@ def _free_agents_payload(date: str) -> Json:
     }
 
 
+def _game_log_payload() -> Json:
+    return {
+        'sectionContent': {
+            'GAME_LOG_FANTASY': {
+                'tables': [
+                    {
+                        'header': {
+                            'cells': [
+                                {'shortName': 'Date'},
+                                {'shortName': 'Team'},
+                                {'shortName': 'Opp'},
+                                {'shortName': 'Score'},
+                                {'shortName': 'FPts'},
+                                {'shortName': 'IP'},
+                            ]
+                        },
+                        'rows': [
+                            {
+                                'cells': [
+                                    {'content': 'Jul 29'},
+                                    {'content': 'ARI'},
+                                    {'content': '@PIT'},
+                                    {'content': 'W 3-0'},
+                                    {'content': '42'},
+                                    {'content': '8'},
+                                ]
+                            },
+                            {
+                                'cells': [
+                                    {'content': 'Jul 19'},
+                                    {'content': 'ARI'},
+                                    {'content': 'STL'},
+                                    {'content': 'W 8-7'},
+                                    {'content': '-5.5'},
+                                    {'content': '2.2'},
+                                ]
+                            },
+                        ],
+                    }
+                ]
+            }
+        }
+    }
+
+
 @pytest.fixture
 def client() -> StubClient:
     return StubClient(
@@ -267,6 +345,26 @@ def test_parses_a_start_already_in_progress(snapshot: LeagueSnapshot) -> None:
     assert live.next_start.in_progress is True
 
 
+def test_collects_game_logs_with_points_per_game(snapshot: LeagueSnapshot) -> None:
+    detail = next(d for d in snapshot.player_details if d.player_id == 'fa1')
+    assert [g.fantasy_points for g in detail.game_log] == [42.0, -5.5]
+    first = detail.game_log[0]
+    assert first.date == 'Jul 29'
+    assert first.opponent == '@PIT'
+    assert first.score == 'W 3-0'
+    assert first.stats['IP'] == '8'
+
+
+def test_details_cover_free_agents_and_my_roster_only(
+    snapshot: LeagueSnapshot,
+) -> None:
+    """Other teams' players can't be acquired, so their logs are not worth fetching."""
+    covered = {d.player_id for d in snapshot.player_details}
+    assert 'fa1' in covered  # a free agent
+    assert 'p1' in covered  # on my roster
+    assert 'rival1' not in covered  # on someone else's
+
+
 def _swept_dates(client: StubClient) -> list[str]:
     return [
         args['datePlaying']
@@ -322,4 +420,5 @@ def test_retains_raw_payloads_for_offline_analysis(
         'rosters',
         'gamesPerPos',
         'freeAgents',
+        'gameLogs',
     }
