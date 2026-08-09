@@ -1,20 +1,49 @@
-"""Authentication for the Fantrax Beta API."""
+"""Session cookies for the Fantrax web API."""
 
-from pydantic_settings import BaseSettings, SettingsConfigDict
+import json
+from pathlib import Path
+
+DEFAULT_COOKIE_PATH = Path('.fantrax_cookies.json')
+
+# Fantrax ties a session to `ui`/`uig`/`FX_RM`; `cf_clearance` satisfies Cloudflare.
+# Everything else the browser holds is ad tracking and is deliberately not persisted.
+_REQUIRED = ('ui', 'uig', 'FX_RM')
 
 
-class FantraxAuth(BaseSettings):
-    """
-    Fantrax API credentials.
+class MissingCookiesError(RuntimeError):
+    """Raised when the cookie file is absent or lacks the session cookies."""
 
-    Loads FANTRAX_USER_SECRET_ID from environment variables or a .env file.
-    Find your User Secret ID on the Fantrax User Profile page.
-    """
 
-    model_config = SettingsConfigDict(env_prefix='FANTRAX_', env_file='.env')
+class FantraxSession:
+    """Cookie jar for the Fantrax web API, captured from a logged-in browser."""
 
-    user_secret_id: str
+    def __init__(self, cookies: dict[str, str]) -> None:
+        missing = [name for name in _REQUIRED if not cookies.get(name)]
+        if missing:
+            names = ', '.join(missing)
+            msg = f'Cookie file is missing required cookies: {names}.'
+            raise MissingCookiesError(
+                f'{msg} Re-run `fbb fantrax login` to refresh them.'
+            )
+        self._cookies = cookies
 
-    def headers(self) -> dict[str, str]:
-        """Return HTTP headers required to authenticate with the Beta API."""
-        return {'User-Secret-Id': self.user_secret_id}
+    @classmethod
+    def load(cls, path: Path = DEFAULT_COOKIE_PATH) -> 'FantraxSession':
+        """Load cookies previously captured by `fbb fantrax login`."""
+        if not path.exists():
+            raise MissingCookiesError(
+                f'No cookie file at {path}. Run `fbb fantrax login` first.'
+            )
+        raw: dict[str, str] = json.loads(path.read_text())
+        return cls(raw)
+
+    @classmethod
+    def save(cls, cookies: dict[str, str], path: Path = DEFAULT_COOKIE_PATH) -> None:
+        """Persist cookies, keeping only the ones the API actually needs."""
+        keep = (*_REQUIRED, 'cf_clearance', 'fsuid')
+        subset = {k: v for k, v in cookies.items() if k in keep}
+        path.write_text(json.dumps(subset, indent=2) + '\n')
+
+    @property
+    def cookies(self) -> dict[str, str]:
+        return self._cookies

@@ -29,3 +29,7 @@ junit.xml
 # Build
 /dist/
 /out/
+.fantrax_cookies.json
+
+# Collected data and session cookies
+/snapshots/

@@ -6,18 +6,18 @@ requires-python = "==3.13.*"
 name = "annotated-doc"
 version = "0.0.4"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/annotated-doc/0.0.4/annotated_doc-0.0.4.tar.gz", hash = "sha256:fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/annotated-doc/0.0.4/annotated_doc-0.0.4.tar.gz", hash = "sha256:fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4", size = 7288, upload-time = "2025-11-10T22:07:42.062Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/annotated-doc/0.0.4/annotated_doc-0.0.4-py3-none-any.whl", hash = "sha256:571ac1dc6991c450b25a9c2d84a3705e2ae7a53467b5d111c24fa8baabbed320" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/annotated-doc/0.0.4/annotated_doc-0.0.4-py3-none-any.whl", hash = "sha256:571ac1dc6991c450b25a9c2d84a3705e2ae7a53467b5d111c24fa8baabbed320", size = 5303, upload-time = "2025-11-10T22:07:40.673Z" },
 ]
 
 [[package]]
 name = "annotated-types"
 version = "0.7.0"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/annotated-types/0.7.0/annotated_types-0.7.0.tar.gz", hash = "sha256:aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/annotated-types/0.7.0/annotated_types-0.7.0.tar.gz", hash = "sha256:aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89", size = 16081, upload-time = "2024-05-20T21:33:25.928Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/annotated-types/0.7.0/annotated_types-0.7.0-py3-none-any.whl", hash = "sha256:1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/annotated-types/0.7.0/annotated_types-0.7.0-py3-none-any.whl", hash = "sha256:1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53", size = 13643, upload-time = "2024-05-20T21:33:24.1Z" },
 ]
 
 [[package]]
@@ -27,18 +27,18 @@ source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazon
 dependencies = [
     { name = "idna" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/anyio/4.13.0/anyio-4.13.0.tar.gz", hash = "sha256:334b70e641fd2221c1505b3890c69882fe4a2df910cba14d97019b90b24439dc" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/anyio/4.13.0/anyio-4.13.0.tar.gz", hash = "sha256:334b70e641fd2221c1505b3890c69882fe4a2df910cba14d97019b90b24439dc", size = 231622, upload-time = "2026-03-24T12:59:09.671Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/anyio/4.13.0/anyio-4.13.0-py3-none-any.whl", hash = "sha256:08b310f9e24a9594186fd75b4f73f4a4152069e3853f1ed8bfbf58369f4ad708" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/anyio/4.13.0/anyio-4.13.0-py3-none-any.whl", hash = "sha256:08b310f9e24a9594186fd75b4f73f4a4152069e3853f1ed8bfbf58369f4ad708", size = 114353, upload-time = "2026-03-24T12:59:08.246Z" },
 ]
 
 [[package]]
 name = "certifi"
 version = "2026.2.25"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/certifi/2026.2.25/certifi-2026.2.25.tar.gz", hash = "sha256:e887ab5cee78ea814d3472169153c2d12cd43b14bd03329a39a9c6e2e80bfba7" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/certifi/2026.2.25/certifi-2026.2.25.tar.gz", hash = "sha256:e887ab5cee78ea814d3472169153c2d12cd43b14bd03329a39a9c6e2e80bfba7", size = 155029, upload-time = "2026-02-25T02:54:17.342Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/certifi/2026.2.25/certifi-2026.2.25-py3-none-any.whl", hash = "sha256:027692e4402ad994f1c42e52a4997a9763c646b73e4096e4d5d6db8af1d6f0fa" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/certifi/2026.2.25/certifi-2026.2.25-py3-none-any.whl", hash = "sha256:027692e4402ad994f1c42e52a4997a9763c646b73e4096e4d5d6db8af1d6f0fa", size = 153684, upload-time = "2026-02-25T02:54:15.766Z" },
 ]
 
 [[package]]
@@ -48,57 +48,57 @@ source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazon
 dependencies = [
     { name = "colorama", marker = "sys_platform == 'win32'" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/click/8.3.2/click-8.3.2.tar.gz", hash = "sha256:14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/click/8.3.2/click-8.3.2.tar.gz", hash = "sha256:14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5", size = 302856, upload-time = "2026-04-03T19:14:45.118Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/click/8.3.2/click-8.3.2-py3-none-any.whl", hash = "sha256:1924d2c27c5653561cd2cae4548d1406039cb79b858b747cfea24924bbc1616d" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/click/8.3.2/click-8.3.2-py3-none-any.whl", hash = "sha256:1924d2c27c5653561cd2cae4548d1406039cb79b858b747cfea24924bbc1616d", size = 108379, upload-time = "2026-04-03T19:14:43.505Z" },
 ]
 
 [[package]]
 name = "colorama"
 version = "0.4.6"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/colorama/0.4.6/colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/colorama/0.4.6/colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44", size = 27697, upload-time = "2022-10-25T02:36:22.414Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/colorama/0.4.6/colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/colorama/0.4.6/colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6", size = 25335, upload-time = "2022-10-25T02:36:20.889Z" },
 ]
 
 [[package]]
 name = "coverage"
 version = "7.13.5"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5.tar.gz", hash = "sha256:c81f6515c4c40141f83f502b07bbfa5c240ba25bbe73da7b33f1e5b6120ff179" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5.tar.gz", hash = "sha256:c81f6515c4c40141f83f502b07bbfa5c240ba25bbe73da7b33f1e5b6120ff179", size = 915967, upload-time = "2026-03-17T10:33:18.341Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:5ec4af212df513e399cf11610cc27063f1586419e814755ab362e50a85ea69c1" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:941617e518602e2d64942c88ec8499f7fbd49d3f6c4327d3a71d43a1973032f3" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-manylinux1_i686.manylinux_2_28_i686.manylinux_2_5_i686.whl", hash = "sha256:da305e9937617ee95c2e39d8ff9f040e0487cbf1ac174f777ed5eddd7a7c1f26" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:78e696e1cc714e57e8b25760b33a8b1026b7048d270140d25dafe1b0a1ee05a3" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:02ca0eed225b2ff301c474aeeeae27d26e2537942aa0f87491d3e147e784a82b" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:04690832cbea4e4663d9149e05dba142546ca05cb1848816760e7f58285c970a" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:0590e44dd2745c696a778f7bab6aa95256de2cbc8b8cff4f7db8ff09813d6969" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:d7cfad2d6d81dd298ab6b89fe72c3b7b05ec7544bdda3b707ddaecff8d25c161" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-musllinux_1_2_i686.whl", hash = "sha256:e092b9499de38ae0fbfbc603a74660eb6ff3e869e507b50d85a13b6db9863e15" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-musllinux_1_2_ppc64le.whl", hash = "sha256:48c39bc4a04d983a54a705a6389512883d4a3b9862991b3617d547940e9f52b1" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-musllinux_1_2_riscv64.whl", hash = "sha256:2d3807015f138ffea1ed9afeeb8624fd781703f2858b62a8dd8da5a0994c57b6" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:ee2aa19e03161671ec964004fb74b2257805d9710bf14a5c704558b9d8dbaf17" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-win32.whl", hash = "sha256:ce1998c0483007608c8382f4ff50164bfc5bd07a2246dd272aa4043b75e61e85" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-win_amd64.whl", hash = "sha256:631efb83f01569670a5e866ceb80fe483e7c159fac6f167e6571522636104a0b" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-win_arm64.whl", hash = "sha256:f4cd16206ad171cbc2470dbea9103cf9a7607d5fe8c242fdf1edf36174020664" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-macosx_10_13_x86_64.whl", hash = "sha256:0428cbef5783ad91fe240f673cc1f76b25e74bbfe1a13115e4aa30d3f538162d" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-macosx_11_0_arm64.whl", hash = "sha256:e0b216a19534b2427cc201a26c25da4a48633f29a487c61258643e89d28200c0" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-manylinux1_i686.manylinux_2_28_i686.manylinux_2_5_i686.whl", hash = "sha256:972a9cd27894afe4bc2b1480107054e062df08e671df7c2f18c205e805ccd806" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:4b59148601efcd2bac8c4dbf1f0ad6391693ccf7a74b8205781751637076aee3" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:505d7083c8b0c87a8fa8c07370c285847c1f77739b22e299ad75a6af6c32c5c9" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:60365289c3741e4db327e7baff2a4aaacf22f788e80fa4683393891b70a89fbd" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:1b88c69c8ef5d4b6fe7dea66d6636056a0f6a7527c440e890cf9259011f5e606" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-musllinux_1_2_aarch64.whl", hash = "sha256:5b13955d31d1633cf9376908089b7cebe7d15ddad7aeaabcbe969a595a97e95e" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-musllinux_1_2_i686.whl", hash = "sha256:f70c9ab2595c56f81a89620e22899eea8b212a4041bd728ac6f4a28bf5d3ddd0" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-musllinux_1_2_ppc64le.whl", hash = "sha256:084b84a8c63e8d6fc7e3931b316a9bcafca1458d753c539db82d31ed20091a87" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-musllinux_1_2_riscv64.whl", hash = "sha256:ad14385487393e386e2ea988b09d62dd42c397662ac2dabc3832d71253eee479" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:7f2c47b36fe7709a6e83bfadf4eefb90bd25fbe4014d715224c4316f808e59a2" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-win32.whl", hash = "sha256:67e9bc5449801fad0e5dff329499fb090ba4c5800b86805c80617b4e29809b2a" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-win_amd64.whl", hash = "sha256:da86cdcf10d2519e10cabb8ac2de03da1bcb6e4853790b7fbd48523332e3a819" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-win_arm64.whl", hash = "sha256:0ecf12ecb326fe2c339d93fc131816f3a7367d223db37817208905c89bded911" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-py3-none-any.whl", hash = "sha256:34b02417cf070e173989b3db962f7ed56d2f644307b2cf9d5a0f258e13084a61" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:5ec4af212df513e399cf11610cc27063f1586419e814755ab362e50a85ea69c1", size = 219576, upload-time = "2026-03-17T10:31:09.045Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:941617e518602e2d64942c88ec8499f7fbd49d3f6c4327d3a71d43a1973032f3", size = 219942, upload-time = "2026-03-17T10:31:10.708Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-manylinux1_i686.manylinux_2_28_i686.manylinux_2_5_i686.whl", hash = "sha256:da305e9937617ee95c2e39d8ff9f040e0487cbf1ac174f777ed5eddd7a7c1f26", size = 250935, upload-time = "2026-03-17T10:31:12.392Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:78e696e1cc714e57e8b25760b33a8b1026b7048d270140d25dafe1b0a1ee05a3", size = 253541, upload-time = "2026-03-17T10:31:14.247Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:02ca0eed225b2ff301c474aeeeae27d26e2537942aa0f87491d3e147e784a82b", size = 254780, upload-time = "2026-03-17T10:31:16.193Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:04690832cbea4e4663d9149e05dba142546ca05cb1848816760e7f58285c970a", size = 256912, upload-time = "2026-03-17T10:31:17.89Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:0590e44dd2745c696a778f7bab6aa95256de2cbc8b8cff4f7db8ff09813d6969", size = 251165, upload-time = "2026-03-17T10:31:19.605Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:d7cfad2d6d81dd298ab6b89fe72c3b7b05ec7544bdda3b707ddaecff8d25c161", size = 252908, upload-time = "2026-03-17T10:31:21.312Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-musllinux_1_2_i686.whl", hash = "sha256:e092b9499de38ae0fbfbc603a74660eb6ff3e869e507b50d85a13b6db9863e15", size = 250873, upload-time = "2026-03-17T10:31:23.565Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-musllinux_1_2_ppc64le.whl", hash = "sha256:48c39bc4a04d983a54a705a6389512883d4a3b9862991b3617d547940e9f52b1", size = 255030, upload-time = "2026-03-17T10:31:25.58Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-musllinux_1_2_riscv64.whl", hash = "sha256:2d3807015f138ffea1ed9afeeb8624fd781703f2858b62a8dd8da5a0994c57b6", size = 250694, upload-time = "2026-03-17T10:31:27.316Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:ee2aa19e03161671ec964004fb74b2257805d9710bf14a5c704558b9d8dbaf17", size = 252469, upload-time = "2026-03-17T10:31:29.472Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-win32.whl", hash = "sha256:ce1998c0483007608c8382f4ff50164bfc5bd07a2246dd272aa4043b75e61e85", size = 222112, upload-time = "2026-03-17T10:31:31.526Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-win_amd64.whl", hash = "sha256:631efb83f01569670a5e866ceb80fe483e7c159fac6f167e6571522636104a0b", size = 222923, upload-time = "2026-03-17T10:31:33.633Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313-win_arm64.whl", hash = "sha256:f4cd16206ad171cbc2470dbea9103cf9a7607d5fe8c242fdf1edf36174020664", size = 221540, upload-time = "2026-03-17T10:31:35.445Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-macosx_10_13_x86_64.whl", hash = "sha256:0428cbef5783ad91fe240f673cc1f76b25e74bbfe1a13115e4aa30d3f538162d", size = 220262, upload-time = "2026-03-17T10:31:37.184Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-macosx_11_0_arm64.whl", hash = "sha256:e0b216a19534b2427cc201a26c25da4a48633f29a487c61258643e89d28200c0", size = 220617, upload-time = "2026-03-17T10:31:39.245Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-manylinux1_i686.manylinux_2_28_i686.manylinux_2_5_i686.whl", hash = "sha256:972a9cd27894afe4bc2b1480107054e062df08e671df7c2f18c205e805ccd806", size = 261912, upload-time = "2026-03-17T10:31:41.324Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:4b59148601efcd2bac8c4dbf1f0ad6391693ccf7a74b8205781751637076aee3", size = 263987, upload-time = "2026-03-17T10:31:43.724Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:505d7083c8b0c87a8fa8c07370c285847c1f77739b22e299ad75a6af6c32c5c9", size = 266416, upload-time = "2026-03-17T10:31:45.769Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-manylinux2014_ppc64le.manylinux_2_17_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:60365289c3741e4db327e7baff2a4aaacf22f788e80fa4683393891b70a89fbd", size = 267558, upload-time = "2026-03-17T10:31:48.293Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:1b88c69c8ef5d4b6fe7dea66d6636056a0f6a7527c440e890cf9259011f5e606", size = 261163, upload-time = "2026-03-17T10:31:50.125Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-musllinux_1_2_aarch64.whl", hash = "sha256:5b13955d31d1633cf9376908089b7cebe7d15ddad7aeaabcbe969a595a97e95e", size = 263981, upload-time = "2026-03-17T10:31:51.961Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-musllinux_1_2_i686.whl", hash = "sha256:f70c9ab2595c56f81a89620e22899eea8b212a4041bd728ac6f4a28bf5d3ddd0", size = 261604, upload-time = "2026-03-17T10:31:53.872Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-musllinux_1_2_ppc64le.whl", hash = "sha256:084b84a8c63e8d6fc7e3931b316a9bcafca1458d753c539db82d31ed20091a87", size = 265321, upload-time = "2026-03-17T10:31:55.997Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-musllinux_1_2_riscv64.whl", hash = "sha256:ad14385487393e386e2ea988b09d62dd42c397662ac2dabc3832d71253eee479", size = 260502, upload-time = "2026-03-17T10:31:58.308Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:7f2c47b36fe7709a6e83bfadf4eefb90bd25fbe4014d715224c4316f808e59a2", size = 262688, upload-time = "2026-03-17T10:32:00.141Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-win32.whl", hash = "sha256:67e9bc5449801fad0e5dff329499fb090ba4c5800b86805c80617b4e29809b2a", size = 222788, upload-time = "2026-03-17T10:32:02.246Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-win_amd64.whl", hash = "sha256:da86cdcf10d2519e10cabb8ac2de03da1bcb6e4853790b7fbd48523332e3a819", size = 223851, upload-time = "2026-03-17T10:32:04.416Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-cp313-cp313t-win_arm64.whl", hash = "sha256:0ecf12ecb326fe2c339d93fc131816f3a7367d223db37817208905c89bded911", size = 222104, upload-time = "2026-03-17T10:32:06.65Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/coverage/7.13.5/coverage-7.13.5-py3-none-any.whl", hash = "sha256:34b02417cf070e173989b3db962f7ed56d2f644307b2cf9d5a0f258e13084a61", size = 211346, upload-time = "2026-03-17T10:33:15.691Z" },
 ]
 
 [[package]]
@@ -115,6 +115,7 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "playwright" },
     { name = "respx" },
     { name = "savi-python-base" },
 ]
@@ -130,17 +131,36 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "playwright", specifier = ">=1.49.0" },
     { name = "respx", specifier = ">=0.22.0" },
     { name = "savi-python-base", specifier = ">=1.3.28" },
+]
+
+[[package]]
+name = "greenlet"
+version = "3.5.4"
+source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/greenlet/3.5.4/greenlet-3.5.4.tar.gz", hash = "sha256:0232ae1de90a8e07867bb127d7a6ba2301e859145489f25cda8a6096dabe1d20", size = 206538, upload-time = "2026-07-22T12:47:14.468Z" }
+wheels = [
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/greenlet/3.5.4/greenlet-3.5.4-cp313-cp313-macosx_11_0_universal2.whl", hash = "sha256:24e61b88cb7e1b1d794b32a10cc346ac779681d6d74ff137a3e0a444d2bf1f02", size = 294831, upload-time = "2026-07-22T11:38:53.389Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/greenlet/3.5.4/greenlet-3.5.4-cp313-cp313-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:870d730fec833f5a06906a32596cc099b9161594642a92a520b7a88911c95356", size = 614619, upload-time = "2026-07-22T12:26:42.282Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/greenlet/3.5.4/greenlet-3.5.4-cp313-cp313-manylinux_2_24_ppc64le.manylinux_2_28_ppc64le.whl", hash = "sha256:ec5ff0d1878df6af3bf9b638a5a92a7d5693291de77c91bff10fa48519c604ef", size = 627021, upload-time = "2026-07-22T12:29:03.445Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/greenlet/3.5.4/greenlet-3.5.4-cp313-cp313-manylinux_2_24_s390x.manylinux_2_28_s390x.whl", hash = "sha256:07bd44616608d873d06735b63ef1a88191d6ca57c8d291d6559c71bc14c0893c", size = 632845, upload-time = "2026-07-22T12:43:45.19Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/greenlet/3.5.4/greenlet-3.5.4-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:d84d993f6e575c950d91a23c1345d18fe1a4310d447bf630849d7809196b52f0", size = 624002, upload-time = "2026-07-22T11:51:11.391Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/greenlet/3.5.4/greenlet-3.5.4-cp313-cp313-manylinux_2_39_riscv64.whl", hash = "sha256:3529a8a933582ad19e224792cac7372489526576b75b4c124e8e4f29948f4861", size = 435053, upload-time = "2026-07-22T12:39:52.715Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/greenlet/3.5.4/greenlet-3.5.4-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:58023945f421093de5e6fa108c0985a8659d43f49e0216da25099369a121bcbd", size = 1581533, upload-time = "2026-07-22T12:25:05.322Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/greenlet/3.5.4/greenlet-3.5.4-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:bae2728e1897aa8df8cb1af38cd48b3a743aefe29372de7b8b7a9f532501e69f", size = 1645781, upload-time = "2026-07-22T11:51:14.805Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/greenlet/3.5.4/greenlet-3.5.4-cp313-cp313-win_amd64.whl", hash = "sha256:ca5726c0b08ca35ae873557266a78b2c3f3b2b7d7401aa5ff886c2045dd0111c", size = 247133, upload-time = "2026-07-22T11:39:20.661Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/greenlet/3.5.4/greenlet-3.5.4-cp313-cp313-win_arm64.whl", hash = "sha256:7c1303791d603080cac6fc3b34df51c3b75b723739c282c8029e48a0d241672f", size = 245500, upload-time = "2026-07-22T11:40:22.185Z" },
 ]
 
 [[package]]
 name = "h11"
 version = "0.16.0"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/h11/0.16.0/h11-0.16.0.tar.gz", hash = "sha256:4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/h11/0.16.0/h11-0.16.0.tar.gz", hash = "sha256:4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1", size = 101250, upload-time = "2025-04-24T03:35:25.427Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/h11/0.16.0/h11-0.16.0-py3-none-any.whl", hash = "sha256:63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/h11/0.16.0/h11-0.16.0-py3-none-any.whl", hash = "sha256:63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86", size = 37515, upload-time = "2025-04-24T03:35:24.344Z" },
 ]
 
 [[package]]
@@ -151,9 +171,9 @@ dependencies = [
     { name = "certifi" },
     { name = "h11" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/httpcore/1.0.9/httpcore-1.0.9.tar.gz", hash = "sha256:6e34463af53fd2ab5d807f399a9b45ea31c3dfa2276f15a2c3f00afff6e176e8" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/httpcore/1.0.9/httpcore-1.0.9.tar.gz", hash = "sha256:6e34463af53fd2ab5d807f399a9b45ea31c3dfa2276f15a2c3f00afff6e176e8", size = 85484, upload-time = "2025-04-24T22:06:22.219Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/httpcore/1.0.9/httpcore-1.0.9-py3-none-any.whl", hash = "sha256:2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/httpcore/1.0.9/httpcore-1.0.9-py3-none-any.whl", hash = "sha256:2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55", size = 78784, upload-time = "2025-04-24T22:06:20.566Z" },
 ]
 
 [[package]]
@@ -166,57 +186,57 @@ dependencies = [
     { name = "httpcore" },
     { name = "idna" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/httpx/0.28.1/httpx-0.28.1.tar.gz", hash = "sha256:75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/httpx/0.28.1/httpx-0.28.1.tar.gz", hash = "sha256:75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc", size = 141406, upload-time = "2024-12-06T15:37:23.222Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/httpx/0.28.1/httpx-0.28.1-py3-none-any.whl", hash = "sha256:d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/httpx/0.28.1/httpx-0.28.1-py3-none-any.whl", hash = "sha256:d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad", size = 73517, upload-time = "2024-12-06T15:37:21.509Z" },
 ]
 
 [[package]]
 name = "idna"
 version = "3.11"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/idna/3.11/idna-3.11.tar.gz", hash = "sha256:795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/idna/3.11/idna-3.11.tar.gz", hash = "sha256:795dafcc9c04ed0c1fb032c2aa73654d8e8c5023a7df64a53f39190ada629902", size = 194582, upload-time = "2025-10-12T14:55:20.501Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/idna/3.11/idna-3.11-py3-none-any.whl", hash = "sha256:771a87f49d9defaf64091e6e6fe9c18d4833f140bd19464795bc32d966ca37ea" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/idna/3.11/idna-3.11-py3-none-any.whl", hash = "sha256:771a87f49d9defaf64091e6e6fe9c18d4833f140bd19464795bc32d966ca37ea", size = 71008, upload-time = "2025-10-12T14:55:18.883Z" },
 ]
 
 [[package]]
 name = "iniconfig"
 version = "2.3.0"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/iniconfig/2.3.0/iniconfig-2.3.0.tar.gz", hash = "sha256:c76315c77db068650d49c5b56314774a7804df16fee4402c1f19d6d15d8c4730" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/iniconfig/2.3.0/iniconfig-2.3.0.tar.gz", hash = "sha256:c76315c77db068650d49c5b56314774a7804df16fee4402c1f19d6d15d8c4730", size = 20503, upload-time = "2025-10-18T21:55:43.219Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/iniconfig/2.3.0/iniconfig-2.3.0-py3-none-any.whl", hash = "sha256:f631c04d2c48c52b84d0d0549c99ff3859c98df65b3101406327ecc7d53fbf12" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/iniconfig/2.3.0/iniconfig-2.3.0-py3-none-any.whl", hash = "sha256:f631c04d2c48c52b84d0d0549c99ff3859c98df65b3101406327ecc7d53fbf12", size = 7484, upload-time = "2025-10-18T21:55:41.639Z" },
 ]
 
 [[package]]
 name = "json5"
 version = "0.14.0"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/json5/0.14.0/json5-0.14.0.tar.gz", hash = "sha256:b3f492fad9f6cdbced8b7d40b28b9b1c9701c5f561bef0d33b81c2ff433fefcb" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/json5/0.14.0/json5-0.14.0.tar.gz", hash = "sha256:b3f492fad9f6cdbced8b7d40b28b9b1c9701c5f561bef0d33b81c2ff433fefcb", size = 52656, upload-time = "2026-03-27T22:50:48.108Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/json5/0.14.0/json5-0.14.0-py3-none-any.whl", hash = "sha256:56cf861bab076b1178eb8c92e1311d273a9b9acea2ccc82c276abf839ebaef3a" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/json5/0.14.0/json5-0.14.0-py3-none-any.whl", hash = "sha256:56cf861bab076b1178eb8c92e1311d273a9b9acea2ccc82c276abf839ebaef3a", size = 36271, upload-time = "2026-03-27T22:50:47.073Z" },
 ]
 
 [[package]]
 name = "librt"
 version = "0.9.0"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0.tar.gz", hash = "sha256:a0951822531e7aee6e0dfb556b30d5ee36bbe234faf60c20a16c01be3530869d" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0.tar.gz", hash = "sha256:a0951822531e7aee6e0dfb556b30d5ee36bbe234faf60c20a16c01be3530869d", size = 184368, upload-time = "2026-04-09T16:06:26.173Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:f29b68cd9714531672db62cc54f6e8ff981900f824d13fa0e00749189e13778e" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:7d5c8a5929ac325729f6119802070b561f4db793dffc45e9ac750992a4ed4d22" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-manylinux1_i686.manylinux_2_28_i686.manylinux_2_5_i686.whl", hash = "sha256:756775d25ec8345b837ab52effee3ad2f3b2dfd6bbee3e3f029c517bd5d8f05a" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:2b8f5d00b49818f4e2b1667db994488b045835e0ac16fe2f924f3871bd2b8ac5" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:c81aef782380f0f13ead670aae01825eb653b44b046aa0e5ebbb79f76ed4aa11" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:66b58fed90a545328e80d575467244de3741e088c1af928f0b489ebec3ef3858" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:e78fb7419e07d98c2af4b8567b72b3eaf8cb05caad642e9963465569c8b2d87e" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-musllinux_1_2_i686.whl", hash = "sha256:2c3786f0f4490a5cd87f1ed6cefae833ad6b1060d52044ce0434a2e85893afd0" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-musllinux_1_2_riscv64.whl", hash = "sha256:8494cfc61e03542f2d381e71804990b3931175a29b9278fdb4a5459948778dc2" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:07cf11f769831186eeac424376e6189f20ace4f7263e2134bdb9757340d84d4d" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-win32.whl", hash = "sha256:850d6d03177e52700af605fd60db7f37dcb89782049a149674d1a9649c2138fd" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-win_amd64.whl", hash = "sha256:a5af136bfba820d592f86c67affcef9b3ff4d4360ac3255e341e964489b48519" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-win_arm64.whl", hash = "sha256:4c4d0440a3a8e31d962340c3e1cc3fc9ee7febd34c8d8f770d06adb947779ea5" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:f29b68cd9714531672db62cc54f6e8ff981900f824d13fa0e00749189e13778e", size = 68367, upload-time = "2026-04-09T16:05:17.243Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:7d5c8a5929ac325729f6119802070b561f4db793dffc45e9ac750992a4ed4d22", size = 70595, upload-time = "2026-04-09T16:05:18.471Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-manylinux1_i686.manylinux_2_28_i686.manylinux_2_5_i686.whl", hash = "sha256:756775d25ec8345b837ab52effee3ad2f3b2dfd6bbee3e3f029c517bd5d8f05a", size = 204354, upload-time = "2026-04-09T16:05:19.593Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:2b8f5d00b49818f4e2b1667db994488b045835e0ac16fe2f924f3871bd2b8ac5", size = 216238, upload-time = "2026-04-09T16:05:20.868Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:c81aef782380f0f13ead670aae01825eb653b44b046aa0e5ebbb79f76ed4aa11", size = 230589, upload-time = "2026-04-09T16:05:22.305Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-manylinux_2_31_riscv64.manylinux_2_39_riscv64.whl", hash = "sha256:66b58fed90a545328e80d575467244de3741e088c1af928f0b489ebec3ef3858", size = 224610, upload-time = "2026-04-09T16:05:23.647Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:e78fb7419e07d98c2af4b8567b72b3eaf8cb05caad642e9963465569c8b2d87e", size = 232558, upload-time = "2026-04-09T16:05:25.025Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-musllinux_1_2_i686.whl", hash = "sha256:2c3786f0f4490a5cd87f1ed6cefae833ad6b1060d52044ce0434a2e85893afd0", size = 225521, upload-time = "2026-04-09T16:05:26.311Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-musllinux_1_2_riscv64.whl", hash = "sha256:8494cfc61e03542f2d381e71804990b3931175a29b9278fdb4a5459948778dc2", size = 227789, upload-time = "2026-04-09T16:05:27.624Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:07cf11f769831186eeac424376e6189f20ace4f7263e2134bdb9757340d84d4d", size = 248616, upload-time = "2026-04-09T16:05:29.181Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-win32.whl", hash = "sha256:850d6d03177e52700af605fd60db7f37dcb89782049a149674d1a9649c2138fd", size = 56039, upload-time = "2026-04-09T16:05:30.709Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-win_amd64.whl", hash = "sha256:a5af136bfba820d592f86c67affcef9b3ff4d4360ac3255e341e964489b48519", size = 63264, upload-time = "2026-04-09T16:05:31.881Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/librt/0.9.0/librt-0.9.0-cp313-cp313-win_arm64.whl", hash = "sha256:4c4d0440a3a8e31d962340c3e1cc3fc9ee7febd34c8d8f770d06adb947779ea5", size = 53728, upload-time = "2026-04-09T16:05:33.31Z" },
 ]
 
 [[package]]
@@ -226,18 +246,18 @@ source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazon
 dependencies = [
     { name = "mdurl" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/markdown-it-py/4.0.0/markdown_it_py-4.0.0.tar.gz", hash = "sha256:cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/markdown-it-py/4.0.0/markdown_it_py-4.0.0.tar.gz", hash = "sha256:cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3", size = 73070, upload-time = "2025-08-11T12:57:52.854Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/markdown-it-py/4.0.0/markdown_it_py-4.0.0-py3-none-any.whl", hash = "sha256:87327c59b172c5011896038353a81343b6754500a08cd7a4973bb48c6d578147" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/markdown-it-py/4.0.0/markdown_it_py-4.0.0-py3-none-any.whl", hash = "sha256:87327c59b172c5011896038353a81343b6754500a08cd7a4973bb48c6d578147", size = 87321, upload-time = "2025-08-11T12:57:51.923Z" },
 ]
 
 [[package]]
 name = "mdurl"
 version = "0.1.2"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mdurl/0.1.2/mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mdurl/0.1.2/mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba", size = 8729, upload-time = "2022-08-14T12:40:10.846Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mdurl/0.1.2/mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mdurl/0.1.2/mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8", size = 9979, upload-time = "2022-08-14T12:40:09.779Z" },
 ]
 
 [[package]]
@@ -250,61 +270,80 @@ dependencies = [
     { name = "pathspec" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1.tar.gz", hash = "sha256:6fc3f4ecd52de81648fed1945498bf42fa2993ddfad67c9056df36ae5757f804" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1.tar.gz", hash = "sha256:6fc3f4ecd52de81648fed1945498bf42fa2993ddfad67c9056df36ae5757f804", size = 3815892, upload-time = "2026-04-13T02:46:51.474Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:8f3886c03e40afefd327bd70b3f634b39ea82e87f314edaa4d0cce4b927ddcc1" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:e860eb3904f9764e83bafd70c8250bdffdc7dde6b82f486e8156348bf7ceb184" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:a4b5aac6e785719da51a84f5d09e9e843d473170a9045b1ea7ea1af86225df4b" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:f37b6cd0fe2ad3a20f05ace48ca3523fc52ff86940e34937b439613b6854472e" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:e4bbb0f6b54ce7cc350ef4a770650d15fa70edd99ad5267e227133eda9c94218" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-cp313-cp313-win_amd64.whl", hash = "sha256:c3dc20f8ec76eecd77148cdd2f1542ed496e51e185713bf488a414f862deb8f2" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-cp313-cp313-win_arm64.whl", hash = "sha256:a9d62bbac5d6d46718e2b0330b25e6264463ed832722b8f7d4440ff1be3ca895" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-py3-none-any.whl", hash = "sha256:1aae28507f253fe82d883790d1c0a0d35798a810117c88184097fe8881052f06" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:8f3886c03e40afefd327bd70b3f634b39ea82e87f314edaa4d0cce4b927ddcc1", size = 14500739, upload-time = "2026-04-13T02:46:05.442Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:e860eb3904f9764e83bafd70c8250bdffdc7dde6b82f486e8156348bf7ceb184", size = 13314735, upload-time = "2026-04-13T02:46:47.154Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:a4b5aac6e785719da51a84f5d09e9e843d473170a9045b1ea7ea1af86225df4b", size = 13704356, upload-time = "2026-04-13T02:45:19.773Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:f37b6cd0fe2ad3a20f05ace48ca3523fc52ff86940e34937b439613b6854472e", size = 14696420, upload-time = "2026-04-13T02:45:24.205Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:e4bbb0f6b54ce7cc350ef4a770650d15fa70edd99ad5267e227133eda9c94218", size = 14936093, upload-time = "2026-04-13T02:45:32.087Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-cp313-cp313-win_amd64.whl", hash = "sha256:c3dc20f8ec76eecd77148cdd2f1542ed496e51e185713bf488a414f862deb8f2", size = 10889659, upload-time = "2026-04-13T02:46:02.926Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-cp313-cp313-win_arm64.whl", hash = "sha256:a9d62bbac5d6d46718e2b0330b25e6264463ed832722b8f7d4440ff1be3ca895", size = 9815515, upload-time = "2026-04-13T02:46:32.103Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy/1.20.1/mypy-1.20.1-py3-none-any.whl", hash = "sha256:1aae28507f253fe82d883790d1c0a0d35798a810117c88184097fe8881052f06", size = 2636553, upload-time = "2026-04-13T02:46:30.45Z" },
 ]
 
 [[package]]
 name = "mypy-extensions"
 version = "1.1.0"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy-extensions/1.1.0/mypy_extensions-1.1.0.tar.gz", hash = "sha256:52e68efc3284861e772bbcd66823fde5ae21fd2fdb51c62a211403730b916558" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy-extensions/1.1.0/mypy_extensions-1.1.0.tar.gz", hash = "sha256:52e68efc3284861e772bbcd66823fde5ae21fd2fdb51c62a211403730b916558", size = 6343, upload-time = "2025-04-22T14:54:24.164Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy-extensions/1.1.0/mypy_extensions-1.1.0-py3-none-any.whl", hash = "sha256:1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/mypy-extensions/1.1.0/mypy_extensions-1.1.0-py3-none-any.whl", hash = "sha256:1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505", size = 4963, upload-time = "2025-04-22T14:54:22.983Z" },
 ]
 
 [[package]]
 name = "nodeenv"
 version = "1.10.0"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/nodeenv/1.10.0/nodeenv-1.10.0.tar.gz", hash = "sha256:996c191ad80897d076bdfba80a41994c2b47c68e224c542b48feba42ba00f8bb" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/nodeenv/1.10.0/nodeenv-1.10.0.tar.gz", hash = "sha256:996c191ad80897d076bdfba80a41994c2b47c68e224c542b48feba42ba00f8bb", size = 55611, upload-time = "2025-12-20T14:08:54.006Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/nodeenv/1.10.0/nodeenv-1.10.0-py2.py3-none-any.whl", hash = "sha256:5bb13e3eed2923615535339b3c620e76779af4cb4c6a90deccc9e36b274d3827" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/nodeenv/1.10.0/nodeenv-1.10.0-py2.py3-none-any.whl", hash = "sha256:5bb13e3eed2923615535339b3c620e76779af4cb4c6a90deccc9e36b274d3827", size = 23438, upload-time = "2025-12-20T14:08:52.782Z" },
 ]
 
 [[package]]
 name = "packaging"
 version = "26.1"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/packaging/26.1/packaging-26.1.tar.gz", hash = "sha256:f042152b681c4bfac5cae2742a55e103d27ab2ec0f3d88037136b6bfe7c9c5de" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/packaging/26.1/packaging-26.1.tar.gz", hash = "sha256:f042152b681c4bfac5cae2742a55e103d27ab2ec0f3d88037136b6bfe7c9c5de", size = 215519, upload-time = "2026-04-14T21:12:49.362Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/packaging/26.1/packaging-26.1-py3-none-any.whl", hash = "sha256:5d9c0669c6285e491e0ced2eee587eaf67b670d94a19e94e3984a481aba6802f" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/packaging/26.1/packaging-26.1-py3-none-any.whl", hash = "sha256:5d9c0669c6285e491e0ced2eee587eaf67b670d94a19e94e3984a481aba6802f", size = 95831, upload-time = "2026-04-14T21:12:47.56Z" },
 ]
 
 [[package]]
 name = "pathspec"
 version = "1.0.4"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pathspec/1.0.4/pathspec-1.0.4.tar.gz", hash = "sha256:0210e2ae8a21a9137c0d470578cb0e595af87edaa6ebf12ff176f14a02e0e645" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pathspec/1.0.4/pathspec-1.0.4.tar.gz", hash = "sha256:0210e2ae8a21a9137c0d470578cb0e595af87edaa6ebf12ff176f14a02e0e645", size = 131200, upload-time = "2026-01-27T03:59:46.938Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pathspec/1.0.4/pathspec-1.0.4-py3-none-any.whl", hash = "sha256:fb6ae2fd4e7c921a165808a552060e722767cfa526f99ca5156ed2ce45a5c723" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pathspec/1.0.4/pathspec-1.0.4-py3-none-any.whl", hash = "sha256:fb6ae2fd4e7c921a165808a552060e722767cfa526f99ca5156ed2ce45a5c723", size = 55206, upload-time = "2026-01-27T03:59:45.137Z" },
+]
+
+[[package]]
+name = "playwright"
+version = "1.62.0"
+source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
+dependencies = [
+    { name = "greenlet" },
+    { name = "pyee" },
+]
+wheels = [
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/playwright/1.62.0/playwright-1.62.0-py3-none-macosx_10_13_x86_64.whl", hash = "sha256:d8da938f3748841a8754f2e1f0216902c1c8f8ae3720de8b32ccf8e6913a7c4f", size = 43732091, upload-time = "2026-07-31T17:00:44.178Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/playwright/1.62.0/playwright-1.62.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:db755ab27db21a04186f1fe8169888e42356086e439b1059b923ef417f0b6034", size = 42510842, upload-time = "2026-07-31T17:00:48.596Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/playwright/1.62.0/playwright-1.62.0-py3-none-macosx_11_0_universal2.whl", hash = "sha256:5108bd5b3e87169ddf269feee097da5893af7f8aea4634dfc840518d64c1f1da", size = 43732093, upload-time = "2026-07-31T17:00:52.218Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/playwright/1.62.0/playwright-1.62.0-py3-none-manylinux1_x86_64.whl", hash = "sha256:ba33bae6a13b3d9d354c751cb618af357d20fe1d57767cbcce52079bbef17ad3", size = 47748926, upload-time = "2026-07-31T17:00:56.438Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/playwright/1.62.0/playwright-1.62.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:db2d76613a57ad844362ce42f7d0c2fa26b19a4f7a46d4f76b891c631e6e5aff", size = 47441423, upload-time = "2026-07-31T17:01:00.404Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/playwright/1.62.0/playwright-1.62.0-py3-none-win32.whl", hash = "sha256:e5614fa89355d7081457680324bb219f79f69c423c5cb6fa250e30b0d8aebf1c", size = 38164450, upload-time = "2026-07-31T17:01:04.187Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/playwright/1.62.0/playwright-1.62.0-py3-none-win_amd64.whl", hash = "sha256:92c0d98ed04eb35af557b709875edba415b1f548bdb22ddb5bb3e1e6c835c2f1", size = 38164458, upload-time = "2026-07-31T17:01:08.459Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/playwright/1.62.0/playwright-1.62.0-py3-none-win_arm64.whl", hash = "sha256:ea8d3055aa9d5a9f1832ac82517bd8b42c78fac7ebcbebb0107116735c8cb6a1", size = 34208868, upload-time = "2026-07-31T17:01:11.818Z" },
 ]
 
 [[package]]
 name = "pluggy"
 version = "1.6.0"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pluggy/1.6.0/pluggy-1.6.0.tar.gz", hash = "sha256:7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pluggy/1.6.0/pluggy-1.6.0.tar.gz", hash = "sha256:7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3", size = 69412, upload-time = "2025-05-15T12:30:07.975Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pluggy/1.6.0/pluggy-1.6.0-py3-none-any.whl", hash = "sha256:e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pluggy/1.6.0/pluggy-1.6.0-py3-none-any.whl", hash = "sha256:e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746", size = 20538, upload-time = "2025-05-15T12:30:06.134Z" },
 ]
 
 [[package]]
@@ -317,9 +356,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "typing-inspection" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic/2.13.1/pydantic-2.13.1.tar.gz", hash = "sha256:a0f829b279ddd1e39291133fe2539d2aa46cc6b150c1706a270ff0879e3774d2" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic/2.13.1/pydantic-2.13.1.tar.gz", hash = "sha256:a0f829b279ddd1e39291133fe2539d2aa46cc6b150c1706a270ff0879e3774d2", size = 843746, upload-time = "2026-04-15T14:57:19.398Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic/2.13.1/pydantic-2.13.1-py3-none-any.whl", hash = "sha256:9557ecc2806faaf6037f85b1fbd963d01e30511c48085f0d573650fdeaad378a" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic/2.13.1/pydantic-2.13.1-py3-none-any.whl", hash = "sha256:9557ecc2806faaf6037f85b1fbd963d01e30511c48085f0d573650fdeaad378a", size = 471917, upload-time = "2026-04-15T14:57:17.277Z" },
 ]
 
 [[package]]
@@ -329,23 +368,23 @@ source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazon
 dependencies = [
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1.tar.gz", hash = "sha256:d408153772d9f298098fb5d620f045bdf0f017af0d5cb6e309ef8c205540caa4" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1.tar.gz", hash = "sha256:d408153772d9f298098fb5d620f045bdf0f017af0d5cb6e309ef8c205540caa4", size = 471230, upload-time = "2026-04-15T14:49:34.52Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-macosx_10_12_x86_64.whl", hash = "sha256:cdc8a5762a9c4b9d86e204d555444e3227507c92daba06259ee66595834de47a" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:ba381dfe9c85692c566ecb60fa5a77a697a2a8eebe274ec5e4d6ec15fafad799" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1593d8de98207466dc070118322fef68307a0cc6a5625e7b386f6fdae57f9ab6" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:8262c74a1af5b0fdf795f5537f7145785a63f9fbf9e15405f547440c30017ed8" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:4b88949a24182e83fbbb3f7ca9b7858d0d37b735700ea91081434b7d37b3b444" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:b8f3708cd55537aeaf3fd0ea55df0d68d0da51dcb07cbc8508745b34acc4c6e0" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f79292435fff1d4f0c18d9cfaf214025cc88e4f5104bfaed53f173621da1c743" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-manylinux_2_31_riscv64.whl", hash = "sha256:a2e607aeb59cf4575bb364470288db3b9a1f0e7415d053a322e3e154c1a0802e" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:ec5ca190b75878a9f6ae1fc8f5eb678497934475aef3d93204c9fa01e97370b6" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-musllinux_1_1_aarch64.whl", hash = "sha256:1f80535259dcdd517d7b8ca588d5ca24b4f337228e583bebedf7a3adcdf5f721" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-musllinux_1_1_armv7l.whl", hash = "sha256:24820b3c82c43df61eca30147e42853e6c127d8b868afdc0c162df829e011eb4" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-musllinux_1_1_x86_64.whl", hash = "sha256:f12794b1dd8ac9fb66619e0b3a0427189f5d5638e55a3de1385121a9b7bf9b39" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-win32.whl", hash = "sha256:9bc09aed935cdf50f09e908923f9efbcca54e9244bd14a5a0e2a6c8d2c21b4e9" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-win_amd64.whl", hash = "sha256:fac2d6c8615b8b42bee14677861ba09d56ee076ba4a65cfb9c3c3d0cc89042f2" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-win_arm64.whl", hash = "sha256:f978329f12ace9f3cb814a5e44d98bbeced2e36f633132bafa06d2d71332e33e" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-macosx_10_12_x86_64.whl", hash = "sha256:cdc8a5762a9c4b9d86e204d555444e3227507c92daba06259ee66595834de47a", size = 2119092, upload-time = "2026-04-15T14:49:50.392Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:ba381dfe9c85692c566ecb60fa5a77a697a2a8eebe274ec5e4d6ec15fafad799", size = 1951400, upload-time = "2026-04-15T14:51:06.588Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1593d8de98207466dc070118322fef68307a0cc6a5625e7b386f6fdae57f9ab6", size = 1976864, upload-time = "2026-04-15T14:50:54.804Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:8262c74a1af5b0fdf795f5537f7145785a63f9fbf9e15405f547440c30017ed8", size = 2066669, upload-time = "2026-04-15T14:51:42.346Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:4b88949a24182e83fbbb3f7ca9b7858d0d37b735700ea91081434b7d37b3b444", size = 2238737, upload-time = "2026-04-15T14:50:45.558Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:b8f3708cd55537aeaf3fd0ea55df0d68d0da51dcb07cbc8508745b34acc4c6e0", size = 2316258, upload-time = "2026-04-15T14:51:08.471Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f79292435fff1d4f0c18d9cfaf214025cc88e4f5104bfaed53f173621da1c743", size = 2097474, upload-time = "2026-04-15T14:49:56.543Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-manylinux_2_31_riscv64.whl", hash = "sha256:a2e607aeb59cf4575bb364470288db3b9a1f0e7415d053a322e3e154c1a0802e", size = 2168383, upload-time = "2026-04-15T14:51:29.269Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:ec5ca190b75878a9f6ae1fc8f5eb678497934475aef3d93204c9fa01e97370b6", size = 2186182, upload-time = "2026-04-15T14:50:19.097Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-musllinux_1_1_aarch64.whl", hash = "sha256:1f80535259dcdd517d7b8ca588d5ca24b4f337228e583bebedf7a3adcdf5f721", size = 2187859, upload-time = "2026-04-15T14:49:22.974Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-musllinux_1_1_armv7l.whl", hash = "sha256:24820b3c82c43df61eca30147e42853e6c127d8b868afdc0c162df829e011eb4", size = 2338372, upload-time = "2026-04-15T14:49:53.316Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-musllinux_1_1_x86_64.whl", hash = "sha256:f12794b1dd8ac9fb66619e0b3a0427189f5d5638e55a3de1385121a9b7bf9b39", size = 2384039, upload-time = "2026-04-15T14:53:04.929Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-win32.whl", hash = "sha256:9bc09aed935cdf50f09e908923f9efbcca54e9244bd14a5a0e2a6c8d2c21b4e9", size = 1977943, upload-time = "2026-04-15T14:52:17.969Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-win_amd64.whl", hash = "sha256:fac2d6c8615b8b42bee14677861ba09d56ee076ba4a65cfb9c3c3d0cc89042f2", size = 2068729, upload-time = "2026-04-15T14:53:07.288Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-core/2.46.1/pydantic_core-2.46.1-cp313-cp313-win_arm64.whl", hash = "sha256:f978329f12ace9f3cb814a5e44d98bbeced2e36f633132bafa06d2d71332e33e", size = 2029550, upload-time = "2026-04-15T14:52:22.707Z" },
 ]
 
 [[package]]
@@ -357,18 +396,30 @@ dependencies = [
     { name = "python-dotenv" },
     { name = "typing-inspection" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-settings/2.13.1/pydantic_settings-2.13.1.tar.gz", hash = "sha256:b4c11847b15237fb0171e1462bf540e294affb9b86db4d9aa5c01730bdbe4025" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-settings/2.13.1/pydantic_settings-2.13.1.tar.gz", hash = "sha256:b4c11847b15237fb0171e1462bf540e294affb9b86db4d9aa5c01730bdbe4025", size = 223826, upload-time = "2026-02-19T13:45:08.055Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-settings/2.13.1/pydantic_settings-2.13.1-py3-none-any.whl", hash = "sha256:d56fd801823dbeae7f0975e1f8c8e25c258eb75d278ea7abb5d9cebb01b56237" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pydantic-settings/2.13.1/pydantic_settings-2.13.1-py3-none-any.whl", hash = "sha256:d56fd801823dbeae7f0975e1f8c8e25c258eb75d278ea7abb5d9cebb01b56237", size = 58929, upload-time = "2026-02-19T13:45:06.034Z" },
+]
+
+[[package]]
+name = "pyee"
+version = "13.0.1"
+source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
+dependencies = [
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pyee/13.0.1/pyee-13.0.1.tar.gz", hash = "sha256:0b931f7c14535667ed4c7e0d531716368715e860b988770fc7eb8578d1f67fc8", size = 31655, upload-time = "2026-02-14T21:12:28.044Z" }
+wheels = [
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pyee/13.0.1/pyee-13.0.1-py3-none-any.whl", hash = "sha256:af2f8fede4171ef667dfded53f96e2ed0d6e6bd7ee3bb46437f77e3b57689228", size = 15659, upload-time = "2026-02-14T21:12:26.263Z" },
 ]
 
 [[package]]
 name = "pygments"
 version = "2.20.0"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pygments/2.20.0/pygments-2.20.0.tar.gz", hash = "sha256:6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pygments/2.20.0/pygments-2.20.0.tar.gz", hash = "sha256:6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f", size = 4955991, upload-time = "2026-03-29T13:29:33.898Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pygments/2.20.0/pygments-2.20.0-py3-none-any.whl", hash = "sha256:81a9e26dd42fd28a23a2d169d86d7ac03b46e2f8b59ed4698fb4785f946d0176" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pygments/2.20.0/pygments-2.20.0-py3-none-any.whl", hash = "sha256:81a9e26dd42fd28a23a2d169d86d7ac03b46e2f8b59ed4698fb4785f946d0176", size = 1231151, upload-time = "2026-03-29T13:29:30.038Z" },
 ]
 
 [[package]]
@@ -379,9 +430,9 @@ dependencies = [
     { name = "nodeenv" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pyright/1.1.408/pyright-1.1.408.tar.gz", hash = "sha256:f28f2321f96852fa50b5829ea492f6adb0e6954568d1caa3f3af3a5f555eb684" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pyright/1.1.408/pyright-1.1.408.tar.gz", hash = "sha256:f28f2321f96852fa50b5829ea492f6adb0e6954568d1caa3f3af3a5f555eb684", size = 4400578, upload-time = "2026-01-08T08:07:38.795Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pyright/1.1.408/pyright-1.1.408-py3-none-any.whl", hash = "sha256:090b32865f4fdb1e0e6cd82bf5618480d48eecd2eb2e70f960982a3d9a4c17c1" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pyright/1.1.408/pyright-1.1.408-py3-none-any.whl", hash = "sha256:090b32865f4fdb1e0e6cd82bf5618480d48eecd2eb2e70f960982a3d9a4c17c1", size = 6399144, upload-time = "2026-01-08T08:07:37.082Z" },
 ]
 
 [[package]]
@@ -395,9 +446,9 @@ dependencies = [
     { name = "pluggy" },
     { name = "pygments" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pytest/9.0.3/pytest-9.0.3.tar.gz", hash = "sha256:b86ada508af81d19edeb213c681b1d48246c1a91d304c6c81a427674c17eb91c" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pytest/9.0.3/pytest-9.0.3.tar.gz", hash = "sha256:b86ada508af81d19edeb213c681b1d48246c1a91d304c6c81a427674c17eb91c", size = 1572165, upload-time = "2026-04-07T17:16:18.027Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pytest/9.0.3/pytest-9.0.3-py3-none-any.whl", hash = "sha256:2c5efc453d45394fdd706ade797c0a81091eccd1d6e4bccfcd476e2b8e0ab5d9" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pytest/9.0.3/pytest-9.0.3-py3-none-any.whl", hash = "sha256:2c5efc453d45394fdd706ade797c0a81091eccd1d6e4bccfcd476e2b8e0ab5d9", size = 375249, upload-time = "2026-04-07T17:16:16.13Z" },
 ]
 
 [[package]]
@@ -409,18 +460,18 @@ dependencies = [
     { name = "pluggy" },
     { name = "pytest" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pytest-cov/7.1.0/pytest_cov-7.1.0.tar.gz", hash = "sha256:30674f2b5f6351aa09702a9c8c364f6a01c27aae0c1366ae8016160d1efc56b2" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pytest-cov/7.1.0/pytest_cov-7.1.0.tar.gz", hash = "sha256:30674f2b5f6351aa09702a9c8c364f6a01c27aae0c1366ae8016160d1efc56b2", size = 55592, upload-time = "2026-03-21T20:11:16.284Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pytest-cov/7.1.0/pytest_cov-7.1.0-py3-none-any.whl", hash = "sha256:a0461110b7865f9a271aa1b51e516c9a95de9d696734a2f71e3e78f46e1d4678" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/pytest-cov/7.1.0/pytest_cov-7.1.0-py3-none-any.whl", hash = "sha256:a0461110b7865f9a271aa1b51e516c9a95de9d696734a2f71e3e78f46e1d4678", size = 22876, upload-time = "2026-03-21T20:11:14.438Z" },
 ]
 
 [[package]]
 name = "python-dotenv"
 version = "1.2.2"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/python-dotenv/1.2.2/python_dotenv-1.2.2.tar.gz", hash = "sha256:2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/python-dotenv/1.2.2/python_dotenv-1.2.2.tar.gz", hash = "sha256:2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3", size = 50135, upload-time = "2026-03-01T16:00:26.196Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/python-dotenv/1.2.2/python_dotenv-1.2.2-py3-none-any.whl", hash = "sha256:1d8214789a24de455a8b8bd8ae6fe3c6b69a5e3d64aa8a8e5d68e694bbcb285a" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/python-dotenv/1.2.2/python_dotenv-1.2.2-py3-none-any.whl", hash = "sha256:1d8214789a24de455a8b8bd8ae6fe3c6b69a5e3d64aa8a8e5d68e694bbcb285a", size = 22101, upload-time = "2026-03-01T16:00:25.09Z" },
 ]
 
 [[package]]
@@ -430,9 +481,9 @@ source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazon
 dependencies = [
     { name = "httpx" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/respx/0.23.1/respx-0.23.1.tar.gz", hash = "sha256:242dcc6ce6b5b9bf621f5870c82a63997e8e82bc7c947f9ffe272b8f3dd5a780" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/respx/0.23.1/respx-0.23.1.tar.gz", hash = "sha256:242dcc6ce6b5b9bf621f5870c82a63997e8e82bc7c947f9ffe272b8f3dd5a780", size = 29243, upload-time = "2026-04-08T14:37:16.008Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/respx/0.23.1/respx-0.23.1-py2.py3-none-any.whl", hash = "sha256:b18004b029935384bccfa6d7d9d74b4ec9af73a081cc28600fffc0447f4b8c1a" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/respx/0.23.1/respx-0.23.1-py2.py3-none-any.whl", hash = "sha256:b18004b029935384bccfa6d7d9d74b4ec9af73a081cc28600fffc0447f4b8c1a", size = 25557, upload-time = "2026-04-08T14:37:14.613Z" },
 ]
 
 [[package]]
@@ -443,34 +494,34 @@ dependencies = [
     { name = "markdown-it-py" },
     { name = "pygments" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/rich/15.0.0/rich-15.0.0.tar.gz", hash = "sha256:edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/rich/15.0.0/rich-15.0.0.tar.gz", hash = "sha256:edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36", size = 230680, upload-time = "2026-04-12T08:24:00.75Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/rich/15.0.0/rich-15.0.0-py3-none-any.whl", hash = "sha256:33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/rich/15.0.0/rich-15.0.0-py3-none-any.whl", hash = "sha256:33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb", size = 310654, upload-time = "2026-04-12T08:24:02.83Z" },
 ]
 
 [[package]]
 name = "ruff"
 version = "0.15.10"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10.tar.gz", hash = "sha256:d1f86e67ebfdef88e00faefa1552b5e510e1d35f3be7d423dc7e84e63788c94e" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10.tar.gz", hash = "sha256:d1f86e67ebfdef88e00faefa1552b5e510e1d35f3be7d423dc7e84e63788c94e", size = 4631728, upload-time = "2026-04-09T14:06:09.884Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-linux_armv6l.whl", hash = "sha256:0744e31482f8f7d0d10a11fcbf897af272fefdfcb10f5af907b18c2813ff4d5f" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:b1e7c16ea0ff5a53b7c2df52d947e685973049be1cdfe2b59a9c43601897b22e" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-macosx_11_0_arm64.whl", hash = "sha256:93cc06a19e5155b4441dd72808fdf84290d84ad8a39ca3b0f994363ade4cebb1" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:83e1dd04312997c99ea6965df66a14fb4f03ba978564574ffc68b0d61fd3989e" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:8154d43684e4333360fedd11aaa40b1b08a4e37d8ffa9d95fee6fa5b37b6fab1" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:8ab88715f3a6deb6bde6c227f3a123410bec7b855c3ae331b4c006189e895cef" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:a768ff5969b4f44c349d48edf4ab4f91eddb27fd9d77799598e130fb628aa158" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:0ee3ef42dab7078bda5ff6a1bcba8539e9857deb447132ad5566a038674540d0" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:51cb8cc943e891ba99989dd92d61e29b1d231e14811db9be6440ecf25d5c1609" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-manylinux_2_31_riscv64.whl", hash = "sha256:e59c9bdc056a320fb9ea1700a8d591718b8faf78af065484e801258d3a76bc3f" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:136c00ca2f47b0018b073f28cb5c1506642a830ea941a60354b0e8bc8076b151" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:8b80a2f3c9c8a950d6237f2ca12b206bccff626139be9fa005f14feb881a1ae8" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-musllinux_1_2_i686.whl", hash = "sha256:e3e53c588164dc025b671c9df2462429d60357ea91af7e92e9d56c565a9f1b07" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:b0c52744cf9f143a393e284125d2576140b68264a93c6716464e129a3e9adb48" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-win32.whl", hash = "sha256:d4272e87e801e9a27a2e8df7b21011c909d9ddd82f4f3281d269b6ba19789ca5" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-win_amd64.whl", hash = "sha256:28cb32d53203242d403d819fd6983152489b12e4a3ae44993543d6fe62ab42ed" },
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-win_arm64.whl", hash = "sha256:601d1610a9e1f1c2165a4f561eeaa2e2ea1e97f3287c5aa258d3dab8b57c6188" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-linux_armv6l.whl", hash = "sha256:0744e31482f8f7d0d10a11fcbf897af272fefdfcb10f5af907b18c2813ff4d5f", size = 10563362, upload-time = "2026-04-09T14:06:21.189Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:b1e7c16ea0ff5a53b7c2df52d947e685973049be1cdfe2b59a9c43601897b22e", size = 10951122, upload-time = "2026-04-09T14:06:02.236Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-macosx_11_0_arm64.whl", hash = "sha256:93cc06a19e5155b4441dd72808fdf84290d84ad8a39ca3b0f994363ade4cebb1", size = 10314005, upload-time = "2026-04-09T14:06:00.026Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:83e1dd04312997c99ea6965df66a14fb4f03ba978564574ffc68b0d61fd3989e", size = 10643450, upload-time = "2026-04-09T14:05:42.137Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:8154d43684e4333360fedd11aaa40b1b08a4e37d8ffa9d95fee6fa5b37b6fab1", size = 10379597, upload-time = "2026-04-09T14:05:49.984Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:8ab88715f3a6deb6bde6c227f3a123410bec7b855c3ae331b4c006189e895cef", size = 11146645, upload-time = "2026-04-09T14:06:12.246Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:a768ff5969b4f44c349d48edf4ab4f91eddb27fd9d77799598e130fb628aa158", size = 12030289, upload-time = "2026-04-09T14:06:04.776Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:0ee3ef42dab7078bda5ff6a1bcba8539e9857deb447132ad5566a038674540d0", size = 11496266, upload-time = "2026-04-09T14:05:55.485Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:51cb8cc943e891ba99989dd92d61e29b1d231e14811db9be6440ecf25d5c1609", size = 11256418, upload-time = "2026-04-09T14:05:57.69Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-manylinux_2_31_riscv64.whl", hash = "sha256:e59c9bdc056a320fb9ea1700a8d591718b8faf78af065484e801258d3a76bc3f", size = 11288416, upload-time = "2026-04-09T14:05:44.695Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:136c00ca2f47b0018b073f28cb5c1506642a830ea941a60354b0e8bc8076b151", size = 10621053, upload-time = "2026-04-09T14:05:52.782Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:8b80a2f3c9c8a950d6237f2ca12b206bccff626139be9fa005f14feb881a1ae8", size = 10378302, upload-time = "2026-04-09T14:06:14.361Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-musllinux_1_2_i686.whl", hash = "sha256:e3e53c588164dc025b671c9df2462429d60357ea91af7e92e9d56c565a9f1b07", size = 10850074, upload-time = "2026-04-09T14:06:16.581Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:b0c52744cf9f143a393e284125d2576140b68264a93c6716464e129a3e9adb48", size = 11358051, upload-time = "2026-04-09T14:06:18.948Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-win32.whl", hash = "sha256:d4272e87e801e9a27a2e8df7b21011c909d9ddd82f4f3281d269b6ba19789ca5", size = 10588964, upload-time = "2026-04-09T14:06:07.14Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-win_amd64.whl", hash = "sha256:28cb32d53203242d403d819fd6983152489b12e4a3ae44993543d6fe62ab42ed", size = 11745044, upload-time = "2026-04-09T14:05:39.473Z" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/ruff/0.15.10/ruff-0.15.10-py3-none-win_arm64.whl", hash = "sha256:601d1610a9e1f1c2165a4f561eeaa2e2ea1e97f3287c5aa258d3dab8b57c6188", size = 11035607, upload-time = "2026-04-09T14:05:47.593Z" },
 ]
 
 [[package]]
@@ -488,27 +539,27 @@ dependencies = [
     { name = "tomli-w" },
     { name = "typer" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/savi-python-base/1.3.28/savi_python_base-1.3.28.tar.gz", hash = "sha256:c0851f4c0d245f32ccd91ac18f45ba8463d1094c87da2170be8be31ebeefdc66" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/savi-python-base/1.3.28/savi_python_base-1.3.28.tar.gz", hash = "sha512:d7b4a717ea28a9997ee55d89dc15c42d2c36944169a800b95c400990d739638e0a80d16c4d5e57f9d050b49a8a402ff043a64b074c476daf136b4190709cf0be", upload-time = "2026-04-08T03:45:03.171Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/savi-python-base/1.3.28/savi_python_base-1.3.28-py3-none-any.whl", hash = "sha256:96d2e831404c81a66120bcabba1d3cae39109be8cb7248153aa1cde38c02641b" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/savi-python-base/1.3.28/savi_python_base-1.3.28-py3-none-any.whl", hash = "sha512:6a6745749ecf1ba7599482982624531159fcdbe02e0100c8b57cb8097230dbb1837a6ff481ec4d9cfa4c57e256cbfc3751748256e9a81bac142004ad6cf043dd", upload-time = "2026-04-08T03:45:03.171Z" },
 ]
 
 [[package]]
 name = "shellingham"
 version = "1.5.4"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/shellingham/1.5.4/shellingham-1.5.4.tar.gz", hash = "sha256:8dbca0739d487e5bd35ab3ca4b36e11c4078f3a234bfce294b0a0291363404de" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/shellingham/1.5.4/shellingham-1.5.4.tar.gz", hash = "sha256:8dbca0739d487e5bd35ab3ca4b36e11c4078f3a234bfce294b0a0291363404de", size = 10310, upload-time = "2023-10-24T04:13:40.426Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/shellingham/1.5.4/shellingham-1.5.4-py2.py3-none-any.whl", hash = "sha256:7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/shellingham/1.5.4/shellingham-1.5.4-py2.py3-none-any.whl", hash = "sha256:7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686", size = 9755, upload-time = "2023-10-24T04:13:38.866Z" },
 ]
 
 [[package]]
 name = "tomli-w"
 version = "1.2.0"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/tomli-w/1.2.0/tomli_w-1.2.0.tar.gz", hash = "sha256:2dd14fac5a47c27be9cd4c976af5a12d87fb1f0b4512f81d69cce3b35ae25021" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/tomli-w/1.2.0/tomli_w-1.2.0.tar.gz", hash = "sha256:2dd14fac5a47c27be9cd4c976af5a12d87fb1f0b4512f81d69cce3b35ae25021", size = 7184, upload-time = "2025-01-15T12:07:24.262Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/tomli-w/1.2.0/tomli_w-1.2.0-py3-none-any.whl", hash = "sha256:188306098d013b691fcadc011abd66727d3c414c571bb01b1a174ba8c983cf90" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/tomli-w/1.2.0/tomli_w-1.2.0-py3-none-any.whl", hash = "sha256:188306098d013b691fcadc011abd66727d3c414c571bb01b1a174ba8c983cf90", size = 6675, upload-time = "2025-01-15T12:07:22.074Z" },
 ]
 
 [[package]]
@@ -521,18 +572,18 @@ dependencies = [
     { name = "rich" },
     { name = "shellingham" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/typer/0.24.1/typer-0.24.1.tar.gz", hash = "sha256:e39b4732d65fbdcde189ae76cf7cd48aeae72919dea1fdfc16593be016256b45" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/typer/0.24.1/typer-0.24.1.tar.gz", hash = "sha256:e39b4732d65fbdcde189ae76cf7cd48aeae72919dea1fdfc16593be016256b45", size = 118613, upload-time = "2026-02-21T16:54:40.609Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/typer/0.24.1/typer-0.24.1-py3-none-any.whl", hash = "sha256:112c1f0ce578bfb4cab9ffdabc68f031416ebcc216536611ba21f04e9aa84c9e" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/typer/0.24.1/typer-0.24.1-py3-none-any.whl", hash = "sha256:112c1f0ce578bfb4cab9ffdabc68f031416ebcc216536611ba21f04e9aa84c9e", size = 56085, upload-time = "2026-02-21T16:54:41.616Z" },
 ]
 
 [[package]]
 name = "typing-extensions"
 version = "4.15.0"
 source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/" }
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/typing-extensions/4.15.0/typing_extensions-4.15.0.tar.gz", hash = "sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/typing-extensions/4.15.0/typing_extensions-4.15.0.tar.gz", hash = "sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466", size = 109391, upload-time = "2025-08-25T13:49:26.313Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/typing-extensions/4.15.0/typing_extensions-4.15.0-py3-none-any.whl", hash = "sha256:f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/typing-extensions/4.15.0/typing_extensions-4.15.0-py3-none-any.whl", hash = "sha256:f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548", size = 44614, upload-time = "2025-08-25T13:49:24.86Z" },
 ]
 
 [[package]]
@@ -542,7 +593,7 @@ source = { registry = "https://savi-073835883885.d.codeartifact.us-west-2.amazon
 dependencies = [
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/typing-inspection/0.4.2/typing_inspection-0.4.2.tar.gz", hash = "sha256:ba561c48a67c5958007083d386c3295464928b01faa735ab8547c5692e87f464" }
+sdist = { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/typing-inspection/0.4.2/typing_inspection-0.4.2.tar.gz", hash = "sha256:ba561c48a67c5958007083d386c3295464928b01faa735ab8547c5692e87f464", size = 75949, upload-time = "2025-10-01T02:14:41.687Z" }
 wheels = [
-    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/typing-inspection/0.4.2/typing_inspection-0.4.2-py3-none-any.whl", hash = "sha256:4ed1cacbdc298c220f1bd249ed5287caa16f34d44ef4e9c3d0cbad5b521545e7" },
+    { url = "https://savi-073835883885.d.codeartifact.us-west-2.amazonaws.com/pypi/pypi-release/simple/typing-inspection/0.4.2/typing_inspection-0.4.2-py3-none-any.whl", hash = "sha256:4ed1cacbdc298c220f1bd249ed5287caa16f34d44ef4e9c3d0cbad5b521545e7", size = 14611, upload-time = "2025-10-01T02:14:40.154Z" },
 ]

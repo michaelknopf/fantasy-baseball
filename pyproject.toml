@@ -24,6 +24,8 @@ packages = ["src/fbb"]
 dev = [
     "savi-python-base>=1.3.28",
     "respx>=0.22.0",
+    # Used only by `fbb fantrax login` to capture cookies; collection itself is pure HTTP.
+    "playwright>=1.49.0",
 ]
 
 # CodeArtifact index - requires authentication via keyring
