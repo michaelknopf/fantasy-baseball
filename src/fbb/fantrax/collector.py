@@ -28,11 +28,11 @@ _SCHEDULED_CELL = re.compile(
     r'^(?P<away>@)?(?P<opp>[A-Z0-9]+)<br/>(?P<when>[A-Z][a-z]{2} .+)$'
 )
 
-# Once a game is underway the same cell becomes a live score, "ATH 2<br/>@BOS 1",
-# where "@" marks the *home* side (the venue) and the other team is visiting. The
-# pitcher's own team identifies which of the two is the opponent.
+# Once a game starts the same cell becomes a score, "ATH 2<br/>@BOS 1", gaining a
+# trailing status once final ("... 7 F"). "@" marks the *home* side (the venue), so
+# the pitcher's own team identifies which of the two is the opponent.
 _IN_PROGRESS_CELL = re.compile(
-    r'^(?P<visitor>[A-Z0-9]+) -?\d+<br/>@(?P<host>[A-Z0-9]+) -?\d+$'
+    r'^(?P<visitor>[A-Z0-9]+) -?\d+<br/>@(?P<host>[A-Z0-9]+) -?\d+(?P<status> .+)?$'
 )
 
 # Roster row `statusId`; the slot cap is 19 active / 5 reserve / 3 IR.
@@ -263,10 +263,11 @@ class SnapshotCollector:
             if live:
                 visitor, host = live.group('visitor'), live.group('host')
                 is_away = visitor == mlb_team
+                status = (live.group('status') or '').strip()
                 return ProbableStart(
                     opponent=host if is_away else visitor,
                     is_away=is_away,
-                    when='in progress',
+                    when='final' if status else 'in progress',
                     in_progress=True,
                 )
         return None
