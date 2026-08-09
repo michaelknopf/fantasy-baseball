@@ -58,11 +58,16 @@ class TeamRoster(BaseModel):
 
 
 class ProbableStart(BaseModel):
-    """A pitcher's next scheduled start."""
+    """A pitcher's next scheduled start.
+
+    `in_progress` marks a game already underway, where Fantrax reports a live score
+    instead of a start time — the start is no longer claimable.
+    """
 
     opponent: str
     is_away: bool
     when: str
+    in_progress: bool = False
 
 
 class FreeAgentPitcher(BaseModel):

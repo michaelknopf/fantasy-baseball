@@ -148,6 +148,22 @@ def _free_agents_payload(date: str) -> Json:
                 ],
             }
         ],
+        # A game already underway reports a live score rather than a start time.
+        '2026-08-11': [
+            {
+                'scorer': {
+                    'scorerId': 'fa3',
+                    'name': 'J.T. Ginn',
+                    'posShortNames': '<b>SP</b>',
+                    'teamShortName': 'ATH',
+                },
+                'cells': [
+                    {'content': '57'},
+                    {'content': 'FA'},
+                    {'content': 'ATH 2<br/>@BOS 1'},
+                ],
+            }
+        ],
     }
     return {
         'paginatedResultSet': {'totalNumPages': 1, 'pageNumber': 1},
@@ -219,6 +235,17 @@ def test_parses_probable_start_with_home_away(snapshot: LeagueSnapshot) -> None:
     assert home.next_start.is_away is False
 
 
+def test_parses_a_start_already_in_progress(snapshot: LeagueSnapshot) -> None:
+    """A live score names both sides; the pitcher's own team picks out the opponent."""
+    live = next(p for p in snapshot.free_agent_pitchers if p.start_date == '2026-08-11')
+    assert live.mlb_team == 'ATH'
+    assert live.next_start is not None
+    assert live.next_start.opponent == 'BOS'
+    # "@" marks the venue, so in "ATH 2 / @BOS 1" the ATH pitcher is visiting.
+    assert live.next_start.is_away is True
+    assert live.next_start.in_progress is True
+
+
 def _swept_dates(client: StubClient) -> list[str]:
     return [
         args['datePlaying']
@@ -256,9 +283,11 @@ def test_empty_dates_inside_the_window_are_still_swept(
 ) -> None:
     """A date with no probables must not cut the sweep short."""
     snapshot = collector.collect()
+    # 8/12 and 8/13 have no probables, yet 8/14 is still collected.
     assert [p.start_date for p in snapshot.free_agent_pitchers] == [
         '2026-08-09',
         '2026-08-10',
+        '2026-08-11',
     ]
     assert '2026-08-14' in _swept_dates(client)
 

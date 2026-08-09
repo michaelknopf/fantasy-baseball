@@ -23,8 +23,17 @@ _POS_STARTING_PITCHER = 'POS_015'
 _MISC_UPCOMING_STARTS = '7'  # "1-2 starts": only pitchers with a probable start
 _PAGE_SIZE = 20
 
-# Fantrax renders the next start as "OPP<br/>Sun 1:10PM", with a leading "@" when away.
-_OPPONENT_CELL = re.compile(r'^(?P<away>@)?(?P<opp>[A-Z0-9]+)<br/>(?P<when>.*)$')
+# A scheduled start renders as "OPP<br/>Sun 1:10PM", with a leading "@" when away.
+_SCHEDULED_CELL = re.compile(
+    r'^(?P<away>@)?(?P<opp>[A-Z0-9]+)<br/>(?P<when>[A-Z][a-z]{2} .+)$'
+)
+
+# Once a game is underway the same cell becomes a live score, "ATH 2<br/>@BOS 1",
+# where "@" marks the *home* side (the venue) and the other team is visiting. The
+# pitcher's own team identifies which of the two is the opponent.
+_IN_PROGRESS_CELL = re.compile(
+    r'^(?P<visitor>[A-Z0-9]+) -?\d+<br/>@(?P<host>[A-Z0-9]+) -?\d+$'
+)
 
 # Roster row `statusId`; the slot cap is 19 active / 5 reserve / 3 IR.
 _ROSTER_STATUS = {'1': 'active', '2': 'reserve', '3': 'injured_reserve'}
@@ -224,26 +233,39 @@ class SnapshotCollector:
     def _free_agent(self, row: Json, date: str) -> FreeAgentPitcher:
         scorer = payload.obj(row, 'scorer')
         contents = _cell_contents(row)
+        mlb_team = payload.text(scorer, 'teamShortName')
         return FreeAgentPitcher(
             player_id=payload.text(scorer, 'scorerId') or '',
             name=payload.text(scorer, 'name') or '',
             positions=_strip_markup(payload.text(scorer, 'posShortNames')),
-            mlb_team=payload.text(scorer, 'teamShortName'),
+            mlb_team=mlb_team,
             rank=_as_int(contents[0] if contents else None),
             start_date=date,
-            next_start=self._probable_start(contents),
+            next_start=self._probable_start(contents, mlb_team),
             stats=contents,
         )
 
     @staticmethod
-    def _probable_start(contents: list[str]) -> ProbableStart | None:
+    def _probable_start(
+        contents: list[str], mlb_team: str | None
+    ) -> ProbableStart | None:
         for cell in contents:
-            match = _OPPONENT_CELL.match(cell)
-            if match:
+            scheduled = _SCHEDULED_CELL.match(cell)
+            if scheduled:
                 return ProbableStart(
-                    opponent=match.group('opp'),
-                    is_away=bool(match.group('away')),
-                    when=match.group('when'),
+                    opponent=scheduled.group('opp'),
+                    is_away=bool(scheduled.group('away')),
+                    when=scheduled.group('when'),
+                )
+            live = _IN_PROGRESS_CELL.match(cell)
+            if live:
+                visitor, host = live.group('visitor'), live.group('host')
+                is_away = visitor == mlb_team
+                return ProbableStart(
+                    opponent=host if is_away else visitor,
+                    is_away=is_away,
+                    when='in progress',
+                    in_progress=True,
                 )
         return None
 
