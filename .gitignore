@@ -33,3 +33,8 @@ junit.xml
 
 # Collected data and session cookies
 /snapshots/
+
+# Web app
+/web/node_modules/
+/web/dist/
+/web/.playwright-mcp/

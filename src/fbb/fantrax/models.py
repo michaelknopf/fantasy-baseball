@@ -56,7 +56,8 @@ class ScheduledStart(BaseModel):
     streaming opportunities.
     """
 
-    date: str  # column label as Fantrax renders it, e.g. 'Mon 8/10'
+    date: date
+    label: str  # as Fantrax renders it, e.g. 'Mon 8/10'
     opponent: str
     is_away: bool
     opposing_pitcher: str | None = None

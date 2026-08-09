@@ -423,13 +423,14 @@ def test_collects_when_my_pitchers_actually_start(snapshot: LeagueSnapshot) -> N
     roster = next(r for r in snapshot.rosters if r.team_name == 'MK')
     by_name = {s.name: s for s in roster.schedules}
     skubal = by_name['Tarik Skubal'].starts
-    assert [(s.date, s.opponent, s.is_away) for s in skubal] == [
+    assert [(s.label, s.opponent, s.is_away) for s in skubal] == [
         ('Mon 8/10', 'KC', False)
     ]
+    assert skubal[0].date == date(2026, 8, 10)
     assert skubal[0].opposing_pitcher == 'Noah Cameron'
 
     cease = by_name['Dylan Cease'].starts
-    assert [(s.date, s.opponent, s.is_away) for s in cease] == [
+    assert [(s.label, s.opponent, s.is_away) for s in cease] == [
         ('Tue 8/11', 'BOS', True)
     ]
 

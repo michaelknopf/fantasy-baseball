@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ground: #10120f;
+  --color-panel: #191c17;
+  --color-sunk: #21251e;
+  --color-line: #2e332a;
+  --color-ink: #e9ece5;
+  --color-ink-2: #a3a99c;
+  --color-ink-3: #6f7568;
+  --color-mine: #d7a13b;
+  --color-free: #63b3e0;
+  --color-good: #6cc48d;
+  --color-bad: #de7d5f;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family:
+    ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}

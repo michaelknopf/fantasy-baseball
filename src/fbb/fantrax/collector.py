@@ -213,8 +213,7 @@ class SnapshotCollector:
                     )
         return schedules
 
-    @staticmethod
-    def _scheduled_starts(row: Json, columns: list[str]) -> list[ScheduledStart]:
+    def _scheduled_starts(self, row: Json, columns: list[str]) -> list[ScheduledStart]:
         """Day cells flagged `pitcher`, which marks this player as the starter."""
         starts: list[ScheduledStart] = []
         for index, cell in enumerate(payload.rows(row, 'cells')):
@@ -226,13 +225,30 @@ class SnapshotCollector:
             opposing = payload.obj(payload.obj(cell, 'popOver'), 'scorer')
             starts.append(
                 ScheduledStart(
-                    date=columns[index],
+                    date=self._column_date(columns[index]),
+                    label=columns[index],
                     opponent=opponent,
                     is_away=matchup.startswith('@'),
                     opposing_pitcher=payload.text(opposing, 'name'),
                 )
             )
         return starts
+
+    def _column_date(self, label: str) -> date:
+        """
+        Resolve a column label like 'Mon 8/10' to a real date.
+
+        Fantrax labels columns without a year, and the grid can run past New Year,
+        so the year is taken from the collection date and rolled forward when the
+        month goes backwards.
+        """
+        match = re.search(r'(\d{1,2})/(\d{1,2})', label)
+        if not match:
+            return self._now.date()
+        month, day = int(match.group(1)), int(match.group(2))
+        today = self._now.date()
+        year = today.year + 1 if month < today.month else today.year
+        return date(year, month, day)
 
     def _free_agent_pitchers(self, collect_through: date) -> list[FreeAgentPitcher]:
         """
