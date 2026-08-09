@@ -13,6 +13,7 @@ from fbb.fantrax.client import FantraxClient
 from fbb.fantrax.collector import SnapshotCollector
 from fbb.fantrax.models import LeagueSnapshot
 from fbb.fantrax.snapshot import SnapshotWriter
+from fbb.fantrax.waivers import DEFAULT_PERIODS_AHEAD
 
 app = typer.Typer(
     name='fantrax',
@@ -27,6 +28,14 @@ DEFAULT_LEAGUE_ID = 'vbh2q8ffmng9ekc0'
 
 LeagueOption = Annotated[str, typer.Option('--league', help='Fantrax league ID.')]
 OutOption = Annotated[Path, typer.Option('--out', help='Directory for snapshots.')]
+PeriodsOption = Annotated[
+    int,
+    typer.Option(
+        '--periods',
+        min=1,
+        help='Waiver periods ahead to collect free-agent starts for.',
+    ),
+]
 
 
 @app.command()
@@ -58,22 +67,28 @@ def login(league: LeagueOption = DEFAULT_LEAGUE_ID) -> None:
 def collect(
     league: LeagueOption = DEFAULT_LEAGUE_ID,
     out: OutOption = Path('snapshots'),
+    periods: PeriodsOption = DEFAULT_PERIODS_AHEAD,
 ) -> None:
     """Collect a full league snapshot and write it to disk."""
     session = FantraxSession.load()
     with FantraxClient(session, league) as client:
-        collector = SnapshotCollector(client, league)
+        collector = SnapshotCollector(client, league, periods_ahead=periods)
         console.print('Collecting league data...')
         snapshot = collector.collect()
 
     run_dir = SnapshotWriter(out).write(snapshot, collector.raw)
 
     _print_starts_table(snapshot)
+    window = (
+        f'{snapshot.periods_ahead} waiver period(s) ahead, '
+        f'through {snapshot.collected_through:%a %b %-d}'
+    )
     counts = (
         f'{len(snapshot.rosters)} rosters, '
-        f'{len(snapshot.free_agent_pitchers)} free-agent starters'
+        f'{len(snapshot.free_agent_pitchers)} free-agent starts'
     )
-    console.print(f'\n[green]Wrote snapshot to {run_dir}[/green] ({counts})')
+    console.print(f'\nFree agents collected for {window}')
+    console.print(f'[green]Wrote snapshot to {run_dir}[/green] ({counts})')
 
 
 def _print_starts_table(snapshot: LeagueSnapshot) -> None:

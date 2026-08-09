@@ -11,6 +11,7 @@ uv run playwright install chromium   # once, for the login step
 
 uv run fbb fantrax login             # opens a browser; log in, then it saves cookies
 uv run fbb fantrax collect           # pure HTTP, no browser
+uv run fbb fantrax collect --periods 1   # narrower free-agent window
 ```
 
 `login` is the only step that needs a browser. It waits for you to authenticate, then
@@ -38,8 +39,8 @@ the escape hatch is there.
 - **Each team's claim budget** — remaining FA bidding dollars.
 - **All ten rosters** — every player, with roster status (active / reserve / injured
   reserve), lineup slot, positions, MLB team, and the stat row Fantrax renders.
-- **Free-agent starting pitchers, swept across every upcoming date** — opponent,
-  home/away, start time, and the date, plus their stat row. One entry per
+- **Free-agent starting pitchers, swept date by date across the waiver window** —
+  opponent, home/away, start time, and the date, plus their stat row. One entry per
   pitcher-date, so a pitcher probable twice appears twice.
 
 ## The API
@@ -81,13 +82,28 @@ The next start arrives as a rendered cell — `LAD<br/>Sun 1:10PM`, or `@BOS<br/
 away — which the collector parses into opponent, home/away, and time.
 
 **`datePlaying` is not optional in practice.** Without it the query returns only the
-current day's probables (17 pitchers), which is nowhere near enough to plan a two-week
-round. The collector therefore issues one query per date and merges the results — 90
-unique pitchers across 177 pitcher-dates in a representative run.
+current day's probables, nowhere near enough to plan a round. The collector issues one
+query per date in the window and merges the results.
 
-The sweep stops at the first empty date. MLB publishes probable starters only ~12 days
-out, so the tail is genuinely empty rather than truncated, and querying past it would
-just burn requests. Cost is roughly one request per populated date.
+(Worth knowing if you widen the window: MLB publishes probable starters only about 12
+days out, so dates past that horizon come back genuinely empty rather than truncated.)
+
+## The collection window
+
+Waivers process **Mon/Thu/Sat at 8am**, so roster moves are only possible at those
+boundaries. Free-agent starts are collected up to — but not including — the deadline
+that closes the window:
+
+```
+today ──► deadline 1 ──► deadline 2 ──► deadline 3
+          collect through here ────┘ (deadline 3 minus one day)
+```
+
+`--periods 2` (the default) therefore covers the two full waiver periods you can still
+act on. `--periods 1` stops a period earlier.
+
+Today's deadline counts only while it can still be acted on: before 8am on a waiver day
+it is deadline 1, and after 8am the window shifts to the next one.
 
 ## Layout
 
@@ -96,6 +112,7 @@ just burn requests. Cost is roughly one request per populated date.
 | `auth.py` | Loads and saves session cookies |
 | `client.py` | The `fxpa/req` envelope and error handling |
 | `payload.py` | Typed narrowing helpers for Fantrax's loose JSON |
+| `waivers.py` | Waiver deadlines and the collection window they define |
 | `collector.py` | Turns API calls into a snapshot |
 | `models.py` | The parsed snapshot shape |
 | `snapshot.py` | Writes a run to disk |

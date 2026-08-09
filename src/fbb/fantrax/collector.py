@@ -1,7 +1,7 @@
 """Collects a full league snapshot from the Fantrax API."""
 
 import re
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime
 
 from fbb.fantrax import payload
 from fbb.fantrax.client import FantraxClient
@@ -15,6 +15,7 @@ from fbb.fantrax.models import (
     TeamStartsBudget,
 )
 from fbb.fantrax.payload import Json
+from fbb.fantrax.waivers import DEFAULT_PERIODS_AHEAD, WaiverSchedule
 
 # `getPlayerStats` filter values, taken from the dropdowns the Players page sends.
 _STATUS_AVAILABLE = 'ALL_AVAILABLE'
@@ -38,9 +39,20 @@ class SnapshotCollector:
     fields this parser doesn't model yet.
     """
 
-    def __init__(self, client: FantraxClient, league_id: str) -> None:
+    def __init__(
+        self,
+        client: FantraxClient,
+        league_id: str,
+        periods_ahead: int = DEFAULT_PERIODS_AHEAD,
+        schedule: WaiverSchedule | None = None,
+        now: datetime | None = None,
+    ) -> None:
         self._client = client
         self._league_id = league_id
+        self._periods_ahead = periods_ahead
+        self._schedule = schedule or WaiverSchedule()
+        # Local time, because waiver deadlines are league-local wall-clock times.
+        self._now = now or datetime.now()
         self.raw: dict[str, object] = {}
         self._rosters_raw: dict[str, Json] = {}
 
@@ -50,13 +62,16 @@ class SnapshotCollector:
         # reads it back out of the roster payload cached here.
         rosters = [self._roster(t) for t in teams]
         budgets = [self._starts_budget(t) for t in teams]
+        collect_through = self._schedule.collection_end(self._now, self._periods_ahead)
         return LeagueSnapshot(
             league_id=self._league_id,
             collected_at=datetime.now(UTC),
+            periods_ahead=self._periods_ahead,
+            collected_through=collect_through,
             teams=teams,
             starts_budgets=budgets,
             rosters=rosters,
-            free_agent_pitchers=self._free_agent_pitchers(),
+            free_agent_pitchers=self._free_agent_pitchers(collect_through),
         )
 
     def _fantasy_teams(self) -> list[FantasyTeam]:
@@ -138,22 +153,21 @@ class SnapshotCollector:
                 )
         return TeamRoster(team_id=team.team_id, team_name=team.name, players=players)
 
-    def _free_agent_pitchers(self) -> list[FreeAgentPitcher]:
+    def _free_agent_pitchers(self, collect_through: date) -> list[FreeAgentPitcher]:
         """
         Available starting pitchers with a probable start, swept date by date.
 
-        The unfiltered query only returns the current day's probables, which is far
-        less than a two-week round needs. Each date is a separate query, so one entry
-        is produced per pitcher-date: a pitcher starting twice appears twice.
+        The unfiltered query only returns the current day's probables, far less than
+        a waiver period needs. Each date is a separate query, so one entry is produced
+        per pitcher-date: a pitcher starting twice appears twice.
         """
         collected: list[FreeAgentPitcher] = []
-        for date in self._probable_start_dates():
-            rows = self._free_agent_page(date)
-            if not rows:
-                # MLB publishes probables ~12 days out; past the horizon every
-                # later date is empty too, so stop rather than keep querying.
+        for day in self._probable_start_dates():
+            if date.fromisoformat(day) > collect_through:
                 break
-            collected.extend(self._free_agent(row, date) for row in rows)
+            collected.extend(
+                self._free_agent(row, day) for row in self._free_agent_page(day)
+            )
         return collected
 
     def _probable_start_dates(self) -> list[str]:

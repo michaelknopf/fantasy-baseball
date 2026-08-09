@@ -4,6 +4,8 @@ Payload fixtures are trimmed copies of real API responses; they exist to pin the
 field paths the collector depends on, since Fantrax can reshape them silently.
 """
 
+from datetime import date, datetime
+
 import pytest
 
 from fbb.fantrax.client import FantraxClient
@@ -99,20 +101,22 @@ def _teams_payload() -> Json:
 
 
 def _date_list_payload() -> Json:
+    """Fantrax offers a month of dates; the waiver window decides how many are used."""
     return {
         'displayedLists': {
             'datePlayingDates': [
                 {'id': 'ALL', 'name': 'All'},
-                {'id': '2026-08-09', 'name': 'Sun Aug 9'},
-                {'id': '2026-08-10', 'name': 'Mon Aug 10'},
-                {'id': '2026-08-11', 'name': 'Tue Aug 11'},
+                *(
+                    {'id': f'2026-08-{day:02d}', 'name': f'Aug {day}'}
+                    for day in range(9, 26)
+                ),
             ]
         }
     }
 
 
 def _free_agents_payload(date: str) -> Json:
-    """One probable starter on 8/9 and 8/10; nothing on 8/11 (past the horizon)."""
+    """A probable starter on 8/9 and 8/10; other dates return nobody."""
     by_date: dict[str, list[Json]] = {
         '2026-08-09': [
             {
@@ -164,7 +168,9 @@ def client() -> StubClient:
 
 @pytest.fixture
 def collector(client: StubClient) -> SnapshotCollector:
-    return SnapshotCollector(client, LEAGUE_ID)
+    # Sunday 8/9: waiver deadlines fall Mon 10, Thu 13, Sat 15, so two periods
+    # ahead collects through Fri 14.
+    return SnapshotCollector(client, LEAGUE_ID, now=datetime(2026, 8, 9, 10, 0))
 
 
 @pytest.fixture
@@ -213,20 +219,48 @@ def test_parses_probable_start_with_home_away(snapshot: LeagueSnapshot) -> None:
     assert home.next_start.is_away is False
 
 
-def test_sweeps_dates_and_stops_at_the_probables_horizon(client: StubClient) -> None:
-    """Each date is its own query, and the first empty date ends the sweep."""
-    snapshot = SnapshotCollector(client, LEAGUE_ID).collect()
-    assert [p.start_date for p in snapshot.free_agent_pitchers] == [
-        '2026-08-09',
-        '2026-08-10',
-    ]
-    swept = [
+def _swept_dates(client: StubClient) -> list[str]:
+    return [
         args['datePlaying']
         for method, args in client.calls
         if method == 'getPlayerStats' and 'datePlaying' in args
     ]
-    # 8/11 is queried and comes back empty; nothing beyond it is requested.
-    assert swept == ['2026-08-09', '2026-08-10', '2026-08-11']
+
+
+def test_sweeps_through_the_day_before_the_closing_deadline(
+    client: StubClient, collector: SnapshotCollector
+) -> None:
+    """From Sun 8/9, two periods ahead ends on Fri 8/14 — the day before Sat's deadline."""
+    snapshot = collector.collect()
+    assert snapshot.collected_through == date(2026, 8, 14)
+    assert _swept_dates(client) == [f'2026-08-{d:02d}' for d in range(9, 15)]
+
+
+def test_periods_ahead_narrows_the_window(client: StubClient) -> None:
+    """One period ahead stops before Thursday's deadline, so it ends Wed 8/12."""
+    collector = SnapshotCollector(
+        client, LEAGUE_ID, periods_ahead=1, now=datetime(2026, 8, 9, 10, 0)
+    )
+    snapshot = collector.collect()
+    assert snapshot.collected_through == date(2026, 8, 12)
+    assert _swept_dates(client) == [
+        '2026-08-09',
+        '2026-08-10',
+        '2026-08-11',
+        '2026-08-12',
+    ]
+
+
+def test_empty_dates_inside_the_window_are_still_swept(
+    client: StubClient, collector: SnapshotCollector
+) -> None:
+    """A date with no probables must not cut the sweep short."""
+    snapshot = collector.collect()
+    assert [p.start_date for p in snapshot.free_agent_pitchers] == [
+        '2026-08-09',
+        '2026-08-10',
+    ]
+    assert '2026-08-14' in _swept_dates(client)
 
 
 def test_retains_raw_payloads_for_offline_analysis(

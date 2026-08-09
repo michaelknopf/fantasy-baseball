@@ -4,7 +4,7 @@ These models cover the fields playoff decisions actually turn on. The collector
 also keeps every raw payload, so analysis can reach anything not modelled here.
 """
 
-from datetime import datetime
+from datetime import date, datetime
 from typing import Any
 
 from pydantic import BaseModel
@@ -84,10 +84,16 @@ class FreeAgentPitcher(BaseModel):
 
 
 class LeagueSnapshot(BaseModel):
-    """Everything collected in one run."""
+    """Everything collected in one run.
+
+    `collected_through` is the last date free-agent starts were gathered for: the day
+    before the waiver deadline that closes the `periods_ahead` window.
+    """
 
     league_id: str
     collected_at: datetime
+    periods_ahead: int
+    collected_through: date
     teams: list[FantasyTeam] = []
     starts_budgets: list[TeamStartsBudget] = []
     rosters: list[TeamRoster] = []
