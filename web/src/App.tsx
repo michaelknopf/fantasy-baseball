@@ -237,9 +237,9 @@ function Figure({
 }) {
   return (
     <div className="flex flex-col">
-      <dt className="chyron text-[10px] text-ink-3">{label}</dt>
+      <dt className="chyron text-xs text-ink-3">{label}</dt>
       <dd className={`num text-3xl ${tone ?? ''}`}>{value}</dd>
-      <dd className="text-[10px] text-ink-3">{hint}</dd>
+      <dd className="text-xs text-ink-3">{hint}</dd>
     </div>
   )
 }

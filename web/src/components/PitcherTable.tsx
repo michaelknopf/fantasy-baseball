@@ -79,7 +79,7 @@ export function PitcherTable({
       <div className="overflow-x-auto rounded border border-line">
         <table className="w-full text-sm">
           <thead>
-            <tr className="chyron border-b border-line bg-sunk text-left text-[10px] text-ink-3">
+            <tr className="chyron border-b border-line bg-sunk text-left text-sm text-ink-2">
               <th className="px-3 py-2">Pitcher</th>
               <th className="px-3 py-2">Matchup</th>
               <th className="px-2 py-2 text-right">30d</th>
@@ -147,7 +147,7 @@ function Row({
             <span className="font-medium">{pitcher.name}</span>
             <span className="text-xs text-ink-3">{pitcher.mlb_team}</span>
           </span>
-          <span className="text-[10px]">
+          <span className="text-xs">
             {injured ? (
               <span className="text-bad">injured reserve</span>
             ) : activated ? (
@@ -215,7 +215,7 @@ function Row({
         ) : (
           <Action label="Add" tone="good" onClick={() => onAdd(pitcher.player_id)} />
         )}
-        {pending && <span className="ml-2 text-[10px] text-free">planned</span>}
+        {pending && <span className="ml-2 text-xs text-free">planned</span>}
       </td>
     </tr>
   )

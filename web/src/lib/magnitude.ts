@@ -19,10 +19,8 @@ export interface Distribution {
 }
 
 export interface Magnitude {
-  /** 1 (worst sixth) to 5 (best sixth). */
+  /** 1 (worst sixth) to 5 (best sixth). Also drives the non-colour channel. */
   step: number
-  /** The non-colour channel, so the grading survives colour-blindness. */
-  sign: '+' | '·' | '−'
   percentile: number
 }
 
@@ -48,19 +46,11 @@ export function magnitude(
   // "top 15%", and the reported percentile keeps meaning "how large".
   const raw = stepOf(percentile)
   const step = dist.direction === 'low-good' ? 6 - raw : raw
-  return { step, sign: SIGNS[step] ?? '·', percentile }
+  return { step, percentile }
 }
 
 export function magnitudeClass(m: Magnitude | null): string {
   return m ? `mag-${m.step}` : ''
-}
-
-const SIGNS: Record<number, Magnitude['sign']> = {
-  1: '−',
-  2: '−',
-  3: '·',
-  4: '+',
-  5: '+',
 }
 
 /**

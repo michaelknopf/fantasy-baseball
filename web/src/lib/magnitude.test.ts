@@ -37,13 +37,12 @@ describe('magnitude', () => {
     )
   })
 
-  it('derives the sign from the step so colour and sign cannot disagree', () => {
+  it('carries the whole grade in the step, so no channel can disagree', () => {
     const low = distribution(HUNDRED, 'low-good')
-    expect(magnitude(95, high)?.sign).toBe('+')
-    expect(magnitude(50, high)?.sign).toBe('·')
-    expect(magnitude(5, high)?.sign).toBe('−')
-    // Same raw value, opposite direction: sign follows the step, not the number.
-    expect(magnitude(5, low)?.sign).toBe('+')
+    // The fill and the bar both read `step`, so a value cannot be painted as
+    // strong while its bar says weak.
+    expect(magnitude(5, high)?.step).toBe(1)
+    expect(magnitude(5, low)?.step).toBe(5)
   })
 
   it('gives tied values the same step', () => {

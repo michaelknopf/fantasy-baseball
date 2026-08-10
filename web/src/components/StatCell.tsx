@@ -2,13 +2,7 @@ import { magnitude, magnitudeClass } from '@/lib/magnitude'
 import type { Distribution } from '@/lib/magnitude'
 import { THIN_SAMPLE } from '@/lib/rows'
 
-/**
- * A number graded against its own column.
- *
- * The sign prefix is not decoration: colour alone excludes anyone who cannot
- * separate the two ends of the ramp, so every painted cell carries the grade in
- * a second channel as well.
- */
+/** A number, tinted by where it falls in its own column. */
 export function StatCell({
   value,
   ramp,
@@ -38,10 +32,9 @@ export function StatCell({
         }`}
         title={thin ? `only ${games} games — too few to grade` : undefined}
       >
-        {grade && <span className="mr-0.5 text-ink-2">{grade.sign}</span>}
         {value.toFixed(digits)}
       </span>
-      {hint && <span className="block text-[10px] text-ink-3">{hint}</span>}
+      {hint && <span className="block text-xs text-ink-3">{hint}</span>}
     </td>
   )
 }
