@@ -255,3 +255,71 @@ describe('score column', () => {
     expect(sorted[1]).toBeCloseTo(30)
   })
 })
+
+describe('planned ownership', () => {
+  const b = () =>
+    board([
+      pitcher({
+        player_id: 'keeping',
+        ownership: 'mine',
+        starts: [start('2026-08-11')],
+        season: { games: 20, fantasy_points: 400, per_game: 20 },
+        windows: { last30: { games: 6, fantasy_points: 120, per_game: 20 } },
+      }),
+      pitcher({
+        player_id: 'dropping',
+        ownership: 'mine',
+        starts: [start('2026-08-11')],
+        season: { games: 20, fantasy_points: 300, per_game: 15 },
+        windows: { last30: { games: 6, fantasy_points: 90, per_game: 15 } },
+      }),
+      pitcher({
+        player_id: 'adding',
+        ownership: 'free_agent',
+        starts: [start('2026-08-11')],
+        season: { games: 20, fantasy_points: 500, per_game: 25 },
+        windows: { last30: { games: 6, fantasy_points: 150, per_game: 25 } },
+      }),
+    ])
+
+  /** After planning: drop 'dropping', add 'adding'. */
+  const held = new Set(['keeping', 'adding'])
+
+  it('moves a planned add into my rotation', () => {
+    const ids = pitcherRows(b(), PERIOD, { ownership: 'mine', held }).map(
+      (r) => r.pitcher.player_id,
+    )
+    expect(ids).toContain('adding')
+  })
+
+  it('takes a planned add out of the claimable pool', () => {
+    const ids = pitcherRows(b(), PERIOD, { ownership: 'free_agent', held }).map(
+      (r) => r.pitcher.player_id,
+    )
+    expect(ids).not.toContain('adding')
+  })
+
+  it('keeps a pitcher being dropped in my rotation, to be struck through', () => {
+    // He is on the roster until the waiver run, and the starts being given up
+    // are the whole point of the decision — vanishing would hide them.
+    const ids = pitcherRows(b(), PERIOD, { ownership: 'mine', held }).map(
+      (r) => r.pitcher.player_id,
+    )
+    expect(ids).toContain('dropping')
+  })
+
+  it('does not move a dropped pitcher into the claimable pool', () => {
+    const ids = pitcherRows(b(), PERIOD, { ownership: 'free_agent', held }).map(
+      (r) => r.pitcher.player_id,
+    )
+    expect(ids).not.toContain('dropping')
+  })
+
+  it('falls back to the snapshot when no plan is supplied', () => {
+    const ids = pitcherRows(b(), PERIOD, { ownership: 'mine' }).map(
+      (r) => r.pitcher.player_id,
+    )
+    expect(ids).toEqual(expect.arrayContaining(['keeping', 'dropping']))
+    expect(ids).not.toContain('adding')
+  })
+})

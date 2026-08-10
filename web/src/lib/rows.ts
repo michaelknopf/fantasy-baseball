@@ -52,6 +52,14 @@ export function pitcherRows(
   period: WaiverPeriod,
   opts: {
     ownership?: Pitcher['ownership']
+    /**
+     * Who we hold once the planned moves are applied.
+     *
+     * Passing this makes the tables follow the plan rather than the snapshot,
+     * so a pitcher moves to the table he is headed for the moment the move is
+     * recorded. Without it, ownership falls back to what Fantrax reported.
+     */
+    held?: Set<string>
     query?: string
     sort?: SortKey
     limit?: number
@@ -61,7 +69,7 @@ export function pitcherRows(
   const sort = opts.sort ?? 'score'
 
   const rows = board.pitchers
-    .filter((p) => !opts.ownership || p.ownership === opts.ownership)
+    .filter((p) => !opts.ownership || ownershipOf(p, opts.held) === opts.ownership)
     .filter((p) => !query || p.name.toLowerCase().includes(query))
     .map((p) => {
       const starts = startsInPeriod(p, period)
@@ -71,6 +79,24 @@ export function pitcherRows(
     .sort((a, b) => compare(a, b, sort))
 
   return opts.limit === undefined ? rows : rows.slice(0, opts.limit)
+}
+
+/**
+ * Where a pitcher sits once the plan is taken into account.
+ *
+ * A pitcher we plan to drop stays under 'mine' rather than moving to the pool:
+ * he is still on the roster until the waiver run, and the starts being given up
+ * are the point of the decision. He renders struck through instead. An add moves
+ * immediately, because that is the row you want to see beside the rest of the
+ * rotation once it is planned.
+ */
+function ownershipOf(
+  pitcher: Pitcher,
+  held: Set<string> | undefined,
+): Pitcher['ownership'] {
+  if (!held) return pitcher.ownership
+  if (pitcher.ownership === 'mine') return 'mine'
+  return held.has(pitcher.player_id) ? 'mine' : 'free_agent'
 }
 
 /**

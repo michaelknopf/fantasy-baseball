@@ -55,13 +55,16 @@ export function App() {
   )
   const ledger = useMemo(() => validateLedger(board, moves), [moves])
 
+  // Both tables follow `held`, so a planned add or drop moves the row to the
+  // table it is headed for instead of leaving it misfiled under a contradictory
+  // label.
   const mine = useMemo(
-    () => pitcherRows(board, period, { ownership: 'mine', sort }),
-    [period, sort],
+    () => pitcherRows(board, period, { ownership: 'mine', held, sort }),
+    [period, held, sort],
   )
   const pool = useMemo(
-    () => pitcherRows(board, period, { ownership: 'free_agent', sort, query }),
-    [period, sort, query],
+    () => pitcherRows(board, period, { ownership: 'free_agent', held, sort, query }),
+    [period, held, sort, query],
   )
 
   const record = (move: Move) =>
@@ -102,6 +105,27 @@ export function App() {
     ])
     setPending(null)
   }
+
+  /**
+   * Takes back a planned move and whatever it was paired with.
+   *
+   * An add and the drop that paid for it are one decision, so undoing either
+   * has to undo both — leaving the drop behind would silently give up a roster
+   * spot for nothing.
+   */
+  const undo = (playerId: string) =>
+    setMoves((current) => {
+      const target = current.find(
+        (m) => m.playerId === playerId && m.period === period.starts_on,
+      )
+      if (!target) return current
+      const partner = target.pairedWith ?? partnerOf(current, target)
+      return current.filter(
+        (m) =>
+          m.period !== period.starts_on ||
+          (m.playerId !== playerId && m.playerId !== partner),
+      )
+    })
 
   const pendingIds = new Set(
     moves.filter((m) => m.period === period.starts_on).map((m) => m.playerId),
@@ -148,6 +172,7 @@ export function App() {
         onAdd={request('add')}
         onDrop={(id) => record({ period: period.starts_on, action: 'drop', playerId: id })}
         onActivate={request('activate')}
+        onUndo={undo}
         pendingIds={pendingIds}
         empty="None of my pitchers start in this period."
       />
@@ -173,6 +198,7 @@ export function App() {
             record({ period: period.starts_on, action: 'drop', playerId: id })
           }
           onActivate={request('activate')}
+          onUndo={undo}
           pendingIds={pendingIds}
           empty={
             period.free_agents_known
@@ -259,6 +285,18 @@ function Figure({
       <dd className="text-xs text-ink-3">{hint}</dd>
     </div>
   )
+}
+
+/**
+ * The other half of a pairing, looked up in whichever direction it was stored.
+ *
+ * `pairedWith` is recorded on the add that a drop paid for, so undoing the drop
+ * has to search for the move pointing back at it.
+ */
+function partnerOf(moves: Move[], target: Move): string | undefined {
+  return moves.find(
+    (m) => m.period === target.period && m.pairedWith === target.playerId,
+  )?.playerId
 }
 
 function nameOf(playerId: string): string {

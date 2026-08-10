@@ -35,6 +35,7 @@ export function PitcherTable({
   onAdd,
   onDrop,
   onActivate,
+  onUndo,
   pendingIds,
   empty,
 }: {
@@ -50,6 +51,8 @@ export function PitcherTable({
   onAdd: (playerId: string) => void
   onDrop: (playerId: string) => void
   onActivate: (playerId: string) => void
+  /** Takes back a planned add or drop for this pitcher. */
+  onUndo: (playerId: string) => void
   pendingIds: Set<string>
   empty: string
 }) {
@@ -110,6 +113,7 @@ export function PitcherTable({
                 onAdd={onAdd}
                 onDrop={onDrop}
                 onActivate={onActivate}
+                onUndo={onUndo}
               />
             ))}
           </tbody>
@@ -131,6 +135,7 @@ function Row({
   onAdd,
   onDrop,
   onActivate,
+  onUndo,
 }: {
   pitcher: Pitcher
   starts: PitcherRow['starts']
@@ -142,19 +147,34 @@ function Row({
   onAdd: (playerId: string) => void
   onDrop: (playerId: string) => void
   onActivate: (playerId: string) => void
+  onUndo: (playerId: string) => void
 }) {
   const injured = isInjuredReserve(pitcher.roster_status) && !activated
+  // A planned move is one the snapshot disagrees with: we hold him and Fantrax
+  // does not, or the reverse.
+  const adding = held && pitcher.ownership === 'free_agent'
+  const dropping = !held && pitcher.ownership === 'mine'
 
   return (
-    <tr className="border-b border-line/60 last:border-0 hover:bg-sunk/50">
+    <tr
+      className={`border-b border-line/60 last:border-0 hover:bg-sunk/50 ${
+        dropping ? 'opacity-45' : ''
+      }`}
+    >
       <td className="px-3 py-2">
         <div className="flex flex-col">
           <span className="flex items-baseline gap-2">
-            <span className="font-medium">{pitcher.name}</span>
+            <span className={`font-medium ${dropping ? 'line-through' : ''}`}>
+              {pitcher.name}
+            </span>
             <span className="text-xs text-ink-3">{pitcher.mlb_team}</span>
           </span>
           <span className="text-xs">
-            {injured ? (
+            {dropping ? (
+              <span className="text-bad">dropping</span>
+            ) : adding ? (
+              <span className="text-good">adding</span>
+            ) : injured ? (
               <span className="text-bad">injured reserve</span>
             ) : activated ? (
               <span className="text-free">activated</span>
@@ -215,15 +235,22 @@ function Row({
         <Sparkline games={pitcher.recent_games} />
       </td>
 
+      {/* A planned row offers to take the move back, rather than the action it
+          already carries out — "Add" beside a pitcher being added is a no-op the
+          reader has to think about. */}
       <td className="px-3 py-2 text-right whitespace-nowrap">
-        {injured ? (
+        {adding || dropping ? (
+          <Action label="Undo" tone="free" onClick={() => onUndo(pitcher.player_id)} />
+        ) : injured ? (
           <Action label="Activate" tone="free" onClick={() => onActivate(pitcher.player_id)} />
         ) : held ? (
           <Action label="Drop" tone="bad" onClick={() => onDrop(pitcher.player_id)} />
         ) : (
           <Action label="Add" tone="good" onClick={() => onAdd(pitcher.player_id)} />
         )}
-        {pending && <span className="ml-2 text-xs text-free">planned</span>}
+        {pending && !adding && !dropping && (
+          <span className="ml-2 text-xs text-free">planned</span>
+        )}
       </td>
     </tr>
   )
