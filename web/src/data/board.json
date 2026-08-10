@@ -57,13 +57,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "76%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-13",
           "label": "Thu 8/13",
           "opponent": "MIN",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.661016949152542,
+          "opponent_runs_rank": 9,
+          "opponent_ops": 0.72375405,
+          "opponent_strikeouts_rank": 9
         }
       ],
       "season": {
@@ -98,7 +104,7 @@
         "FP/G": "19.2",
         "Ros": "76%",
         "+/-": "-1%",
-        "IP": "125",
+        "IP": "125.0",
         "H": "138",
         "BB": "43",
         "ER": "76",
@@ -111,7 +117,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.45"
       },
       "recent_games": [
         {
@@ -393,13 +400,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "71%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "PHI",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.415254237288136,
+          "opponent_runs_rank": 14,
+          "opponent_ops": 0.7078779,
+          "opponent_strikeouts_rank": 23
         }
       ],
       "season": {
@@ -434,7 +447,7 @@
         "FP/G": "22.86",
         "Ros": "71%",
         "+/-": "0%",
-        "IP": "124",
+        "IP": "124.0",
         "H": "114",
         "BB": "37",
         "ER": "50",
@@ -447,7 +460,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.22"
       },
       "recent_games": [
         {
@@ -729,13 +743,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "86%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-13",
           "label": "Thu 8/13",
           "opponent": "CHW",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.758620689655173,
+          "opponent_runs_rank": 8,
+          "opponent_ops": 0.71988225,
+          "opponent_strikeouts_rank": 25
         }
       ],
       "season": {
@@ -770,7 +790,7 @@
         "FP/G": "21.13",
         "Ros": "86%",
         "+/-": "-2%",
-        "IP": "128.2",
+        "IP": "128.7",
         "H": "118",
         "BB": "61",
         "ER": "56",
@@ -783,7 +803,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.39"
       },
       "recent_games": [
         {
@@ -1065,13 +1086,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "19%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "NYM",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.135593220338983,
+          "opponent_runs_rank": 23,
+          "opponent_ops": 0.68922305,
+          "opponent_strikeouts_rank": 18
         }
       ],
       "season": {
@@ -1106,7 +1133,7 @@
         "FP/G": "17.15",
         "Ros": "19%",
         "+/-": "+1%",
-        "IP": "69.1",
+        "IP": "69.3",
         "H": "65",
         "BB": "32",
         "ER": "29",
@@ -1119,7 +1146,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.40"
       },
       "recent_games": [
         {
@@ -1401,13 +1429,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "68%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "STL",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.3418803418803416,
+          "opponent_runs_rank": 19,
+          "opponent_ops": 0.69376415,
+          "opponent_strikeouts_rank": 4
         }
       ],
       "season": {
@@ -1433,7 +1467,7 @@
         }
       },
       "stats": {
-        "Rk": "450",
+        "Rk": "451",
         "Sta": "FA",
         "Age": "23",
         "Opp": "@STL<br/>Mon 4:45PM",
@@ -1442,7 +1476,7 @@
         "FP/G": "13.33",
         "Ros": "68%",
         "+/-": "+1%",
-        "IP": "75",
+        "IP": "75.0",
         "H": "90",
         "BB": "28",
         "ER": "54",
@@ -1455,7 +1489,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.57"
       },
       "recent_games": [
         {
@@ -1737,13 +1772,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "45%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "DET",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.581196581196581,
+          "opponent_runs_rank": 11,
+          "opponent_ops": 0.73211145,
+          "opponent_strikeouts_rank": 20
         }
       ],
       "season": {
@@ -1778,7 +1819,7 @@
         "FP/G": "18",
         "Ros": "45%",
         "+/-": "+2%",
-        "IP": "116",
+        "IP": "116.0",
         "H": "113",
         "BB": "43",
         "ER": "52",
@@ -1791,7 +1832,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.34"
       },
       "recent_games": [
         {
@@ -2073,13 +2115,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "73%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "BAL",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.427350427350428,
+          "opponent_runs_rank": 16,
+          "opponent_ops": 0.70874035,
+          "opponent_strikeouts_rank": 27
         }
       ],
       "season": {
@@ -2114,7 +2162,7 @@
         "FP/G": "21.04",
         "Ros": "73%",
         "+/-": "-1%",
-        "IP": "93",
+        "IP": "93.0",
         "H": "89",
         "BB": "24",
         "ER": "46",
@@ -2127,7 +2175,8 @@
         "SHO": "1",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.22"
       },
       "recent_games": [
         {
@@ -2409,13 +2458,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "21%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "HOU",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.6440677966101696,
+          "opponent_runs_rank": 10,
+          "opponent_ops": 0.73870975,
+          "opponent_strikeouts_rank": 13
         }
       ],
       "season": {
@@ -2450,7 +2505,7 @@
         "FP/G": "8.97",
         "Ros": "21%",
         "+/-": "+3%",
-        "IP": "17",
+        "IP": "17.0",
         "H": "16",
         "BB": "4",
         "ER": "6",
@@ -2463,7 +2518,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.18"
       },
       "recent_games": [
         {
@@ -2717,14 +2773,20 @@
       "mlb_team": "LAD",
       "positions": "SP",
       "ownership": "mine",
-      "roster_status": "injured_reserve",
+      "roster_status": "injured reserve",
+      "rostered_pct": "95%",
+      "owned_by": "MK",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "KC",
           "is_away": false,
-          "opposing_pitcher": "Michael Wacha"
+          "opposing_pitcher": "Michael Wacha",
+          "opponent_runs_per_game": 4.1525423728813555,
+          "opponent_runs_rank": 22,
+          "opponent_ops": 0.71044767,
+          "opponent_strikeouts_rank": 7
         }
       ],
       "season": {
@@ -2768,7 +2830,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "2.67"
       },
       "recent_games": [
         {
@@ -2807,13 +2870,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "70%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "ATL",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.905982905982906,
+          "opponent_runs_rank": 6,
+          "opponent_ops": 0.73534,
+          "opponent_strikeouts_rank": 8
         }
       ],
       "season": {
@@ -2848,7 +2917,7 @@
         "FP/G": "16.61",
         "Ros": "70%",
         "+/-": "+2%",
-        "IP": "85.2",
+        "IP": "85.7",
         "H": "79",
         "BB": "24",
         "ER": "32",
@@ -2861,7 +2930,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.20"
       },
       "recent_games": [
         {
@@ -3142,21 +3212,31 @@
       "mlb_team": "BAL",
       "positions": "SP",
       "ownership": "mine",
-      "roster_status": "active",
+      "roster_status": "owned",
+      "rostered_pct": "70%",
+      "owned_by": "MK",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "MIN",
           "is_away": true,
-          "opposing_pitcher": "Bailey Ober"
+          "opposing_pitcher": "Bailey Ober",
+          "opponent_runs_per_game": 4.661016949152542,
+          "opponent_runs_rank": 9,
+          "opponent_ops": 0.72375405,
+          "opponent_strikeouts_rank": 9
         },
         {
           "date": "2026-08-17",
           "label": "Mon 8/17",
           "opponent": "TB",
           "is_away": true,
-          "opposing_pitcher": "Nick Martinez"
+          "opposing_pitcher": "Nick Martinez",
+          "opponent_runs_per_game": 4.439655172413793,
+          "opponent_runs_rank": 17,
+          "opponent_ops": 0.73095894,
+          "opponent_strikeouts_rank": 1
         }
       ],
       "season": {
@@ -3200,7 +3280,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.31"
       },
       "recent_games": [
         {
@@ -3482,20 +3563,30 @@
       "positions": "RP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "97%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "MIA",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.338983050847458,
+          "opponent_runs_rank": 18,
+          "opponent_ops": 0.72841334,
+          "opponent_strikeouts_rank": 10
         },
         {
           "date": "2026-08-13",
           "label": "Thu 8/13",
           "opponent": "MIA",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.338983050847458,
+          "opponent_runs_rank": 18,
+          "opponent_ops": 0.72841334,
+          "opponent_strikeouts_rank": 10
         }
       ],
       "season": {
@@ -3530,7 +3621,7 @@
         "FP/G": "26.18",
         "Ros": "97%",
         "+/-": "0%",
-        "IP": "132.1",
+        "IP": "132.3",
         "H": "121",
         "BB": "32",
         "ER": "60",
@@ -3543,7 +3634,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.16"
       },
       "recent_games": [
         {
@@ -3825,13 +3917,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "83%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "NYM",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.135593220338983,
+          "opponent_runs_rank": 23,
+          "opponent_ops": 0.68922305,
+          "opponent_strikeouts_rank": 18
         }
       ],
       "season": {
@@ -3866,7 +3964,7 @@
         "FP/G": "25",
         "Ros": "83%",
         "+/-": "+3%",
-        "IP": "126.2",
+        "IP": "126.7",
         "H": "110",
         "BB": "42",
         "ER": "52",
@@ -3879,7 +3977,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.20"
       },
       "recent_games": [
         {
@@ -4161,13 +4260,19 @@
       "positions": "RP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "34%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "BOS",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.482758620689655,
+          "opponent_runs_rank": 15,
+          "opponent_ops": 0.7239071,
+          "opponent_strikeouts_rank": 11
         }
       ],
       "season": {
@@ -4202,7 +4307,7 @@
         "FP/G": "15.63",
         "Ros": "34%",
         "+/-": "+3%",
-        "IP": "97.1",
+        "IP": "97.3",
         "H": "100",
         "BB": "32",
         "ER": "38",
@@ -4215,7 +4320,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.36"
       },
       "recent_games": [
         {
@@ -4497,13 +4603,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "27%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "HOU",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.6440677966101696,
+          "opponent_runs_rank": 10,
+          "opponent_ops": 0.73870975,
+          "opponent_strikeouts_rank": 13
         }
       ],
       "season": {
@@ -4538,7 +4650,7 @@
         "FP/G": "10.45",
         "Ros": "27%",
         "+/-": "-5%",
-        "IP": "22.1",
+        "IP": "22.3",
         "H": "26",
         "BB": "15",
         "ER": "18",
@@ -4551,7 +4663,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.84"
       },
       "recent_games": [
         {
@@ -4698,13 +4811,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "94%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "MIL",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.965811965811966,
+          "opponent_runs_rank": 5,
+          "opponent_ops": 0.7333182,
+          "opponent_strikeouts_rank": 14
         }
       ],
       "season": {
@@ -4739,7 +4858,7 @@
         "FP/G": "24.97",
         "Ros": "94%",
         "+/-": "0%",
-        "IP": "90",
+        "IP": "90.0",
         "H": "76",
         "BB": "22",
         "ER": "34",
@@ -4752,7 +4871,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.09"
       },
       "recent_games": [
         {
@@ -5034,13 +5154,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "67%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "ATL",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.905982905982906,
+          "opponent_runs_rank": 6,
+          "opponent_ops": 0.73534,
+          "opponent_strikeouts_rank": 8
         }
       ],
       "season": {
@@ -5075,7 +5201,7 @@
         "FP/G": "22.08",
         "Ros": "67%",
         "+/-": "+1%",
-        "IP": "74.1",
+        "IP": "74.3",
         "H": "62",
         "BB": "32",
         "ER": "26",
@@ -5088,7 +5214,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.26"
       },
       "recent_games": [
         {
@@ -5370,13 +5497,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "87%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "STL",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.3418803418803416,
+          "opponent_runs_rank": 19,
+          "opponent_ops": 0.69376415,
+          "opponent_strikeouts_rank": 4
         }
       ],
       "season": {
@@ -5411,7 +5544,7 @@
         "FP/G": "25.75",
         "Ros": "87%",
         "+/-": "+3%",
-        "IP": "56.2",
+        "IP": "56.7",
         "H": "46",
         "BB": "20",
         "ER": "18",
@@ -5424,7 +5557,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.16"
       },
       "recent_games": [
         {
@@ -5706,13 +5840,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "41%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-09",
           "label": "Sun 8/9",
           "opponent": "SD",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.211864406779661,
+          "opponent_runs_rank": 21,
+          "opponent_ops": 0.69482017,
+          "opponent_strikeouts_rank": 12
         }
       ],
       "season": {
@@ -5745,9 +5885,9 @@
         "Sal": "1",
         "FPts": "73",
         "FP/G": "8.11",
-        "Ros": "40%",
+        "Ros": "41%",
         "+/-": "+1%",
-        "IP": "27.1",
+        "IP": "27.3",
         "H": "31",
         "BB": "15",
         "ER": "20",
@@ -5760,7 +5900,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.68"
       },
       "recent_games": [
         {
@@ -6015,13 +6156,19 @@
       "positions": "RP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "26%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "LAD",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 5.034188034188034,
+          "opponent_runs_rank": 4,
+          "opponent_ops": 0.76796234,
+          "opponent_strikeouts_rank": 5
         }
       ],
       "season": {
@@ -6056,7 +6203,7 @@
         "FP/G": "5.61",
         "Ros": "26%",
         "+/-": "+1%",
-        "IP": "47.2",
+        "IP": "47.7",
         "H": "34",
         "BB": "14",
         "ER": "13",
@@ -6069,7 +6216,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.01"
       },
       "recent_games": [
         {
@@ -6350,21 +6498,31 @@
       "mlb_team": "CHC",
       "positions": "SP",
       "ownership": "mine",
-      "roster_status": "reserve",
+      "roster_status": "owned",
+      "rostered_pct": "54%",
+      "owned_by": "MK",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "WSH",
           "is_away": true,
-          "opposing_pitcher": "Miles Mikolas"
+          "opposing_pitcher": "Miles Mikolas",
+          "opponent_runs_per_game": 5.34453781512605,
+          "opponent_runs_rank": 1,
+          "opponent_ops": 0.7660996,
+          "opponent_strikeouts_rank": 16
         },
         {
           "date": "2026-08-17",
           "label": "Mon 8/17",
           "opponent": "CHW",
           "is_away": false,
-          "opposing_pitcher": "Luis Castillo"
+          "opposing_pitcher": "Luis Castillo",
+          "opponent_runs_per_game": 4.758620689655173,
+          "opponent_runs_rank": 8,
+          "opponent_ops": 0.71988225,
+          "opponent_strikeouts_rank": 25
         }
       ],
       "season": {
@@ -6408,7 +6566,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.50"
       },
       "recent_games": [
         {
@@ -6690,13 +6849,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "38%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "BAL",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.427350427350428,
+          "opponent_runs_rank": 16,
+          "opponent_ops": 0.70874035,
+          "opponent_strikeouts_rank": 27
         }
       ],
       "season": {
@@ -6731,7 +6896,7 @@
         "FP/G": "18.28",
         "Ros": "38%",
         "+/-": "-8%",
-        "IP": "41",
+        "IP": "41.0",
         "H": "41",
         "BB": "13",
         "ER": "27",
@@ -6744,7 +6909,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.32"
       },
       "recent_games": [
         {
@@ -6972,13 +7138,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "16%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "CLE",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 3.983050847457627,
+          "opponent_runs_rank": 28,
+          "opponent_ops": 0.6829129,
+          "opponent_strikeouts_rank": 15
         }
       ],
       "season": {
@@ -7013,7 +7185,7 @@
         "FP/G": "7.89",
         "Ros": "16%",
         "+/-": "+3%",
-        "IP": "67.1",
+        "IP": "67.3",
         "H": "62",
         "BB": "25",
         "ER": "30",
@@ -7026,7 +7198,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.29"
       },
       "recent_games": [
         {
@@ -7308,13 +7481,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "78%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "SD",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.211864406779661,
+          "opponent_runs_rank": 21,
+          "opponent_ops": 0.69482017,
+          "opponent_strikeouts_rank": 12
         }
       ],
       "season": {
@@ -7349,7 +7528,7 @@
         "FP/G": "22.47",
         "Ros": "78%",
         "+/-": "+2%",
-        "IP": "115",
+        "IP": "115.0",
         "H": "108",
         "BB": "38",
         "ER": "55",
@@ -7362,7 +7541,8 @@
         "SHO": "1",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.27"
       },
       "recent_games": [
         {
@@ -7643,42 +7823,64 @@
       "mlb_team": "TOR",
       "positions": "SP",
       "ownership": "mine",
-      "roster_status": "reserve",
+      "roster_status": "owned",
+      "rostered_pct": "99%",
+      "owned_by": "MK",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "BOS",
           "is_away": false,
-          "opposing_pitcher": "Patrick Sandoval"
+          "opposing_pitcher": "Patrick Sandoval",
+          "opponent_runs_per_game": 4.482758620689655,
+          "opponent_runs_rank": 15,
+          "opponent_ops": 0.7239071,
+          "opponent_strikeouts_rank": 11
         },
         {
           "date": "2026-08-16",
           "label": "Sun 8/16",
           "opponent": "NYY",
           "is_away": false,
-          "opposing_pitcher": "Ryan Weathers"
+          "opposing_pitcher": "Ryan Weathers",
+          "opponent_runs_per_game": 4.52991452991453,
+          "opponent_runs_rank": 13,
+          "opponent_ops": 0.72240496,
+          "opponent_strikeouts_rank": 26
         },
         {
           "date": "2026-08-22",
           "label": "Sat 8/22",
           "opponent": "NYY",
           "is_away": true,
-          "opposing_pitcher": "Ryan Weathers"
+          "opposing_pitcher": "Ryan Weathers",
+          "opponent_runs_per_game": 4.52991452991453,
+          "opponent_runs_rank": 13,
+          "opponent_ops": 0.72240496,
+          "opponent_strikeouts_rank": 26
         },
         {
           "date": "2026-08-28",
           "label": "Fri 8/28",
           "opponent": "SEA",
           "is_away": false,
-          "opposing_pitcher": "Bryan Woo"
+          "opposing_pitcher": "Bryan Woo",
+          "opponent_runs_per_game": 3.906779661016949,
+          "opponent_runs_rank": 30,
+          "opponent_ops": 0.68458664,
+          "opponent_strikeouts_rank": 18
         },
         {
           "date": "2026-09-03",
           "label": "Thu 9/3",
           "opponent": "CLE",
           "is_away": true,
-          "opposing_pitcher": "Tanner Bibee"
+          "opposing_pitcher": "Tanner Bibee",
+          "opponent_runs_per_game": 3.983050847457627,
+          "opponent_runs_rank": 28,
+          "opponent_ops": 0.6829129,
+          "opponent_strikeouts_rank": 15
         }
       ],
       "season": {
@@ -7722,7 +7924,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.04"
       },
       "recent_games": [
         {
@@ -8004,13 +8207,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "40%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "KC",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.1525423728813555,
+          "opponent_runs_rank": 22,
+          "opponent_ops": 0.71044767,
+          "opponent_strikeouts_rank": 7
         }
       ],
       "season": {
@@ -8045,7 +8254,7 @@
         "FP/G": "17.47",
         "Ros": "40%",
         "+/-": "0%",
-        "IP": "92",
+        "IP": "92.0",
         "H": "87",
         "BB": "29",
         "ER": "50",
@@ -8058,7 +8267,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.26"
       },
       "recent_games": [
         {
@@ -8340,13 +8550,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "95%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "CLE",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 3.983050847457627,
+          "opponent_runs_rank": 28,
+          "opponent_ops": 0.6829129,
+          "opponent_strikeouts_rank": 15
         }
       ],
       "season": {
@@ -8381,7 +8597,7 @@
         "FP/G": "21.57",
         "Ros": "95%",
         "+/-": "0%",
-        "IP": "127.1",
+        "IP": "127.3",
         "H": "129",
         "BB": "45",
         "ER": "59",
@@ -8394,7 +8610,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.37"
       },
       "recent_games": [
         {
@@ -8676,13 +8893,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "25%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "ARI",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.516949152542373,
+          "opponent_runs_rank": 12,
+          "opponent_ops": 0.7084053,
+          "opponent_strikeouts_rank": 3
         }
       ],
       "season": {
@@ -8717,7 +8940,7 @@
         "FP/G": "21.79",
         "Ros": "25%",
         "+/-": "-3%",
-        "IP": "29.2",
+        "IP": "29.7",
         "H": "26",
         "BB": "9",
         "ER": "14",
@@ -8730,7 +8953,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.18"
       },
       "recent_games": [
         {
@@ -8904,13 +9128,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "64%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "TEX",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.136752136752137,
+          "opponent_runs_rank": 24,
+          "opponent_ops": 0.7176411,
+          "opponent_strikeouts_rank": 17
         }
       ],
       "season": {
@@ -8945,7 +9175,7 @@
         "FP/G": "21.82",
         "Ros": "64%",
         "+/-": "-4%",
-        "IP": "72.2",
+        "IP": "72.7",
         "H": "73",
         "BB": "33",
         "ER": "36",
@@ -8958,7 +9188,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.46"
       },
       "recent_games": [
         {
@@ -9239,21 +9470,31 @@
       "mlb_team": "CLE",
       "positions": "SP",
       "ownership": "mine",
-      "roster_status": "active",
+      "roster_status": "owned",
+      "rostered_pct": "99%",
+      "owned_by": "MK",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "SD",
           "is_away": false,
-          "opposing_pitcher": "Michael King"
+          "opposing_pitcher": "Michael King",
+          "opponent_runs_per_game": 4.211864406779661,
+          "opponent_runs_rank": 21,
+          "opponent_ops": 0.69482017,
+          "opponent_strikeouts_rank": 12
         },
         {
           "date": "2026-08-20",
           "label": "Thu 8/20",
           "opponent": "SF",
           "is_away": false,
-          "opposing_pitcher": "Landen Roupp"
+          "opposing_pitcher": "Landen Roupp",
+          "opponent_runs_per_game": 4.136752136752137,
+          "opponent_runs_rank": 24,
+          "opponent_ops": 0.7173119,
+          "opponent_strikeouts_rank": 6
         }
       ],
       "season": {
@@ -9280,7 +9521,7 @@
       },
       "stats": {
         "Age": "27",
-        "Opp": "CLE 2<br/>@CHW 5",
+        "Opp": "CLE 3<br/>@CHW 5 F",
         "Sal": "12",
         "FPts": "0",
         "FP/G": "0",
@@ -9297,7 +9538,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.04"
       },
       "recent_games": [
         {
@@ -9579,13 +9821,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "29%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "TEX",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.136752136752137,
+          "opponent_runs_rank": 24,
+          "opponent_ops": 0.7176411,
+          "opponent_strikeouts_rank": 17
         }
       ],
       "season": {
@@ -9620,7 +9868,7 @@
         "FP/G": "4.33",
         "Ros": "29%",
         "+/-": "+3%",
-        "IP": "8.2",
+        "IP": "8.7",
         "H": "11",
         "BB": "14",
         "ER": "7",
@@ -9633,7 +9881,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "2.88"
       },
       "recent_games": [
         {
@@ -9726,13 +9975,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "55%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "KC",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.1525423728813555,
+          "opponent_runs_rank": 22,
+          "opponent_ops": 0.71044767,
+          "opponent_strikeouts_rank": 7
         }
       ],
       "season": {
@@ -9767,7 +10022,7 @@
         "FP/G": "11.73",
         "Ros": "55%",
         "+/-": "+2%",
-        "IP": "55",
+        "IP": "55.0",
         "H": "63",
         "BB": "26",
         "ER": "44",
@@ -9780,7 +10035,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.62"
       },
       "recent_games": [
         {
@@ -10062,13 +10318,19 @@
       "positions": "RP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "84%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "BAL",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.427350427350428,
+          "opponent_runs_rank": 16,
+          "opponent_ops": 0.70874035,
+          "opponent_strikeouts_rank": 27
         }
       ],
       "season": {
@@ -10103,20 +10365,21 @@
         "FP/G": "14.46",
         "Ros": "84%",
         "+/-": "0%",
-        "IP": "91.2",
+        "IP": "91.7",
         "H": "81",
         "BB": "30",
         "ER": "37",
         "K": "100",
         "SV": "0",
         "HLD": "2",
-        "ERA": "3.63",
+        "ERA": "3.34",
         "QS": "2",
         "HB": "2",
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.17"
       },
       "recent_games": [
         {
@@ -10398,13 +10661,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "37%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "SF",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.136752136752137,
+          "opponent_runs_rank": 24,
+          "opponent_ops": 0.7173119,
+          "opponent_strikeouts_rank": 6
         }
       ],
       "season": {
@@ -10439,7 +10708,7 @@
         "FP/G": "22.63",
         "Ros": "37%",
         "+/-": "+4%",
-        "IP": "11.2",
+        "IP": "11.7",
         "H": "11",
         "BB": "4",
         "ER": "5",
@@ -10452,7 +10721,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.29"
       },
       "recent_games": [
         {
@@ -10518,13 +10788,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "24%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "PHI",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.415254237288136,
+          "opponent_runs_rank": 14,
+          "opponent_ops": 0.7078779,
+          "opponent_strikeouts_rank": 23
         }
       ],
       "season": {
@@ -10558,8 +10834,8 @@
         "FPts": "177",
         "FP/G": "22.12",
         "Ros": "24%",
-        "+/-": "-1%",
-        "IP": "40",
+        "+/-": "0%",
+        "IP": "40.0",
         "H": "38",
         "BB": "14",
         "ER": "16",
@@ -10572,7 +10848,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.30"
       },
       "recent_games": [
         {
@@ -10800,13 +11077,19 @@
       "positions": "RP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "4%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "HOU",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.6440677966101696,
+          "opponent_runs_rank": 10,
+          "opponent_ops": 0.73870975,
+          "opponent_strikeouts_rank": 13
         }
       ],
       "season": {
@@ -10841,7 +11124,7 @@
         "FP/G": "6.72",
         "Ros": "4%",
         "+/-": "0%",
-        "IP": "55",
+        "IP": "55.0",
         "H": "43",
         "BB": "22",
         "ER": "20",
@@ -10854,7 +11137,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.18"
       },
       "recent_games": [
         {
@@ -11136,13 +11420,19 @@
       "positions": "RP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "21%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "TB",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.439655172413793,
+          "opponent_runs_rank": 17,
+          "opponent_ops": 0.73095894,
+          "opponent_strikeouts_rank": 1
         }
       ],
       "season": {
@@ -11168,7 +11458,7 @@
         }
       },
       "stats": {
-        "Rk": "313",
+        "Rk": "314",
         "Sta": "FA",
         "Age": "26",
         "Opp": "TB<br/>Wed 12:05PM",
@@ -11177,7 +11467,7 @@
         "FP/G": "9.7",
         "Ros": "21%",
         "+/-": "-2%",
-        "IP": "76.2",
+        "IP": "76.7",
         "H": "80",
         "BB": "31",
         "ER": "60",
@@ -11190,7 +11480,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.45"
       },
       "recent_games": [
         {
@@ -11472,13 +11763,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "65%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "CHW",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.758620689655173,
+          "opponent_runs_rank": 8,
+          "opponent_ops": 0.71988225,
+          "opponent_strikeouts_rank": 25
         }
       ],
       "season": {
@@ -11513,7 +11810,7 @@
         "FP/G": "30.25",
         "Ros": "65%",
         "+/-": "+10%",
-        "IP": "5",
+        "IP": "5.0",
         "H": "1",
         "BB": "1",
         "ER": "0",
@@ -11526,7 +11823,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "0.40"
       },
       "recent_games": [
         {
@@ -11565,13 +11863,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "35%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "TB",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.439655172413793,
+          "opponent_runs_rank": 17,
+          "opponent_ops": 0.73095894,
+          "opponent_strikeouts_rank": 1
         }
       ],
       "season": {
@@ -11604,9 +11908,9 @@
         "Sal": "1",
         "FPts": "235.75",
         "FP/G": "13.1",
-        "Ros": "34%",
-        "+/-": "+8%",
-        "IP": "75",
+        "Ros": "35%",
+        "+/-": "+9%",
+        "IP": "75.0",
         "H": "79",
         "BB": "43",
         "ER": "47",
@@ -11619,7 +11923,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.63"
       },
       "recent_games": [
         {
@@ -11900,21 +12205,31 @@
       "mlb_team": "TEX",
       "positions": "SP",
       "ownership": "mine",
-      "roster_status": "reserve",
+      "roster_status": "owned",
+      "rostered_pct": "99%",
+      "owned_by": "MK",
       "starts": [
         {
           "date": "2026-08-13",
           "label": "Thu 8/13",
           "opponent": "LAA",
           "is_away": true,
-          "opposing_pitcher": "Walbert Urena"
+          "opposing_pitcher": "Walbert Urena",
+          "opponent_runs_per_game": 4.111111111111111,
+          "opponent_runs_rank": 26,
+          "opponent_ops": 0.69009036,
+          "opponent_strikeouts_rank": 29
         },
         {
           "date": "2026-08-19",
           "label": "Wed 8/19",
           "opponent": "WSH",
           "is_away": false,
-          "opposing_pitcher": "Cade Cavalli"
+          "opposing_pitcher": "Cade Cavalli",
+          "opponent_runs_per_game": 5.34453781512605,
+          "opponent_runs_rank": 1,
+          "opponent_ops": 0.7660996,
+          "opponent_strikeouts_rank": 16
         }
       ],
       "season": {
@@ -11958,7 +12273,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.13"
       },
       "recent_games": [
         {
@@ -12240,13 +12556,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "21%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "CHC",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 5.11864406779661,
+          "opponent_runs_rank": 2,
+          "opponent_ops": 0.7524604,
+          "opponent_strikeouts_rank": 21
         }
       ],
       "season": {
@@ -12281,7 +12603,7 @@
         "FP/G": "17.04",
         "Ros": "21%",
         "+/-": "-1%",
-        "IP": "62",
+        "IP": "62.0",
         "H": "54",
         "BB": "26",
         "ER": "37",
@@ -12294,7 +12616,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.29"
       },
       "recent_games": [
         {
@@ -12576,13 +12899,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "34%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "BOS",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.482758620689655,
+          "opponent_runs_rank": 15,
+          "opponent_ops": 0.7239071,
+          "opponent_strikeouts_rank": 11
         }
       ],
       "season": {
@@ -12617,7 +12946,7 @@
         "FP/G": "16.75",
         "Ros": "34%",
         "+/-": "-4%",
-        "IP": "80",
+        "IP": "80.0",
         "H": "82",
         "BB": "29",
         "ER": "53",
@@ -12630,7 +12959,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.39"
       },
       "recent_games": [
         {
@@ -12912,13 +13242,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "27%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "PIT",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 5.050420168067227,
+          "opponent_runs_rank": 3,
+          "opponent_ops": 0.74862146,
+          "opponent_strikeouts_rank": 30
         }
       ],
       "season": {
@@ -12953,7 +13289,7 @@
         "FP/G": "18.11",
         "Ros": "27%",
         "+/-": "-1%",
-        "IP": "81.2",
+        "IP": "81.7",
         "H": "88",
         "BB": "23",
         "ER": "42",
@@ -12966,7 +13302,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.36"
       },
       "recent_games": [
         {
@@ -13248,13 +13585,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "71%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-13",
           "label": "Thu 8/13",
           "opponent": "CLE",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 3.983050847457627,
+          "opponent_runs_rank": 28,
+          "opponent_ops": 0.6829129,
+          "opponent_strikeouts_rank": 15
         }
       ],
       "season": {
@@ -13289,7 +13632,7 @@
         "FP/G": "21.45",
         "Ros": "71%",
         "+/-": "0%",
-        "IP": "122.1",
+        "IP": "122.3",
         "H": "96",
         "BB": "28",
         "ER": "46",
@@ -13302,7 +13645,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.01"
       },
       "recent_games": [
         {
@@ -13584,13 +13928,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "60%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "ATH",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.3247863247863245,
+          "opponent_runs_rank": 20,
+          "opponent_ops": 0.71559316,
+          "opponent_strikeouts_rank": 24
         }
       ],
       "season": {
@@ -13625,7 +13975,7 @@
         "FP/G": "19.74",
         "Ros": "60%",
         "+/-": "-1%",
-        "IP": "111",
+        "IP": "111.0",
         "H": "111",
         "BB": "42",
         "ER": "55",
@@ -13638,7 +13988,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.38"
       },
       "recent_games": [
         {
@@ -13920,13 +14271,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "97%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "TB",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.439655172413793,
+          "opponent_runs_rank": 17,
+          "opponent_ops": 0.73095894,
+          "opponent_strikeouts_rank": 1
         }
       ],
       "season": {
@@ -13961,7 +14318,7 @@
         "FP/G": "24.01",
         "Ros": "97%",
         "+/-": "-1%",
-        "IP": "127",
+        "IP": "127.0",
         "H": "116",
         "BB": "54",
         "ER": "52",
@@ -13974,7 +14331,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.34"
       },
       "recent_games": [
         {
@@ -14256,13 +14614,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "17%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "SF",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.136752136752137,
+          "opponent_runs_rank": 24,
+          "opponent_ops": 0.7173119,
+          "opponent_strikeouts_rank": 6
         }
       ],
       "season": {
@@ -14297,7 +14661,7 @@
         "FP/G": "14.57",
         "Ros": "17%",
         "+/-": "+1%",
-        "IP": "112.2",
+        "IP": "112.7",
         "H": "143",
         "BB": "26",
         "ER": "83",
@@ -14310,7 +14674,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.50"
       },
       "recent_games": [
         {
@@ -14592,13 +14957,19 @@
       "positions": "RP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "62%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "PHI",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.415254237288136,
+          "opponent_runs_rank": 14,
+          "opponent_ops": 0.7078779,
+          "opponent_strikeouts_rank": 23
         }
       ],
       "season": {
@@ -14633,7 +15004,7 @@
         "FP/G": "21.42",
         "Ros": "62%",
         "+/-": "+2%",
-        "IP": "112.1",
+        "IP": "112.3",
         "H": "116",
         "BB": "35",
         "ER": "43",
@@ -14646,7 +15017,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.34"
       },
       "recent_games": [
         {
@@ -14928,13 +15300,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "84%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "COL",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.82051282051282,
+          "opponent_runs_rank": 7,
+          "opponent_ops": 0.7454026,
+          "opponent_strikeouts_rank": 21
         }
       ],
       "season": {
@@ -14960,7 +15338,7 @@
         }
       },
       "stats": {
-        "Rk": "56",
+        "Rk": "57",
         "Sta": "FA",
         "Age": "27",
         "Opp": "COL<br/>Fri 7:15PM",
@@ -14969,7 +15347,7 @@
         "FP/G": "22.86",
         "Ros": "84%",
         "+/-": "-3%",
-        "IP": "123.2",
+        "IP": "123.7",
         "H": "103",
         "BB": "57",
         "ER": "58",
@@ -14982,7 +15360,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.29"
       },
       "recent_games": [
         {
@@ -15264,13 +15643,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "95%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "LAA",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.111111111111111,
+          "opponent_runs_rank": 26,
+          "opponent_ops": 0.69009036,
+          "opponent_strikeouts_rank": 29
         }
       ],
       "season": {
@@ -15305,7 +15690,7 @@
         "FP/G": "22.85",
         "Ros": "95%",
         "+/-": "0%",
-        "IP": "128.2",
+        "IP": "128.7",
         "H": "113",
         "BB": "47",
         "ER": "65",
@@ -15318,7 +15703,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.24"
       },
       "recent_games": [
         {
@@ -15600,13 +15986,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "48%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "NYM",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.135593220338983,
+          "opponent_runs_rank": 23,
+          "opponent_ops": 0.68922305,
+          "opponent_strikeouts_rank": 18
         }
       ],
       "season": {
@@ -15641,7 +16033,7 @@
         "FP/G": "19.58",
         "Ros": "48%",
         "+/-": "+3%",
-        "IP": "100.1",
+        "IP": "100.3",
         "H": "75",
         "BB": "40",
         "ER": "35",
@@ -15654,7 +16046,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.15"
       },
       "recent_games": [
         {
@@ -15936,13 +16329,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "10%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "TB",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.439655172413793,
+          "opponent_runs_rank": 17,
+          "opponent_ops": 0.73095894,
+          "opponent_strikeouts_rank": 1
         }
       ],
       "season": {
@@ -15977,7 +16376,7 @@
         "FP/G": "8.53",
         "Ros": "10%",
         "+/-": "0%",
-        "IP": "34",
+        "IP": "34.0",
         "H": "30",
         "BB": "17",
         "ER": "21",
@@ -15990,7 +16389,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.38"
       },
       "recent_games": [
         {
@@ -16272,13 +16672,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "52%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "CHC",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 5.11864406779661,
+          "opponent_runs_rank": 2,
+          "opponent_ops": 0.7524604,
+          "opponent_strikeouts_rank": 21
         }
       ],
       "season": {
@@ -16313,7 +16719,7 @@
         "FP/G": "17.55",
         "Ros": "52%",
         "+/-": "+1%",
-        "IP": "113.2",
+        "IP": "113.7",
         "H": "130",
         "BB": "43",
         "ER": "65",
@@ -16326,7 +16732,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.52"
       },
       "recent_games": [
         {
@@ -16607,21 +17014,31 @@
       "mlb_team": "NYY",
       "positions": "SP",
       "ownership": "mine",
-      "roster_status": "injured_reserve",
+      "roster_status": "injured reserve",
+      "rostered_pct": "99%",
+      "owned_by": "MK",
       "starts": [
         {
           "date": "2026-08-13",
           "label": "Thu 8/13",
           "opponent": "SEA",
           "is_away": false,
-          "opposing_pitcher": "Logan Gilbert"
+          "opposing_pitcher": "Logan Gilbert",
+          "opponent_runs_per_game": 3.906779661016949,
+          "opponent_runs_rank": 30,
+          "opponent_ops": 0.68458664,
+          "opponent_strikeouts_rank": 18
         },
         {
           "date": "2026-08-19",
           "label": "Wed 8/19",
           "opponent": "BAL",
           "is_away": true,
-          "opposing_pitcher": "Kyle Bradish"
+          "opposing_pitcher": "Kyle Bradish",
+          "opponent_runs_per_game": 4.427350427350428,
+          "opponent_runs_rank": 16,
+          "opponent_ops": 0.70874035,
+          "opponent_strikeouts_rank": 27
         }
       ],
       "season": {
@@ -16665,7 +17082,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "0.97"
       },
       "recent_games": [
         {
@@ -16947,13 +17365,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "24%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-13",
           "label": "Thu 8/13",
           "opponent": "BOS",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.482758620689655,
+          "opponent_runs_rank": 15,
+          "opponent_ops": 0.7239071,
+          "opponent_strikeouts_rank": 11
         }
       ],
       "season": {
@@ -16988,7 +17412,7 @@
         "FP/G": "10.61",
         "Ros": "24%",
         "+/-": "-1%",
-        "IP": "36",
+        "IP": "36.0",
         "H": "40",
         "BB": "15",
         "ER": "29",
@@ -17001,7 +17425,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.53"
       },
       "recent_games": [
         {
@@ -17256,13 +17681,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "63%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "COL",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.82051282051282,
+          "opponent_runs_rank": 7,
+          "opponent_ops": 0.7454026,
+          "opponent_strikeouts_rank": 21
         }
       ],
       "season": {
@@ -17297,7 +17728,7 @@
         "FP/G": "18.9",
         "Ros": "63%",
         "+/-": "-5%",
-        "IP": "120",
+        "IP": "120.0",
         "H": "126",
         "BB": "50",
         "ER": "65",
@@ -17310,7 +17741,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.47"
       },
       "recent_games": [
         {
@@ -17592,13 +18024,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "88%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "COL",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.82051282051282,
+          "opponent_runs_rank": 7,
+          "opponent_ops": 0.7454026,
+          "opponent_strikeouts_rank": 21
         }
       ],
       "season": {
@@ -17633,7 +18071,7 @@
         "FP/G": "26.13",
         "Ros": "88%",
         "+/-": "0%",
-        "IP": "82",
+        "IP": "82.0",
         "H": "72",
         "BB": "17",
         "ER": "28",
@@ -17646,7 +18084,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.09"
       },
       "recent_games": [
         {
@@ -17928,13 +18367,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "11%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "CHC",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 5.11864406779661,
+          "opponent_runs_rank": 2,
+          "opponent_ops": 0.7524604,
+          "opponent_strikeouts_rank": 21
         }
       ],
       "season": {
@@ -17969,7 +18414,7 @@
         "FP/G": "12.3",
         "Ros": "11%",
         "+/-": "0%",
-        "IP": "113",
+        "IP": "113.0",
         "H": "136",
         "BB": "23",
         "ER": "74",
@@ -17982,7 +18427,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.41"
       },
       "recent_games": [
         {
@@ -18264,13 +18710,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "23%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "COL",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.82051282051282,
+          "opponent_runs_rank": 7,
+          "opponent_ops": 0.7454026,
+          "opponent_strikeouts_rank": 21
         }
       ],
       "season": {
@@ -18303,9 +18755,9 @@
         "Sal": "1",
         "FPts": "100.75",
         "FP/G": "16.79",
-        "Ros": "22%",
+        "Ros": "23%",
         "+/-": "+6%",
-        "IP": "27.2",
+        "IP": "27.7",
         "H": "24",
         "BB": "18",
         "ER": "12",
@@ -18318,7 +18770,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.52"
       },
       "recent_games": [
         {
@@ -18492,13 +18945,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "83%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "CHW",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.758620689655173,
+          "opponent_runs_rank": 8,
+          "opponent_ops": 0.71988225,
+          "opponent_strikeouts_rank": 25
         }
       ],
       "season": {
@@ -18524,7 +18983,7 @@
         }
       },
       "stats": {
-        "Rk": "447",
+        "Rk": "448",
         "Sta": "FA",
         "Age": "28",
         "Opp": "@CHW<br/>Tue 4:40PM",
@@ -18533,7 +18992,7 @@
         "FP/G": "18",
         "Ros": "83%",
         "+/-": "0%",
-        "IP": "62.2",
+        "IP": "62.7",
         "H": "65",
         "BB": "27",
         "ER": "32",
@@ -18546,7 +19005,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.47"
       },
       "recent_games": [
         {
@@ -18828,13 +19288,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "92%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "ATH",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.3247863247863245,
+          "opponent_runs_rank": 20,
+          "opponent_ops": 0.71559316,
+          "opponent_strikeouts_rank": 24
         }
       ],
       "season": {
@@ -18869,7 +19335,7 @@
         "FP/G": "25.49",
         "Ros": "92%",
         "+/-": "0%",
-        "IP": "129",
+        "IP": "129.0",
         "H": "122",
         "BB": "20",
         "ER": "38",
@@ -18882,7 +19348,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.10"
       },
       "recent_games": [
         {
@@ -19164,13 +19631,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "82%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "LAD",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 5.034188034188034,
+          "opponent_runs_rank": 4,
+          "opponent_ops": 0.76796234,
+          "opponent_strikeouts_rank": 5
         }
       ],
       "season": {
@@ -19203,9 +19676,9 @@
         "Sal": "1",
         "FPts": "502.25",
         "FP/G": "22.83",
-        "Ros": "81%",
+        "Ros": "82%",
         "+/-": "+6%",
-        "IP": "123.2",
+        "IP": "123.7",
         "H": "119",
         "BB": "40",
         "ER": "60",
@@ -19218,7 +19691,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.29"
       },
       "recent_games": [
         {
@@ -19500,13 +19974,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "57%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-13",
           "label": "Thu 8/13",
           "opponent": "CIN",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.146551724137931,
+          "opponent_runs_rank": 26,
+          "opponent_ops": 0.7083771,
+          "opponent_strikeouts_rank": 28
         }
       ],
       "season": {
@@ -19541,7 +20021,7 @@
         "FP/G": "13.63",
         "Ros": "57%",
         "+/-": "-2%",
-        "IP": "65.1",
+        "IP": "65.3",
         "H": "62",
         "BB": "31",
         "ER": "44",
@@ -19554,7 +20034,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.42"
       },
       "recent_games": [
         {
@@ -19836,13 +20317,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "31%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "TOR",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 3.9237288135593222,
+          "opponent_runs_rank": 29,
+          "opponent_ops": 0.6807932,
+          "opponent_strikeouts_rank": 2
         }
       ],
       "season": {
@@ -19877,7 +20364,7 @@
         "FP/G": "19.1",
         "Ros": "31%",
         "+/-": "+3%",
-        "IP": "24",
+        "IP": "24.0",
         "H": "30",
         "BB": "10",
         "ER": "9",
@@ -19890,7 +20377,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.67"
       },
       "recent_games": [
         {
@@ -20037,13 +20525,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "42%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-09",
           "label": "Sun 8/9",
           "opponent": "HOU",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.6440677966101696,
+          "opponent_runs_rank": 10,
+          "opponent_ops": 0.73870975,
+          "opponent_strikeouts_rank": 13
         }
       ],
       "season": {
@@ -20078,7 +20572,7 @@
         "FP/G": "16.26",
         "Ros": "42%",
         "+/-": "+2%",
-        "IP": "101",
+        "IP": "101.0",
         "H": "112",
         "BB": "31",
         "ER": "47",
@@ -20091,7 +20585,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.42"
       },
       "recent_games": [
         {
@@ -20373,13 +20868,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "98%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "TOR",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 3.9237288135593222,
+          "opponent_runs_rank": 29,
+          "opponent_ops": 0.6807932,
+          "opponent_strikeouts_rank": 2
         }
       ],
       "season": {
@@ -20414,7 +20915,7 @@
         "FP/G": "24.29",
         "Ros": "98%",
         "+/-": "0%",
-        "IP": "103",
+        "IP": "103.0",
         "H": "91",
         "BB": "30",
         "ER": "38",
@@ -20427,7 +20928,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.17"
       },
       "recent_games": [
         {
@@ -20709,13 +21211,19 @@
       "positions": "RP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "91%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "TEX",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.136752136752137,
+          "opponent_runs_rank": 24,
+          "opponent_ops": 0.7176411,
+          "opponent_strikeouts_rank": 17
         }
       ],
       "season": {
@@ -20750,7 +21258,7 @@
         "FP/G": "26.23",
         "Ros": "91%",
         "+/-": "0%",
-        "IP": "129",
+        "IP": "129.0",
         "H": "103",
         "BB": "39",
         "ER": "59",
@@ -20763,7 +21271,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.10"
       },
       "recent_games": [
         {
@@ -21045,13 +21554,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "55%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "CHW",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.758620689655173,
+          "opponent_runs_rank": 8,
+          "opponent_ops": 0.71988225,
+          "opponent_strikeouts_rank": 25
         }
       ],
       "season": {
@@ -21086,7 +21601,7 @@
         "FP/G": "14.99",
         "Ros": "55%",
         "+/-": "+1%",
-        "IP": "89",
+        "IP": "89.0",
         "H": "93",
         "BB": "39",
         "ER": "52",
@@ -21099,7 +21614,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.48"
       },
       "recent_games": [
         {
@@ -21381,13 +21897,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "44%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "LAD",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 5.034188034188034,
+          "opponent_runs_rank": 4,
+          "opponent_ops": 0.76796234,
+          "opponent_strikeouts_rank": 5
         }
       ],
       "season": {
@@ -21422,7 +21944,7 @@
         "FP/G": "20.1",
         "Ros": "44%",
         "+/-": "-1%",
-        "IP": "67",
+        "IP": "67.0",
         "H": "64",
         "BB": "18",
         "ER": "34",
@@ -21435,7 +21957,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.22"
       },
       "recent_games": [
         {
@@ -21717,13 +22240,19 @@
       "positions": "RP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "6%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "WSH",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 5.34453781512605,
+          "opponent_runs_rank": 1,
+          "opponent_ops": 0.7660996,
+          "opponent_strikeouts_rank": 16
         }
       ],
       "season": {
@@ -21758,20 +22287,21 @@
         "FP/G": "4.5",
         "Ros": "6%",
         "+/-": "+2%",
-        "IP": "8",
+        "IP": "8.0",
         "H": "12",
         "BB": "5",
         "ER": "9",
         "K": "8",
         "SV": "0",
         "HLD": "0",
-        "ERA": "10.13",
+        "ERA": "10.12",
         "QS": "0",
         "HB": "1",
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "2.12"
       },
       "recent_games": [
         {
@@ -21837,13 +22367,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "25%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "SF",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.136752136752137,
+          "opponent_runs_rank": 24,
+          "opponent_ops": 0.7173119,
+          "opponent_strikeouts_rank": 6
         }
       ],
       "season": {
@@ -21876,9 +22412,9 @@
         "Sal": "1",
         "FPts": "55",
         "FP/G": "13.75",
-        "Ros": "26%",
+        "Ros": "25%",
         "+/-": "-5%",
-        "IP": "19.1",
+        "IP": "19.3",
         "H": "15",
         "BB": "11",
         "ER": "15",
@@ -21891,7 +22427,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.34"
       },
       "recent_games": [
         {
@@ -22011,13 +22548,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "11%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "ARI",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.516949152542373,
+          "opponent_runs_rank": 12,
+          "opponent_ops": 0.7084053,
+          "opponent_strikeouts_rank": 3
         }
       ],
       "season": {
@@ -22052,7 +22595,7 @@
         "FP/G": "15.18",
         "Ros": "11%",
         "+/-": "-1%",
-        "IP": "82",
+        "IP": "82.0",
         "H": "86",
         "BB": "33",
         "ER": "52",
@@ -22065,7 +22608,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.45"
       },
       "recent_games": [
         {
@@ -22347,13 +22891,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "14%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "TEX",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.136752136752137,
+          "opponent_runs_rank": 24,
+          "opponent_ops": 0.7176411,
+          "opponent_strikeouts_rank": 17
         }
       ],
       "season": {
@@ -22388,7 +22938,7 @@
         "FP/G": "9.38",
         "Ros": "14%",
         "+/-": "-3%",
-        "IP": "50.2",
+        "IP": "50.7",
         "H": "56",
         "BB": "25",
         "ER": "40",
@@ -22401,7 +22951,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.60"
       },
       "recent_games": [
         {
@@ -22683,13 +23234,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "89%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "SEA",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 3.906779661016949,
+          "opponent_runs_rank": 30,
+          "opponent_ops": 0.68458664,
+          "opponent_strikeouts_rank": 18
         }
       ],
       "season": {
@@ -22724,7 +23281,7 @@
         "FP/G": "25.15",
         "Ros": "89%",
         "+/-": "+1%",
-        "IP": "121",
+        "IP": "121.0",
         "H": "114",
         "BB": "34",
         "ER": "51",
@@ -22737,7 +23294,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.22"
       },
       "recent_games": [
         {
@@ -23019,13 +23577,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "76%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-14",
           "label": "Fri 8/14",
           "opponent": "LAA",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.111111111111111,
+          "opponent_runs_rank": 26,
+          "opponent_ops": 0.69009036,
+          "opponent_strikeouts_rank": 29
         }
       ],
       "season": {
@@ -23060,7 +23624,7 @@
         "FP/G": "21.5",
         "Ros": "76%",
         "+/-": "-3%",
-        "IP": "134.2",
+        "IP": "134.7",
         "H": "139",
         "BB": "46",
         "ER": "66",
@@ -23073,7 +23637,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.37"
       },
       "recent_games": [
         {
@@ -23355,13 +23920,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "88%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "MIN",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.661016949152542,
+          "opponent_runs_rank": 9,
+          "opponent_ops": 0.72375405,
+          "opponent_strikeouts_rank": 9
         }
       ],
       "season": {
@@ -23396,7 +23967,7 @@
         "FP/G": "24.86",
         "Ros": "88%",
         "+/-": "0%",
-        "IP": "136.1",
+        "IP": "136.3",
         "H": "134",
         "BB": "46",
         "ER": "57",
@@ -23409,7 +23980,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.32"
       },
       "recent_games": [
         {
@@ -23691,13 +24263,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "68%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-13",
           "label": "Thu 8/13",
           "opponent": "LAD",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 5.034188034188034,
+          "opponent_runs_rank": 4,
+          "opponent_ops": 0.76796234,
+          "opponent_strikeouts_rank": 5
         }
       ],
       "season": {
@@ -23732,7 +24310,7 @@
         "FP/G": "18.16",
         "Ros": "68%",
         "+/-": "+1%",
-        "IP": "93",
+        "IP": "93.0",
         "H": "88",
         "BB": "28",
         "ER": "40",
@@ -23745,7 +24323,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.25"
       },
       "recent_games": [
         {
@@ -24026,42 +24605,64 @@
       "mlb_team": "LAD",
       "positions": "SP",
       "ownership": "mine",
-      "roster_status": "reserve",
+      "roster_status": "owned",
+      "rostered_pct": "100%",
+      "owned_by": "MK",
       "starts": [
         {
           "date": "2026-08-10",
           "label": "Mon 8/10",
           "opponent": "KC",
           "is_away": false,
-          "opposing_pitcher": "Noah Cameron"
+          "opposing_pitcher": "Noah Cameron",
+          "opponent_runs_per_game": 4.1525423728813555,
+          "opponent_runs_rank": 22,
+          "opponent_ops": 0.71044767,
+          "opponent_strikeouts_rank": 7
         },
         {
           "date": "2026-08-16",
           "label": "Sun 8/16",
           "opponent": "MIL",
           "is_away": false,
-          "opposing_pitcher": "Logan Henderson"
+          "opposing_pitcher": "Logan Henderson",
+          "opponent_runs_per_game": 4.965811965811966,
+          "opponent_runs_rank": 5,
+          "opponent_ops": 0.7333182,
+          "opponent_strikeouts_rank": 14
         },
         {
           "date": "2026-08-22",
           "label": "Sat 8/22",
           "opponent": "PIT",
           "is_away": false,
-          "opposing_pitcher": "Jared Jones"
+          "opposing_pitcher": "Jared Jones",
+          "opponent_runs_per_game": 5.050420168067227,
+          "opponent_runs_rank": 3,
+          "opponent_ops": 0.74862146,
+          "opponent_strikeouts_rank": 30
         },
         {
           "date": "2026-08-28",
           "label": "Fri 8/28",
           "opponent": "DET",
           "is_away": true,
-          "opposing_pitcher": "Drew Anderson"
+          "opposing_pitcher": "Drew Anderson",
+          "opponent_runs_per_game": 4.581196581196581,
+          "opponent_runs_rank": 11,
+          "opponent_ops": 0.73211145,
+          "opponent_strikeouts_rank": 20
         },
         {
           "date": "2026-09-03",
           "label": "Thu 9/3",
           "opponent": "STL",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.3418803418803416,
+          "opponent_runs_rank": 19,
+          "opponent_ops": 0.69376415,
+          "opponent_strikeouts_rank": 4
         }
       ],
       "season": {
@@ -24105,7 +24706,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "0.92"
       },
       "recent_games": [
         {
@@ -24387,13 +24989,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "34%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "ARI",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.516949152542373,
+          "opponent_runs_rank": 12,
+          "opponent_ops": 0.7084053,
+          "opponent_strikeouts_rank": 3
         }
       ],
       "season": {
@@ -24428,7 +25036,7 @@
         "FP/G": "18.74",
         "Ros": "34%",
         "+/-": "0%",
-        "IP": "107.2",
+        "IP": "107.7",
         "H": "110",
         "BB": "26",
         "ER": "54",
@@ -24441,7 +25049,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.26"
       },
       "recent_games": [
         {
@@ -24723,13 +25332,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "43%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "NYM",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.135593220338983,
+          "opponent_runs_rank": 23,
+          "opponent_ops": 0.68922305,
+          "opponent_strikeouts_rank": 18
         }
       ],
       "season": {
@@ -24764,7 +25379,7 @@
         "FP/G": "20.34",
         "Ros": "43%",
         "+/-": "+3%",
-        "IP": "100.2",
+        "IP": "100.7",
         "H": "98",
         "BB": "39",
         "ER": "54",
@@ -24777,7 +25392,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.36"
       },
       "recent_games": [
         {
@@ -25059,13 +25675,19 @@
       "positions": "RP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "23%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-13",
           "label": "Thu 8/13",
           "opponent": "PIT",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 5.050420168067227,
+          "opponent_runs_rank": 3,
+          "opponent_ops": 0.74862146,
+          "opponent_strikeouts_rank": 30
         }
       ],
       "season": {
@@ -25100,7 +25722,7 @@
         "FP/G": "13.07",
         "Ros": "23%",
         "+/-": "+2%",
-        "IP": "93.1",
+        "IP": "93.3",
         "H": "88",
         "BB": "39",
         "ER": "36",
@@ -25113,7 +25735,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.36"
       },
       "recent_games": [
         {
@@ -25395,13 +26018,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "38%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-11",
           "label": "Tue 8/11",
           "opponent": "MIL",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.965811965811966,
+          "opponent_runs_rank": 5,
+          "opponent_ops": 0.7333182,
+          "opponent_strikeouts_rank": 14
         }
       ],
       "season": {
@@ -25436,7 +26065,7 @@
         "FP/G": "16.32",
         "Ros": "38%",
         "+/-": "-3%",
-        "IP": "108.1",
+        "IP": "108.3",
         "H": "113",
         "BB": "45",
         "ER": "61",
@@ -25449,7 +26078,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.46"
       },
       "recent_games": [
         {
@@ -25731,13 +26361,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "87%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "SEA",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 3.906779661016949,
+          "opponent_runs_rank": 30,
+          "opponent_ops": 0.68458664,
+          "opponent_strikeouts_rank": 18
         }
       ],
       "season": {
@@ -25772,7 +26408,7 @@
         "FP/G": "20.54",
         "Ros": "87%",
         "+/-": "0%",
-        "IP": "114",
+        "IP": "114.0",
         "H": "119",
         "BB": "37",
         "ER": "53",
@@ -25785,7 +26421,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.37"
       },
       "recent_games": [
         {
@@ -26067,13 +26704,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "62%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "ATL",
           "is_away": true,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.905982905982906,
+          "opponent_runs_rank": 6,
+          "opponent_ops": 0.73534,
+          "opponent_strikeouts_rank": 8
         }
       ],
       "season": {
@@ -26108,7 +26751,7 @@
         "FP/G": "26.14",
         "Ros": "62%",
         "+/-": "-3%",
-        "IP": "39.1",
+        "IP": "39.3",
         "H": "30",
         "BB": "12",
         "ER": "11",
@@ -26121,7 +26764,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.07"
       },
       "recent_games": [
         {
@@ -26322,13 +26966,19 @@
       "positions": "SP",
       "ownership": "free_agent",
       "roster_status": null,
+      "rostered_pct": "52%",
+      "owned_by": "FA",
       "starts": [
         {
           "date": "2026-08-12",
           "label": "Wed 8/12",
           "opponent": "BAL",
           "is_away": false,
-          "opposing_pitcher": null
+          "opposing_pitcher": null,
+          "opponent_runs_per_game": 4.427350427350428,
+          "opponent_runs_rank": 16,
+          "opponent_ops": 0.70874035,
+          "opponent_strikeouts_rank": 27
         }
       ],
       "season": {
@@ -26363,7 +27013,7 @@
         "FP/G": "21.13",
         "Ros": "52%",
         "+/-": "-8%",
-        "IP": "86",
+        "IP": "86.0",
         "H": "87",
         "BB": "28",
         "ER": "50",
@@ -26376,7 +27026,8 @@
         "SHO": "0",
         "NH": "0",
         "PG": "0",
-        "IBB": "0"
+        "IBB": "0",
+        "WHIP": "1.34"
       },
       "recent_games": [
         {
@@ -26696,17 +27347,17 @@
       "is_mine": false
     },
     {
-      "team": "Rally Season",
-      "rank": "4th",
-      "starts_remaining": 37,
-      "claim_budget": 206.0,
-      "is_mine": false
-    },
-    {
       "team": "No Name Pitchers",
       "rank": "8th",
       "starts_remaining": 36,
       "claim_budget": 235.0,
+      "is_mine": false
+    },
+    {
+      "team": "Rally Season",
+      "rank": "4th",
+      "starts_remaining": 36,
+      "claim_budget": 206.0,
       "is_mine": false
     },
     {

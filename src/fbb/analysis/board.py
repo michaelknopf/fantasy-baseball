@@ -31,13 +31,21 @@ class Form(BaseModel):
 
 
 class StartSlot(BaseModel):
-    """One scheduled start."""
+    """One scheduled start, with the quality of the offense it faces.
+
+    `opponent_runs_rank` is 1 for the best-hitting team in baseball, so a high rank
+    is the soft matchup a streamer wants.
+    """
 
     date: date
     label: str
     opponent: str
     is_away: bool
     opposing_pitcher: str | None = None
+    opponent_runs_per_game: float | None = None
+    opponent_runs_rank: int | None = None
+    opponent_ops: float | None = None
+    opponent_strikeouts_rank: int | None = None
 
 
 class Pitcher(BaseModel):
@@ -49,7 +57,11 @@ class Pitcher(BaseModel):
     positions: str | None = None
     # 'mine' when on our roster, 'free_agent' when claimable.
     ownership: str
+    # 'available' when unowned, otherwise 'injured reserve' or 'owned' — Fantrax's
+    # active/reserve split is a lineup detail, not a fact about the pitcher.
     roster_status: str | None = None
+    rostered_pct: str | None = None
+    owned_by: str | None = None
     starts: list[StartSlot] = []
     season: Form | None = None
     windows: dict[str, Form] = {}
@@ -104,6 +116,7 @@ class BoardBuilder:
         self._snapshot = snapshot
         self._horizon = horizon_days
         self._details = {d.player_id: d for d in snapshot.player_details}
+        self._batting = {t.abbreviation: t for t in snapshot.team_batting}
         self._today = snapshot.collected_at.date()
 
     def build(self) -> Board:
@@ -153,6 +166,28 @@ class BoardBuilder:
             )
         return periods
 
+    def _slot(
+        self,
+        date: date,
+        label: str,
+        opponent: str,
+        is_away: bool,
+        opposing_pitcher: str | None = None,
+    ) -> StartSlot:
+        """A start with the opposing offense's season line already joined on."""
+        batting = self._batting.get(opponent)
+        return StartSlot(
+            date=date,
+            label=label,
+            opponent=opponent,
+            is_away=is_away,
+            opposing_pitcher=opposing_pitcher,
+            opponent_runs_per_game=batting.runs_per_game if batting else None,
+            opponent_runs_rank=batting.runs_rank if batting else None,
+            opponent_ops=batting.ops if batting else None,
+            opponent_strikeouts_rank=batting.strikeouts_rank if batting else None,
+        )
+
     def _pitchers(self, my_team_id: str | None) -> list[Pitcher]:
         pitchers: dict[str, Pitcher] = {}
 
@@ -170,9 +205,11 @@ class BoardBuilder:
                     mlb_team=player.mlb_team if player else None,
                     positions=schedule.positions,
                     ownership='mine',
-                    roster_status=player.roster_status if player else None,
+                    roster_status=_simplify_status(
+                        player.roster_status if player else None
+                    ),
                     starts=[
-                        StartSlot(
+                        self._slot(
                             date=s.date,
                             label=s.label,
                             opponent=s.opponent,
@@ -193,7 +230,7 @@ class BoardBuilder:
             if entry.next_start.in_progress:
                 continue  # already underway, so no longer claimable
             starts_by_player[entry.player_id].append(
-                StartSlot(
+                self._slot(
                     date=date.fromisoformat(entry.start_date),
                     label=date.fromisoformat(entry.start_date).strftime('%a %-m/%-d'),
                     opponent=entry.next_start.opponent,
@@ -234,37 +271,42 @@ class BoardBuilder:
             for name, days in _WINDOWS.items()
         }
         pitcher.recent_games = appearances[:10]
-        # Free agents already carry a real season line; our own rows carry today's
-        # zeroes, so the derived totals replace them.
-        if pitcher.ownership == 'mine':
-            pitcher.stats = {**pitcher.stats, **self._season_totals(appearances)}
+        # Derived from the game log for everyone: our own roster rows carry only
+        # today's zeroes, and WHIP is never returned by Fantrax at all.
+        pitcher.stats = {**pitcher.stats, **self._season_totals(appearances)}
+        pitcher.rostered_pct = detail.rostered_pct
+        pitcher.owned_by = detail.owned_by
 
     @staticmethod
     def _season_totals(games: list[GameLogEntry]) -> dict[str, str]:
         """
-        Season ERA and strikeouts, summed from the game log.
+        Season rate stats, summed from the game log.
 
         Roster rows carry only the current day's stats — all zeroes before a game
-        — so a rostered pitcher's season line has to be rebuilt from his games.
+        — so a rostered pitcher's line has to be rebuilt from his games. WHIP is
+        computed here for everyone, since Fantrax never returns it directly.
         """
         outs = 0.0
-        earned = 0
-        strikeouts = 0
+        earned = walks = hits = strikeouts = 0
         for game in games:
             innings = game.stats.get('IP') or '0'
             whole, _, fraction = innings.partition('.')
             try:
                 outs += int(whole) * 3 + int(fraction or 0)
                 earned += int(game.stats.get('ER') or 0)
+                walks += int(game.stats.get('BB') or 0)
+                hits += int(game.stats.get('H') or 0)
                 strikeouts += int(game.stats.get('K') or 0)
             except ValueError:
                 continue
         if outs == 0:
             return {}
+        innings_pitched = outs / 3
         return {
-            'ERA': f'{earned * 27 / outs:.2f}',
+            'ERA': f'{earned * 9 / innings_pitched:.2f}',
+            'WHIP': f'{(hits + walks) / innings_pitched:.2f}',
             'K': str(strikeouts),
-            'IP': f'{outs / 3:.1f}',
+            'IP': f'{innings_pitched:.1f}',
         }
 
     @staticmethod
@@ -318,6 +360,19 @@ class BoardBuilder:
                 reverse=True,
             )
         ]
+
+
+def _simplify_status(status: str | None) -> str | None:
+    """
+    Collapse Fantrax's roster slots to what matters here.
+
+    Active and reserve differ only in whether a lineup move has been made yet;
+    with daily moves either can start, so the distinction is noise. Injured
+    reserve is different in kind — those starts cannot be used at all.
+    """
+    if status == 'injured_reserve':
+        return 'injured reserve'
+    return 'owned' if status else None
 
 
 _MONTHS = {

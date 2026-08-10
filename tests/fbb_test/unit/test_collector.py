@@ -5,12 +5,14 @@ field paths the collector depends on, since Fantrax can reshape them silently.
 """
 
 from datetime import date, datetime
+from typing import override
 
 import pytest
 
+from fbb.espn.team_batting import TeamBattingClient
 from fbb.fantrax.client import FantraxClient
 from fbb.fantrax.collector import SnapshotCollector
-from fbb.fantrax.models import LeagueSnapshot
+from fbb.fantrax.models import LeagueSnapshot, TeamBatting
 from fbb.fantrax.payload import Json
 
 LEAGUE_ID = 'test-league'
@@ -327,11 +329,42 @@ def client() -> StubClient:
     )
 
 
+class StubBattingClient(TeamBattingClient):
+    """Keeps `collect()` from reaching ESPN during tests."""
+
+    def __init__(self) -> None:
+        super().__init__(2026)
+
+    @override
+    def fetch(self) -> list[TeamBatting]:
+        return [
+            TeamBatting(
+                abbreviation='KC',
+                name='Kansas City Royals',
+                games=118,
+                runs=490,
+                runs_per_game=4.15,
+                runs_rank=22,
+                ops=0.710,
+                ops_rank=19,
+                avg=0.245,
+                home_runs=119,
+                strikeouts=927,
+                strikeouts_rank=8,
+            )
+        ]
+
+
 @pytest.fixture
 def collector(client: StubClient) -> SnapshotCollector:
     # Sunday 8/9: waiver deadlines fall Mon 10, Thu 13, Sat 15, so two periods
     # ahead collects through Fri 14.
-    return SnapshotCollector(client, LEAGUE_ID, now=datetime(2026, 8, 9, 10, 0))
+    return SnapshotCollector(
+        client,
+        LEAGUE_ID,
+        now=datetime(2026, 8, 9, 10, 0),
+        batting=StubBattingClient(),
+    )
 
 
 @pytest.fixture
@@ -492,4 +525,6 @@ def test_retains_raw_payloads_for_offline_analysis(
         'freeAgents',
         'gameLogs',
         'schedules',
+        'ownership',
+        'teamBatting',
     }

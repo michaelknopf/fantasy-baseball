@@ -3,6 +3,7 @@
 import re
 from datetime import UTC, date, datetime
 
+from fbb.espn.team_batting import TeamBattingClient
 from fbb.fantrax import payload
 from fbb.fantrax.client import FantraxClient
 from fbb.fantrax.models import (
@@ -15,6 +16,7 @@ from fbb.fantrax.models import (
     RosterPlayer,
     RosterSchedule,
     ScheduledStart,
+    TeamBatting,
     TeamRoster,
     TeamStartsBudget,
 )
@@ -39,6 +41,11 @@ _IN_PROGRESS_CELL = re.compile(
     r'^(?P<visitor>[A-Z0-9]+) -?\d+<br/>@(?P<host>[A-Z0-9]+) -?\d+(?P<status> .+)?$'
 )
 
+# The ownership sweep spans every starting pitcher; ours rank near the top, so a
+# couple of large pages cover them and this bound stops a miss becoming a crawl.
+_OWNERSHIP_PAGE_SIZE = 500
+_OWNERSHIP_MAX_PAGES = 4
+
 # Roster row `statusId`; the slot cap is 19 active / 5 reserve / 3 IR.
 _ROSTER_STATUS = {'1': 'active', '2': 'reserve', '3': 'injured_reserve'}
 
@@ -59,11 +66,13 @@ class SnapshotCollector:
         periods_ahead: int = DEFAULT_PERIODS_AHEAD,
         schedule: WaiverSchedule | None = None,
         now: datetime | None = None,
+        batting: TeamBattingClient | None = None,
     ) -> None:
         self._client = client
         self._league_id = league_id
         self._periods_ahead = periods_ahead
         self._schedule = schedule or WaiverSchedule()
+        self._batting = batting or TeamBattingClient((now or datetime.now()).year)
         # Local time, because waiver deadlines are league-local wall-clock times.
         self._now = now or datetime.now()
         self.raw: dict[str, object] = {}
@@ -90,7 +99,14 @@ class SnapshotCollector:
             rosters=rosters,
             free_agent_pitchers=free_agents,
             player_details=self._player_details(free_agents, rosters),
+            team_batting=self._team_batting(),
         )
+
+    def _team_batting(self) -> list[TeamBatting]:
+        """Opposing-offense quality, which only ESPN carries."""
+        batting = self._batting.fetch()
+        self.raw['teamBatting'] = [line.model_dump() for line in batting]
+        return batting
 
     def _fantasy_teams(self) -> list[FantasyTeam]:
         data = self._client.call('getFantasyTeams')
@@ -281,11 +297,14 @@ class SnapshotCollector:
             if roster.team_id in self._my_team_ids:
                 wanted.update({p.player_id: p.name for p in roster.players})
 
+        ownership = self._ownership(set(wanted))
         return [
             PlayerDetail(
                 player_id=player_id,
                 name=name,
                 game_log=self._game_log(player_id),
+                rostered_pct=ownership.get(player_id, {}).get('Ros'),
+                owned_by=ownership.get(player_id, {}).get('Sta'),
             )
             for player_id, name in wanted.items()
         ]
@@ -314,6 +333,47 @@ class SnapshotCollector:
                     )
                 )
         return entries
+
+    def _ownership(self, wanted: set[str]) -> dict[str, dict[str, str]]:
+        """
+        How widely each pitcher is rostered, across all of Fantrax.
+
+        Roster rows omit this, so our own pitchers would otherwise have no
+        ownership figure to compare against the market. One sweep of the pitcher
+        table carries it for everyone; it stops as soon as the wanted set is
+        covered rather than paging through every pitcher in baseball.
+        """
+        found: dict[str, dict[str, str]] = {}
+        page = 1
+        while page <= _OWNERSHIP_MAX_PAGES and len(found) < len(wanted):
+            data = self._client.call(
+                'getPlayerStats',
+                {
+                    'statusOrTeamFilter': 'ALL',
+                    'posOrGroup': _POS_STARTING_PITCHER,
+                    'pageNumber': str(page),
+                    'maxResultsPerPage': str(_OWNERSHIP_PAGE_SIZE),
+                    'view': 'STATS',
+                },
+            )
+            self._store('ownership', f'page{page}', data)
+
+            rows = payload.rows(data, 'statsTable')
+            if not rows:
+                break
+            columns = _column_names(payload.obj(data, 'tableHeader'))
+            for row in rows:
+                player_id = payload.text(payload.obj(row, 'scorer'), 'scorerId')
+                if player_id in wanted:
+                    found[player_id] = _labelled(columns, _cell_contents(row))
+
+            total_pages = payload.number(
+                payload.obj(data, 'paginatedResultSet'), 'totalNumPages'
+            )
+            if total_pages is None or page >= int(total_pages):
+                break
+            page += 1
+        return found
 
     def _probable_start_dates(self) -> list[str]:
         """The dates Fantrax offers, from today forward."""

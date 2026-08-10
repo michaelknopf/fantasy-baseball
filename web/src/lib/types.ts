@@ -15,6 +15,11 @@ export interface StartSlot {
   opponent: string
   is_away: boolean
   opposing_pitcher: string | null
+  opponent_runs_per_game: number | null
+  /** 1 = best offense in baseball, so a high rank is a soft matchup. */
+  opponent_runs_rank: number | null
+  opponent_ops: number | null
+  opponent_strikeouts_rank: number | null
 }
 
 export interface GameLogEntry {

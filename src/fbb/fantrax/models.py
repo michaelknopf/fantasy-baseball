@@ -135,6 +135,31 @@ class PlayerDetail(BaseModel):
     player_id: str
     name: str
     game_log: list[GameLogEntry] = []
+    # Share of Fantrax leagues rostering him, and who holds him in ours. Roster
+    # rows omit both, so our own pitchers would have nothing to compare against.
+    rostered_pct: str | None = None
+    owned_by: str | None = None
+
+
+class TeamBatting(BaseModel):
+    """An MLB team's season batting line, used to grade a pitcher's matchup.
+
+    Ranks are 1 = best offense, so a high `runs_rank` is a soft opponent. Sourced
+    from ESPN rather than Fantrax, which exposes no team-level stats.
+    """
+
+    abbreviation: str
+    name: str
+    games: int
+    runs: int
+    runs_per_game: float
+    runs_rank: int
+    ops: float
+    ops_rank: int
+    avg: float
+    home_runs: int
+    strikeouts: int
+    strikeouts_rank: int
 
 
 class LeagueSnapshot(BaseModel):
@@ -153,3 +178,4 @@ class LeagueSnapshot(BaseModel):
     rosters: list[TeamRoster] = []
     free_agent_pitchers: list[FreeAgentPitcher] = []
     player_details: list[PlayerDetail] = []
+    team_batting: list[TeamBatting] = []

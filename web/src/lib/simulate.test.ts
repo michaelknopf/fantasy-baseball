@@ -1,6 +1,19 @@
 import { describe, expect, it } from 'vitest'
 import { rosterDuring, simulate } from './simulate'
-import type { Board, Pitcher } from './types'
+import type { Board, Pitcher, StartSlot } from './types'
+
+function start(
+  over: Pick<StartSlot, 'date' | 'label' | 'opponent' | 'is_away'>,
+): StartSlot {
+  return {
+    opposing_pitcher: null,
+    opponent_runs_per_game: null,
+    opponent_runs_rank: null,
+    opponent_ops: null,
+    opponent_strikeouts_rank: null,
+    ...over,
+  }
+}
 
 function pitcher(over: Partial<Pitcher> & { player_id: string }): Pitcher {
   return {
@@ -45,13 +58,12 @@ const BOARD: Board = {
       ownership: 'mine',
       roster_status: 'reserve',
       starts: [
-        {
+        start({
           date: '2026-08-10',
           label: 'Mon 8/10',
           opponent: 'KC',
           is_away: false,
-          opposing_pitcher: null,
-        },
+        }),
       ],
     }),
     pitcher({
@@ -59,32 +71,29 @@ const BOARD: Board = {
       ownership: 'mine',
       roster_status: 'injured_reserve',
       starts: [
-        {
+        start({
           date: '2026-08-11',
           label: 'Tue 8/11',
           opponent: 'KC',
           is_away: false,
-          opposing_pitcher: null,
-        },
+        }),
       ],
     }),
     pitcher({
       player_id: 'fa1',
       starts: [
-        {
+        start({
           date: '2026-08-11',
           label: 'Tue 8/11',
           opponent: 'BOS',
           is_away: true,
-          opposing_pitcher: null,
-        },
-        {
+        }),
+        start({
           date: '2026-08-14',
           label: 'Fri 8/14',
           opponent: 'NYY',
           is_away: false,
-          opposing_pitcher: null,
-        },
+        }),
       ],
     }),
   ],
