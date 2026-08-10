@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { rosterDuring, simulate } from './simulate'
+import { IR_STATUS, isInjuredReserve } from './types'
 import type { Board, Pitcher, StartSlot } from './types'
 
 function start(
@@ -69,7 +70,8 @@ const BOARD: Board = {
     pitcher({
       player_id: 'hurt',
       ownership: 'mine',
-      roster_status: 'injured_reserve',
+      // Spelled as `_simplify_status` in board.py emits it, not as a slug.
+      roster_status: IR_STATUS,
       starts: [
         start({
           date: '2026-08-11',
@@ -99,6 +101,15 @@ const BOARD: Board = {
   ],
   rivals: [],
 }
+
+describe('isInjuredReserve', () => {
+  it('matches the spelling the board emits, not the slug', () => {
+    expect(isInjuredReserve('injured reserve')).toBe(true)
+    expect(isInjuredReserve('injured_reserve')).toBe(false)
+    expect(isInjuredReserve('reserve')).toBe(false)
+    expect(isInjuredReserve(null)).toBe(false)
+  })
+})
 
 describe('rosterDuring', () => {
   it('starts from who we already hold', () => {

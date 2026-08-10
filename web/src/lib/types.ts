@@ -45,6 +45,13 @@ export interface Pitcher {
   recent_games: GameLogEntry[]
 }
 
+/** The value `_simplify_status` in `board.py` emits for an IR player. */
+export const IR_STATUS = 'injured reserve'
+
+export function isInjuredReserve(status: string | null | undefined): boolean {
+  return status === IR_STATUS
+}
+
 export interface WaiverPeriod {
   starts_on: string
   ends_on: string

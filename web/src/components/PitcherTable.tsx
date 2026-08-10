@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { expectedPoints, formBasis } from '@/lib/simulate'
 import type { Move } from '@/lib/simulate'
+import { IR_STATUS, isInjuredReserve } from '@/lib/types'
 import type { Board, Pitcher, WaiverPeriod } from '@/lib/types'
 
 type SortKey = 'form' | 'season' | 'name' | 'next'
@@ -240,10 +241,10 @@ function OwnershipChip({
   pitcher: Pitcher
   held: boolean
 }) {
-  if (pitcher.roster_status === 'injured_reserve') {
+  if (isInjuredReserve(pitcher.roster_status)) {
     return (
       <span className="rounded bg-bad/15 px-2 py-0.5 text-xs text-bad">
-        injured reserve
+        {IR_STATUS}
       </span>
     )
   }

@@ -1,3 +1,4 @@
+import { isInjuredReserve } from './types'
 import type { Board, Pitcher, StartSlot, WaiverPeriod } from './types'
 
 /**
@@ -34,8 +35,6 @@ export interface PeriodPlan {
   daysCovered: number
   projectedPoints: number
 }
-
-const IR_STATUSES = new Set(['injured_reserve'])
 
 /** Which pitchers we hold during a given period, given the moves so far. */
 export function rosterDuring(
@@ -75,7 +74,7 @@ export function simulate(board: Board, moves: Move[]): PeriodPlan[] {
     for (const playerId of held) {
       const pitcher = byId.get(playerId)
       if (!pitcher) continue
-      const usable = !IR_STATUSES.has(pitcher.roster_status ?? '')
+      const usable = !isInjuredReserve(pitcher.roster_status)
       for (const start of pitcher.starts) {
         if (start.date < period.starts_on) continue
         if (start.date > period.ends_on) continue
