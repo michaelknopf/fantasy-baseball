@@ -41,5 +41,8 @@ def build(
 
     mine = sum(1 for p in board.pitchers if p.ownership == 'mine')
     free = sum(1 for p in board.pitchers if p.ownership == 'free_agent')
-    counts = f'{mine} on your roster, {free} free agents, {len(board.periods)} periods'
+    counts = (
+        f'{mine} pitchers on your roster, {free} free agents, '
+        f'{len(board.roster)} roster spots, {len(board.periods)} periods'
+    )
     console.print(f'[green]Wrote {out}[/green] ({counts})')

@@ -5,7 +5,7 @@ decision: one row per pitcher, carrying his scheduled starts and the form number
 you compare across them.
 """
 
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import date, timedelta
 
 from pydantic import BaseModel
@@ -13,6 +13,7 @@ from pydantic import BaseModel
 from fbb.fantrax.models import (
     GameLogEntry,
     LeagueSnapshot,
+    TeamRoster,
     TeamStartsBudget,
 )
 from fbb.fantrax.waivers import WaiverSchedule
@@ -69,6 +70,41 @@ class Pitcher(BaseModel):
     recent_games: list[GameLogEntry] = []
 
 
+class RosterEntry(BaseModel):
+    """A player occupying one of our roster spots.
+
+    Every spot, not just the pitchers: the roster is full, so an add has to name
+    someone to drop, and a hitter is as droppable as an arm. `season` and
+    `windows` come from the game log rather than the roster row, whose stats are
+    only today's.
+    """
+
+    player_id: str
+    name: str
+    mlb_team: str | None = None
+    positions: str | None = None
+    role: str  # 'starter' | 'reliever' | 'hitter'
+    roster_status: str | None = None
+    season: Form | None = None
+    windows: dict[str, Form] = {}
+
+
+class RosterSlots(BaseModel):
+    """How many spots of each kind we hold, and how many are filled.
+
+    Capacities are counted from the roster rather than configured, which is only
+    valid because the roster is full — Fantrax does not report the limits.
+    """
+
+    active: int = 0
+    reserve: int = 0
+    injured_reserve: int = 0
+
+    @property
+    def total(self) -> int:
+        return self.active + self.reserve + self.injured_reserve
+
+
 class WaiverPeriod(BaseModel):
     """A span between waiver runs — the unit a claim commits you to.
 
@@ -107,6 +143,8 @@ class Board(BaseModel):
     periods: list[WaiverPeriod] = []
     pitchers: list[Pitcher] = []
     rivals: list[Rival] = []
+    slots: RosterSlots | None = None
+    roster: list[RosterEntry] = []
 
 
 class BoardBuilder:
@@ -120,8 +158,8 @@ class BoardBuilder:
         self._today = snapshot.collected_at.date()
 
     def build(self) -> Board:
-        mine = self._my_roster_id()
         budget = self._my_budget()
+        roster = self._my_roster()
         return Board(
             generated_at=self._today,
             collected_through=self._snapshot.collected_through,
@@ -129,14 +167,23 @@ class BoardBuilder:
             starts_max=budget.starts_max if budget else None,
             claim_budget=budget.claim_budget if budget else None,
             periods=self._periods(),
-            pitchers=self._pitchers(mine),
+            pitchers=self._pitchers(roster),
             rivals=self._rivals(),
+            slots=self._slots(roster),
+            roster=self._roster(roster),
         )
 
     def _my_roster_id(self) -> str | None:
         for team in self._snapshot.teams:
             if team.is_mine:
                 return team.team_id
+        return None
+
+    def _my_roster(self) -> TeamRoster | None:
+        team_id = self._my_roster_id()
+        for roster in self._snapshot.rosters:
+            if roster.team_id == team_id:
+                return roster
         return None
 
     def _my_budget(self) -> TeamStartsBudget | None:
@@ -188,26 +235,25 @@ class BoardBuilder:
             opponent_strikeouts_rank=batting.strikeouts_rank if batting else None,
         )
 
-    def _pitchers(self, my_team_id: str | None) -> list[Pitcher]:
+    def _pitchers(self, roster: TeamRoster | None) -> list[Pitcher]:
         pitchers: dict[str, Pitcher] = {}
 
-        for roster in self._snapshot.rosters:
-            if roster.team_id != my_team_id:
-                continue
-            statuses = {p.player_id: p for p in roster.players}
-            for schedule in roster.schedules:
-                player = statuses.get(schedule.player_id)
-                if not self._is_pitcher(schedule.positions, player):
+        if roster is not None:
+            # Keyed off the roster rather than the schedules, which only cover
+            # starters — relievers have no scheduled starts but are still ours,
+            # and the drop picker needs them.
+            schedules = {s.player_id: s for s in roster.schedules}
+            for player in roster.players:
+                if not _is_pitcher(player.positions):
                     continue
-                pitchers[schedule.player_id] = Pitcher(
-                    player_id=schedule.player_id,
-                    name=schedule.name,
-                    mlb_team=player.mlb_team if player else None,
-                    positions=schedule.positions,
+                schedule = schedules.get(player.player_id)
+                pitchers[player.player_id] = Pitcher(
+                    player_id=player.player_id,
+                    name=player.name,
+                    mlb_team=player.mlb_team,
+                    positions=player.positions,
                     ownership='mine',
-                    roster_status=_simplify_status(
-                        player.roster_status if player else None
-                    ),
+                    roster_status=_simplify_status(player.roster_status),
                     starts=[
                         self._slot(
                             date=s.date,
@@ -216,9 +262,9 @@ class BoardBuilder:
                             is_away=s.is_away,
                             opposing_pitcher=s.opposing_pitcher,
                         )
-                        for s in schedule.starts
+                        for s in (schedule.starts if schedule else [])
                     ],
-                    stats=player.stats if player else {},
+                    stats=player.stats,
                 )
 
         # Free agents arrive as one row per probable start; fold them into one
@@ -256,15 +302,60 @@ class BoardBuilder:
             self._attach_form(pitcher)
         return sorted(pitchers.values(), key=lambda p: p.name)
 
-    @staticmethod
-    def _is_pitcher(positions: str | None, player: object) -> bool:
-        return bool(positions and ('SP' in positions or 'RP' in positions))
+    def _slots(self, roster: TeamRoster | None) -> RosterSlots | None:
+        if roster is None:
+            return None
+        counts = Counter(p.roster_status for p in roster.players)
+        return RosterSlots(
+            active=counts['active'],
+            reserve=counts['reserve'],
+            injured_reserve=counts['injured_reserve'],
+        )
+
+    def _roster(self, roster: TeamRoster | None) -> list[RosterEntry]:
+        """Every spot we hold, since any of them can be the one we give up."""
+        if roster is None:
+            return []
+        entries: list[RosterEntry] = []
+        for player in roster.players:
+            role = _role(player.positions)
+            appearances = self._appearances(player.player_id, role)
+            entries.append(
+                RosterEntry(
+                    player_id=player.player_id,
+                    name=player.name,
+                    mlb_team=player.mlb_team,
+                    positions=player.positions,
+                    role=role,
+                    roster_status=_simplify_status(player.roster_status),
+                    season=self._form(appearances),
+                    windows={
+                        name: self._form(self._within(appearances, days))
+                        for name, days in _WINDOWS.items()
+                    },
+                )
+            )
+        return entries
+
+    def _appearances(self, player_id: str, role: str) -> list[GameLogEntry]:
+        """The games a player actually played.
+
+        Hitter logs carry no innings at all, so the innings filter that separates
+        a pitcher's appearances from his unplayed scheduled rows would discard
+        every hitter game. Scoring stands in for it there.
+        """
+        detail = self._details.get(player_id)
+        if detail is None:
+            return []
+        if role == 'hitter':
+            return [g for g in detail.game_log if g.fantasy_points is not None]
+        return [g for g in detail.game_log if self._played(g)]
 
     def _attach_form(self, pitcher: Pitcher) -> None:
         detail = self._details.get(pitcher.player_id)
         if detail is None:
             return
-        appearances = [g for g in detail.game_log if self._played(g)]
+        appearances = self._appearances(pitcher.player_id, _role(pitcher.positions))
         pitcher.season = self._form(appearances)
         pitcher.windows = {
             name: self._form(self._within(appearances, days))
@@ -360,6 +451,26 @@ class BoardBuilder:
                 reverse=True,
             )
         ]
+
+
+def _is_pitcher(positions: str | None) -> bool:
+    return bool(positions and ('SP' in positions or 'RP' in positions))
+
+
+def _role(positions: str | None) -> str:
+    """Which pool a player competes in, since scoring rates are not comparable across them.
+
+    A reliever's 7-11 points a game and a starter's 25 measure different jobs, and
+    a hitter's 3 is a third thing again — ranking drop candidates mixes them into
+    nonsense unless they stay in separate groups.
+    """
+    if not positions:
+        return 'hitter'
+    if 'SP' in positions:
+        return 'starter'
+    if 'RP' in positions:
+        return 'reliever'
+    return 'hitter'
 
 
 def _simplify_status(status: str | None) -> str | None:

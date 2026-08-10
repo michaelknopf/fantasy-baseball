@@ -394,6 +394,333 @@
       ]
     },
     {
+      "player_id": "05nso",
+      "name": "Abner Uribe",
+      "mlb_team": "MIL",
+      "positions": "RP",
+      "ownership": "mine",
+      "roster_status": "owned",
+      "rostered_pct": "78%",
+      "owned_by": "MK",
+      "starts": [],
+      "season": {
+        "games": 49,
+        "fantasy_points": 343.75,
+        "per_game": 7.02
+      },
+      "windows": {
+        "last15": {
+          "games": 7,
+          "fantasy_points": 47.5,
+          "per_game": 6.79
+        },
+        "last30": {
+          "games": 11,
+          "fantasy_points": 77.5,
+          "per_game": 7.05
+        },
+        "last60": {
+          "games": 24,
+          "fantasy_points": 180.0,
+          "per_game": 7.5
+        }
+      },
+      "stats": {
+        "Age": "26",
+        "Opp": "MIN 3<br/>@MIL 4 F",
+        "Sal": "2",
+        "FPts": "3.25",
+        "FP/G": "3.25",
+        "IP": "48.3",
+        "H": "0",
+        "BB": "2",
+        "ER": "0",
+        "K": "48",
+        "SV": "0",
+        "HLD": "0",
+        "ERA": "2.05",
+        "QS": "0",
+        "HB": "0",
+        "SHO": "0",
+        "NH": "0",
+        "PG": "0",
+        "IBB": "0",
+        "WHIP": "1.03"
+      },
+      "recent_games": [
+        {
+          "date": "Aug 9",
+          "team": "MIL",
+          "opponent": "MIN",
+          "score": "W 4-3",
+          "fantasy_points": 3.25,
+          "stats": {
+            "Date": "Aug 9",
+            "Team": "MIL",
+            "Opp": "MIN",
+            "Score": "W 4-3",
+            "FPts": "3.25",
+            "IP": "1",
+            "K": "0",
+            "ER": "0",
+            "H": "0",
+            "BB": "2",
+            "SV": "0",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Aug 8",
+          "team": "MIL",
+          "opponent": "MIN",
+          "score": "W 4-3",
+          "fantasy_points": 5.75,
+          "stats": {
+            "Date": "Aug 8",
+            "Team": "MIL",
+            "Opp": "MIN",
+            "Score": "W 4-3",
+            "FPts": "5.75",
+            "IP": "1",
+            "K": "1",
+            "ER": "0",
+            "H": "0",
+            "BB": "1",
+            "SV": "0",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Aug 5",
+          "team": "MIL",
+          "opponent": "PIT",
+          "score": "W 4-2",
+          "fantasy_points": 8.25,
+          "stats": {
+            "Date": "Aug 5",
+            "Team": "MIL",
+            "Opp": "PIT",
+            "Score": "W 4-2",
+            "FPts": "8.25",
+            "IP": "1",
+            "K": "0",
+            "ER": "0",
+            "H": "0",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "1",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Aug 4",
+          "team": "MIL",
+          "opponent": "PIT",
+          "score": "W 4-2",
+          "fantasy_points": 10.75,
+          "stats": {
+            "Date": "Aug 4",
+            "Team": "MIL",
+            "Opp": "PIT",
+            "Score": "W 4-2",
+            "FPts": "10.75",
+            "IP": "1",
+            "K": "3",
+            "ER": "0",
+            "H": "1",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "1",
+            "QS": "0",
+            "HB": "1",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Aug 1",
+          "team": "MIL",
+          "opponent": "@LAA",
+          "score": "W 3-1",
+          "fantasy_points": 11.25,
+          "stats": {
+            "Date": "Aug 1",
+            "Team": "MIL",
+            "Opp": "@LAA",
+            "Score": "W 3-1",
+            "FPts": "11.25",
+            "IP": "1",
+            "K": "2",
+            "ER": "0",
+            "H": "0",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "1",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 31",
+          "team": "MIL",
+          "opponent": "@LAA",
+          "score": "W 6-2",
+          "fantasy_points": 5.0,
+          "stats": {
+            "Date": "Jul 31",
+            "Team": "MIL",
+            "Opp": "@LAA",
+            "Score": "W 6-2",
+            "FPts": "5",
+            "IP": "0.2",
+            "K": "1",
+            "ER": "0",
+            "H": "0",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 28",
+          "team": "MIL",
+          "opponent": "@SF",
+          "score": "W 8-2",
+          "fantasy_points": 3.25,
+          "stats": {
+            "Date": "Jul 28",
+            "Team": "MIL",
+            "Opp": "@SF",
+            "Score": "W 8-2",
+            "FPts": "3.25",
+            "IP": "1",
+            "K": "0",
+            "ER": "0",
+            "H": "2",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 22",
+          "team": "MIL",
+          "opponent": "NYM",
+          "score": "W 4-3",
+          "fantasy_points": 9.25,
+          "stats": {
+            "Date": "Jul 22",
+            "Team": "MIL",
+            "Opp": "NYM",
+            "Score": "W 4-3",
+            "FPts": "9.25",
+            "IP": "1",
+            "K": "2",
+            "ER": "0",
+            "H": "2",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "1",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 18",
+          "team": "MIL",
+          "opponent": "MIA",
+          "score": "W 8-6",
+          "fantasy_points": 11.75,
+          "stats": {
+            "Date": "Jul 18",
+            "Team": "MIL",
+            "Opp": "MIA",
+            "Score": "W 8-6",
+            "FPts": "11.75",
+            "IP": "1",
+            "K": "3",
+            "ER": "0",
+            "H": "1",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "1",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 17",
+          "team": "MIL",
+          "opponent": "MIA",
+          "score": "W 2-1",
+          "fantasy_points": 5.75,
+          "stats": {
+            "Date": "Jul 17",
+            "Team": "MIL",
+            "Opp": "MIA",
+            "Score": "W 2-1",
+            "FPts": "5.75",
+            "IP": "1",
+            "K": "1",
+            "ER": "0",
+            "H": "1",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        }
+      ]
+    },
+    {
       "player_id": "05133",
       "name": "Andre Pallante",
       "mlb_team": "STL",
@@ -3898,6 +4225,333 @@
             "ER": "2",
             "H": "5",
             "BB": "2",
+            "SV": "0",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        }
+      ]
+    },
+    {
+      "player_id": "041w4",
+      "name": "Bryan Baker",
+      "mlb_team": "TB",
+      "positions": "RP",
+      "ownership": "mine",
+      "roster_status": "owned",
+      "rostered_pct": "87%",
+      "owned_by": "MK",
+      "starts": [],
+      "season": {
+        "games": 48,
+        "fantasy_points": 533.75,
+        "per_game": 11.12
+      },
+      "windows": {
+        "last15": {
+          "games": 8,
+          "fantasy_points": 109.5,
+          "per_game": 13.69
+        },
+        "last30": {
+          "games": 10,
+          "fantasy_points": 127.5,
+          "per_game": 12.75
+        },
+        "last60": {
+          "games": 19,
+          "fantasy_points": 243.25,
+          "per_game": 12.8
+        }
+      },
+      "stats": {
+        "Age": "31",
+        "Opp": "TB 4<br/>@SEA 1 F",
+        "Sal": "3",
+        "FPts": "0",
+        "FP/G": "0",
+        "IP": "46.3",
+        "H": "0",
+        "BB": "0",
+        "ER": "0",
+        "K": "51",
+        "SV": "0",
+        "HLD": "0",
+        "ERA": "1.55",
+        "QS": "0",
+        "HB": "0",
+        "SHO": "0",
+        "NH": "0",
+        "PG": "0",
+        "IBB": "0",
+        "WHIP": "0.84"
+      },
+      "recent_games": [
+        {
+          "date": "Aug 8",
+          "team": "TB",
+          "opponent": "@SEA",
+          "score": "W 3-2",
+          "fantasy_points": 12.25,
+          "stats": {
+            "Date": "Aug 8",
+            "Team": "TB",
+            "Opp": "@SEA",
+            "Score": "W 3-2",
+            "FPts": "12.25",
+            "IP": "1",
+            "K": "0",
+            "ER": "0",
+            "H": "1",
+            "BB": "0",
+            "SV": "1",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Aug 7",
+          "team": "TB",
+          "opponent": "@SEA",
+          "score": "W 2-1",
+          "fantasy_points": 13.75,
+          "stats": {
+            "Date": "Aug 7",
+            "Team": "TB",
+            "Opp": "@SEA",
+            "Score": "W 2-1",
+            "FPts": "13.75",
+            "IP": "1",
+            "K": "3",
+            "ER": "1",
+            "H": "1",
+            "BB": "0",
+            "SV": "1",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Aug 4",
+          "team": "TB",
+          "opponent": "@COL",
+          "score": "W 9-7",
+          "fantasy_points": 16.25,
+          "stats": {
+            "Date": "Aug 4",
+            "Team": "TB",
+            "Opp": "@COL",
+            "Score": "W 9-7",
+            "FPts": "16.25",
+            "IP": "1",
+            "K": "2",
+            "ER": "0",
+            "H": "0",
+            "BB": "0",
+            "SV": "1",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Aug 1",
+          "team": "TB",
+          "opponent": "CHW",
+          "score": "W 1-0",
+          "fantasy_points": 14.75,
+          "stats": {
+            "Date": "Aug 1",
+            "Team": "TB",
+            "Opp": "CHW",
+            "Score": "W 1-0",
+            "FPts": "14.75",
+            "IP": "1",
+            "K": "1",
+            "ER": "0",
+            "H": "0",
+            "BB": "0",
+            "SV": "1",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 30",
+          "team": "TB",
+          "opponent": "TEX",
+          "score": "W 3-2",
+          "fantasy_points": 14.25,
+          "stats": {
+            "Date": "Jul 30",
+            "Team": "TB",
+            "Opp": "TEX",
+            "Score": "W 3-2",
+            "FPts": "14.25",
+            "IP": "1",
+            "K": "2",
+            "ER": "0",
+            "H": "0",
+            "BB": "2",
+            "SV": "1",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 29",
+          "team": "TB",
+          "opponent": "TEX",
+          "score": "W 3-0",
+          "fantasy_points": 12.25,
+          "stats": {
+            "Date": "Jul 29",
+            "Team": "TB",
+            "Opp": "TEX",
+            "Score": "W 3-0",
+            "FPts": "12.25",
+            "IP": "1",
+            "K": "0",
+            "ER": "0",
+            "H": "1",
+            "BB": "0",
+            "SV": "1",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 26",
+          "team": "TB",
+          "opponent": "CLE",
+          "score": "W 1-0",
+          "fantasy_points": 13.75,
+          "stats": {
+            "Date": "Jul 26",
+            "Team": "TB",
+            "Opp": "CLE",
+            "Score": "W 1-0",
+            "FPts": "13.75",
+            "IP": "1",
+            "K": "1",
+            "ER": "0",
+            "H": "0",
+            "BB": "1",
+            "SV": "1",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 25",
+          "team": "TB",
+          "opponent": "CLE",
+          "score": "W 3-0",
+          "fantasy_points": 12.25,
+          "stats": {
+            "Date": "Jul 25",
+            "Team": "TB",
+            "Opp": "CLE",
+            "Score": "W 3-0",
+            "FPts": "12.25",
+            "IP": "1",
+            "K": "0",
+            "ER": "0",
+            "H": "1",
+            "BB": "0",
+            "SV": "1",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 22",
+          "team": "TB",
+          "opponent": "@TOR",
+          "score": "W 4-2",
+          "fantasy_points": 14.75,
+          "stats": {
+            "Date": "Jul 22",
+            "Team": "TB",
+            "Opp": "@TOR",
+            "Score": "W 4-2",
+            "FPts": "14.75",
+            "IP": "1",
+            "K": "1",
+            "ER": "0",
+            "H": "0",
+            "BB": "0",
+            "SV": "1",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 20",
+          "team": "TB",
+          "opponent": "@TOR",
+          "score": "W 7-1",
+          "fantasy_points": 3.25,
+          "stats": {
+            "Date": "Jul 20",
+            "Team": "TB",
+            "Opp": "@TOR",
+            "Score": "W 7-1",
+            "FPts": "3.25",
+            "IP": "1",
+            "K": "0",
+            "ER": "0",
+            "H": "1",
+            "BB": "1",
             "SV": "0",
             "HLD": "0",
             "QS": "0",
@@ -9969,6 +10623,333 @@
       ]
     },
     {
+      "player_id": "066er",
+      "name": "Grant Taylor",
+      "mlb_team": "CHW",
+      "positions": "RP",
+      "ownership": "mine",
+      "roster_status": "owned",
+      "rostered_pct": "77%",
+      "owned_by": "MK",
+      "starts": [],
+      "season": {
+        "games": 43,
+        "fantasy_points": 393.5,
+        "per_game": 9.15
+      },
+      "windows": {
+        "last15": {
+          "games": 5,
+          "fantasy_points": 58.0,
+          "per_game": 11.6
+        },
+        "last30": {
+          "games": 8,
+          "fantasy_points": 109.0,
+          "per_game": 13.62
+        },
+        "last60": {
+          "games": 17,
+          "fantasy_points": 164.0,
+          "per_game": 9.65
+        }
+      },
+      "stats": {
+        "Age": "24",
+        "Opp": "CLE 3<br/>@CHW 5 F",
+        "Sal": "1",
+        "FPts": "0",
+        "FP/G": "0",
+        "IP": "59.3",
+        "H": "0",
+        "BB": "0",
+        "ER": "0",
+        "K": "78",
+        "SV": "0",
+        "HLD": "0",
+        "ERA": "2.28",
+        "QS": "0",
+        "HB": "0",
+        "SHO": "0",
+        "NH": "0",
+        "PG": "0",
+        "IBB": "0",
+        "WHIP": "1.03"
+      },
+      "recent_games": [
+        {
+          "date": "Aug 8",
+          "team": "CHW",
+          "opponent": "CLE",
+          "score": "W 6-3",
+          "fantasy_points": 12.25,
+          "stats": {
+            "Date": "Aug 8",
+            "Team": "CHW",
+            "Opp": "CLE",
+            "Score": "W 6-3",
+            "FPts": "12.25",
+            "IP": "1",
+            "K": "0",
+            "ER": "0",
+            "H": "1",
+            "BB": "0",
+            "SV": "1",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Aug 6",
+          "team": "CHW",
+          "opponent": "@BOS",
+          "score": "L 11-12",
+          "fantasy_points": 13.5,
+          "stats": {
+            "Date": "Aug 6",
+            "Team": "CHW",
+            "Opp": "@BOS",
+            "Score": "L 11-12",
+            "FPts": "13.5",
+            "IP": "2",
+            "K": "2",
+            "ER": "0",
+            "H": "1",
+            "BB": "1",
+            "SV": "0",
+            "HLD": "1",
+            "QS": "0",
+            "HB": "1",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Aug 2",
+          "team": "CHW",
+          "opponent": "@TB",
+          "score": "W 9-1",
+          "fantasy_points": 8.25,
+          "stats": {
+            "Date": "Aug 2",
+            "Team": "CHW",
+            "Opp": "@TB",
+            "Score": "W 9-1",
+            "FPts": "8.25",
+            "IP": "1.2",
+            "K": "1",
+            "ER": "0",
+            "H": "2",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 29",
+          "team": "CHW",
+          "opponent": "NYY",
+          "score": "W 6-5",
+          "fantasy_points": 13.75,
+          "stats": {
+            "Date": "Jul 29",
+            "Team": "CHW",
+            "Opp": "NYY",
+            "Score": "W 6-5",
+            "FPts": "13.75",
+            "IP": "2.1",
+            "K": "1",
+            "ER": "0",
+            "H": "0",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 26",
+          "team": "CHW",
+          "opponent": "HOU",
+          "score": "W 12-3",
+          "fantasy_points": 10.25,
+          "stats": {
+            "Date": "Jul 26",
+            "Team": "CHW",
+            "Opp": "HOU",
+            "Score": "W 12-3",
+            "FPts": "10.25",
+            "IP": "1",
+            "K": "2",
+            "ER": "0",
+            "H": "0",
+            "BB": "1",
+            "SV": "0",
+            "HLD": "1",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 22",
+          "team": "CHW",
+          "opponent": "@TEX",
+          "score": "W 4-2",
+          "fantasy_points": 21.0,
+          "stats": {
+            "Date": "Jul 22",
+            "Team": "CHW",
+            "Opp": "@TEX",
+            "Score": "W 4-2",
+            "FPts": "21",
+            "IP": "2",
+            "K": "5",
+            "ER": "0",
+            "H": "0",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "1",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 19",
+          "team": "CHW",
+          "opponent": "@TOR",
+          "score": "W 3-0",
+          "fantasy_points": 11.25,
+          "stats": {
+            "Date": "Jul 19",
+            "Team": "CHW",
+            "Opp": "@TOR",
+            "Score": "W 3-0",
+            "FPts": "11.25",
+            "IP": "1",
+            "K": "0",
+            "ER": "0",
+            "H": "2",
+            "BB": "0",
+            "SV": "1",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 11",
+          "team": "CHW",
+          "opponent": "ATH",
+          "score": "W 1-0",
+          "fantasy_points": 18.75,
+          "stats": {
+            "Date": "Jul 11",
+            "Team": "CHW",
+            "Opp": "ATH",
+            "Score": "W 1-0",
+            "FPts": "18.75",
+            "IP": "1.2",
+            "K": "2",
+            "ER": "0",
+            "H": "0",
+            "BB": "1",
+            "SV": "1",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 9",
+          "team": "CHW",
+          "opponent": "BOS",
+          "score": "L 1-2",
+          "fantasy_points": 4.25,
+          "stats": {
+            "Date": "Jul 9",
+            "Team": "CHW",
+            "Opp": "BOS",
+            "Score": "L 1-2",
+            "FPts": "4.25",
+            "IP": "1",
+            "K": "0",
+            "ER": "0",
+            "H": "0",
+            "BB": "1",
+            "SV": "0",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 4",
+          "team": "CHW",
+          "opponent": "@CLE",
+          "score": "W 3-1",
+          "fantasy_points": 13.75,
+          "stats": {
+            "Date": "Jul 4",
+            "Team": "CHW",
+            "Opp": "@CLE",
+            "Score": "W 3-1",
+            "FPts": "13.75",
+            "IP": "1",
+            "K": "1",
+            "ER": "0",
+            "H": "0",
+            "BB": "1",
+            "SV": "1",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        }
+      ]
+    },
+    {
       "player_id": "04pko",
       "name": "Grayson Rodriguez",
       "mlb_team": "LAA",
@@ -13912,6 +14893,333 @@
             "SV": "0",
             "HLD": "0",
             "QS": "1",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        }
+      ]
+    },
+    {
+      "player_id": "051eh",
+      "name": "Kevin Kelly",
+      "mlb_team": "TB",
+      "positions": "RP",
+      "ownership": "mine",
+      "roster_status": "owned",
+      "rostered_pct": "53%",
+      "owned_by": "MK",
+      "starts": [],
+      "season": {
+        "games": 50,
+        "fantasy_points": 368.0,
+        "per_game": 7.36
+      },
+      "windows": {
+        "last15": {
+          "games": 7,
+          "fantasy_points": 54.25,
+          "per_game": 7.75
+        },
+        "last30": {
+          "games": 11,
+          "fantasy_points": 90.0,
+          "per_game": 8.18
+        },
+        "last60": {
+          "games": 21,
+          "fantasy_points": 172.25,
+          "per_game": 8.2
+        }
+      },
+      "stats": {
+        "Age": "28",
+        "Opp": "TB 4<br/>@SEA 1 F",
+        "Sal": "2",
+        "FPts": "0",
+        "FP/G": "0",
+        "IP": "54.0",
+        "H": "0",
+        "BB": "0",
+        "ER": "0",
+        "K": "43",
+        "SV": "0",
+        "HLD": "0",
+        "ERA": "2.00",
+        "QS": "0",
+        "HB": "0",
+        "SHO": "0",
+        "NH": "0",
+        "PG": "0",
+        "IBB": "0",
+        "WHIP": "0.83"
+      },
+      "recent_games": [
+        {
+          "date": "Aug 8",
+          "team": "TB",
+          "opponent": "@SEA",
+          "score": "W 3-2",
+          "fantasy_points": 9.0,
+          "stats": {
+            "Date": "Aug 8",
+            "Team": "TB",
+            "Opp": "@SEA",
+            "Score": "W 3-2",
+            "FPts": "9",
+            "IP": "1.1",
+            "K": "0",
+            "ER": "0",
+            "H": "1",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "1",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Aug 7",
+          "team": "TB",
+          "opponent": "@SEA",
+          "score": "W 2-1",
+          "fantasy_points": 8.0,
+          "stats": {
+            "Date": "Aug 7",
+            "Team": "TB",
+            "Opp": "@SEA",
+            "Score": "W 2-1",
+            "FPts": "8",
+            "IP": "0.2",
+            "K": "1",
+            "ER": "0",
+            "H": "0",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "1",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Aug 4",
+          "team": "TB",
+          "opponent": "@COL",
+          "score": "W 9-7",
+          "fantasy_points": 3.25,
+          "stats": {
+            "Date": "Aug 4",
+            "Team": "TB",
+            "Opp": "@COL",
+            "Score": "W 9-7",
+            "FPts": "3.25",
+            "IP": "1",
+            "K": "0",
+            "ER": "0",
+            "H": "1",
+            "BB": "1",
+            "SV": "0",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Aug 3",
+          "team": "TB",
+          "opponent": "@COL",
+          "score": "W 13-9",
+          "fantasy_points": 1.75,
+          "stats": {
+            "Date": "Aug 3",
+            "Team": "TB",
+            "Opp": "@COL",
+            "Score": "W 13-9",
+            "FPts": "1.75",
+            "IP": "0.1",
+            "K": "0",
+            "ER": "0",
+            "H": "0",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Aug 1",
+          "team": "TB",
+          "opponent": "CHW",
+          "score": "W 1-0",
+          "fantasy_points": 11.25,
+          "stats": {
+            "Date": "Aug 1",
+            "Team": "TB",
+            "Opp": "CHW",
+            "Score": "W 1-0",
+            "FPts": "11.25",
+            "IP": "1",
+            "K": "2",
+            "ER": "0",
+            "H": "0",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "1",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 29",
+          "team": "TB",
+          "opponent": "TEX",
+          "score": "W 3-0",
+          "fantasy_points": 12.75,
+          "stats": {
+            "Date": "Jul 29",
+            "Team": "TB",
+            "Opp": "TEX",
+            "Score": "W 3-0",
+            "FPts": "12.75",
+            "IP": "1",
+            "K": "3",
+            "ER": "0",
+            "H": "0",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "1",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 28",
+          "team": "TB",
+          "opponent": "TEX",
+          "score": "L 1-4",
+          "fantasy_points": 8.25,
+          "stats": {
+            "Date": "Jul 28",
+            "Team": "TB",
+            "Opp": "TEX",
+            "Score": "L 1-4",
+            "FPts": "8.25",
+            "IP": "1",
+            "K": "2",
+            "ER": "0",
+            "H": "0",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 22",
+          "team": "TB",
+          "opponent": "@TOR",
+          "score": "W 4-2",
+          "fantasy_points": 11.5,
+          "stats": {
+            "Date": "Jul 22",
+            "Team": "TB",
+            "Opp": "@TOR",
+            "Score": "W 4-2",
+            "FPts": "11.5",
+            "IP": "1.1",
+            "K": "1",
+            "ER": "0",
+            "H": "0",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "1",
+            "QS": "0",
+            "HB": "0",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 18",
+          "team": "TB",
+          "opponent": "@BOS",
+          "score": "L 6-7",
+          "fantasy_points": 11.5,
+          "stats": {
+            "Date": "Jul 18",
+            "Team": "TB",
+            "Opp": "@BOS",
+            "Score": "L 6-7",
+            "FPts": "11.5",
+            "IP": "2",
+            "K": "2",
+            "ER": "0",
+            "H": "1",
+            "BB": "0",
+            "SV": "0",
+            "HLD": "0",
+            "QS": "0",
+            "HB": "1",
+            "SHO": "0",
+            "NH": "0",
+            "PG": "0",
+            "IBB": "0"
+          }
+        },
+        {
+          "date": "Jul 12",
+          "team": "TB",
+          "opponent": "SEA",
+          "score": "L 2-8",
+          "fantasy_points": 0.75,
+          "stats": {
+            "Date": "Jul 12",
+            "Team": "TB",
+            "Opp": "SEA",
+            "Score": "L 2-8",
+            "FPts": "0.75",
+            "IP": "0.1",
+            "K": "0",
+            "ER": "0",
+            "H": "0",
+            "BB": "1",
+            "SV": "0",
+            "HLD": "0",
+            "QS": "0",
             "HB": "0",
             "SHO": "0",
             "NH": "0",
@@ -27373,6 +28681,823 @@
       "starts_remaining": 31,
       "claim_budget": 256.0,
       "is_mine": false
+    }
+  ],
+  "slots": {
+    "active": 19,
+    "reserve": 5,
+    "injured_reserve": 3
+  },
+  "roster": [
+    {
+      "player_id": "03yrz",
+      "name": "William Contreras",
+      "mlb_team": "MIL",
+      "positions": "C",
+      "role": "hitter",
+      "roster_status": "owned",
+      "season": {
+        "games": 110,
+        "fantasy_points": 298.5,
+        "per_game": 2.71
+      },
+      "windows": {
+        "last15": {
+          "games": 13,
+          "fantasy_points": 22.5,
+          "per_game": 1.73
+        },
+        "last30": {
+          "games": 22,
+          "fantasy_points": 44.5,
+          "per_game": 2.02
+        },
+        "last60": {
+          "games": 48,
+          "fantasy_points": 106.5,
+          "per_game": 2.22
+        }
+      }
+    },
+    {
+      "player_id": "01cgo",
+      "name": "Freddie Freeman",
+      "mlb_team": "LAD",
+      "positions": "1B",
+      "role": "hitter",
+      "roster_status": "owned",
+      "season": {
+        "games": 115,
+        "fantasy_points": 345.0,
+        "per_game": 3.0
+      },
+      "windows": {
+        "last15": {
+          "games": 14,
+          "fantasy_points": 19.5,
+          "per_game": 1.39
+        },
+        "last30": {
+          "games": 24,
+          "fantasy_points": 38.0,
+          "per_game": 1.58
+        },
+        "last60": {
+          "games": 51,
+          "fantasy_points": 139.5,
+          "per_game": 2.74
+        }
+      }
+    },
+    {
+      "player_id": "0648n",
+      "name": "Chase Meidroth",
+      "mlb_team": "CHW",
+      "positions": "2B,SS",
+      "role": "hitter",
+      "roster_status": "owned",
+      "season": {
+        "games": 113,
+        "fantasy_points": 294.0,
+        "per_game": 2.6
+      },
+      "windows": {
+        "last15": {
+          "games": 14,
+          "fantasy_points": 48.0,
+          "per_game": 3.43
+        },
+        "last30": {
+          "games": 23,
+          "fantasy_points": 81.0,
+          "per_game": 3.52
+        },
+        "last60": {
+          "games": 49,
+          "fantasy_points": 128.0,
+          "per_game": 2.61
+        }
+      }
+    },
+    {
+      "player_id": "03pom",
+      "name": "Austin Riley",
+      "mlb_team": "ATL",
+      "positions": "3B",
+      "role": "hitter",
+      "roster_status": "owned",
+      "season": {
+        "games": 117,
+        "fantasy_points": 248.5,
+        "per_game": 2.12
+      },
+      "windows": {
+        "last15": {
+          "games": 14,
+          "fantasy_points": 30.0,
+          "per_game": 2.14
+        },
+        "last30": {
+          "games": 25,
+          "fantasy_points": 65.5,
+          "per_game": 2.62
+        },
+        "last60": {
+          "games": 50,
+          "fantasy_points": 98.0,
+          "per_game": 1.96
+        }
+      }
+    },
+    {
+      "player_id": "03ae8",
+      "name": "Dansby Swanson",
+      "mlb_team": "CHC",
+      "positions": "SS",
+      "role": "hitter",
+      "roster_status": "owned",
+      "season": {
+        "games": 114,
+        "fantasy_points": 355.0,
+        "per_game": 3.11
+      },
+      "windows": {
+        "last15": {
+          "games": 15,
+          "fantasy_points": 36.0,
+          "per_game": 2.4
+        },
+        "last30": {
+          "games": 25,
+          "fantasy_points": 57.5,
+          "per_game": 2.3
+        },
+        "last60": {
+          "games": 51,
+          "fantasy_points": 207.5,
+          "per_game": 4.07
+        }
+      }
+    },
+    {
+      "player_id": "026mn",
+      "name": "Javier Baez",
+      "mlb_team": "DET",
+      "positions": "3B,SS,OF",
+      "role": "hitter",
+      "roster_status": "owned",
+      "season": {
+        "games": 32,
+        "fantasy_points": 64.5,
+        "per_game": 2.02
+      },
+      "windows": {
+        "last15": {
+          "games": 8,
+          "fantasy_points": 24.0,
+          "per_game": 3.0
+        },
+        "last30": {
+          "games": 8,
+          "fantasy_points": 24.0,
+          "per_game": 3.0
+        },
+        "last60": {
+          "games": 8,
+          "fantasy_points": 24.0,
+          "per_game": 3.0
+        }
+      }
+    },
+    {
+      "player_id": "024m0",
+      "name": "Jose Altuve",
+      "mlb_team": "HOU",
+      "positions": "2B,OF",
+      "role": "hitter",
+      "roster_status": "owned",
+      "season": {
+        "games": 93,
+        "fantasy_points": 220.0,
+        "per_game": 2.37
+      },
+      "windows": {
+        "last15": {
+          "games": 13,
+          "fantasy_points": 32.5,
+          "per_game": 2.5
+        },
+        "last30": {
+          "games": 22,
+          "fantasy_points": 51.5,
+          "per_game": 2.34
+        },
+        "last60": {
+          "games": 46,
+          "fantasy_points": 110.5,
+          "per_game": 2.4
+        }
+      }
+    },
+    {
+      "player_id": "05jr0",
+      "name": "Alec Burleson",
+      "mlb_team": "STL",
+      "positions": "1B,OF",
+      "role": "hitter",
+      "roster_status": "owned",
+      "season": {
+        "games": 117,
+        "fantasy_points": 377.0,
+        "per_game": 3.22
+      },
+      "windows": {
+        "last15": {
+          "games": 15,
+          "fantasy_points": 54.5,
+          "per_game": 3.63
+        },
+        "last30": {
+          "games": 26,
+          "fantasy_points": 78.0,
+          "per_game": 3.0
+        },
+        "last60": {
+          "games": 54,
+          "fantasy_points": 166.0,
+          "per_game": 3.07
+        }
+      }
+    },
+    {
+      "player_id": "04nb2",
+      "name": "Riley Greene",
+      "mlb_team": "DET",
+      "positions": "OF",
+      "role": "hitter",
+      "roster_status": "owned",
+      "season": {
+        "games": 116,
+        "fantasy_points": 319.5,
+        "per_game": 2.75
+      },
+      "windows": {
+        "last15": {
+          "games": 13,
+          "fantasy_points": 39.0,
+          "per_game": 3.0
+        },
+        "last30": {
+          "games": 24,
+          "fantasy_points": 68.5,
+          "per_game": 2.85
+        },
+        "last60": {
+          "games": 49,
+          "fantasy_points": 149.5,
+          "per_game": 3.05
+        }
+      }
+    },
+    {
+      "player_id": "04ru5",
+      "name": "Andy Pages",
+      "mlb_team": "LAD",
+      "positions": "OF",
+      "role": "hitter",
+      "roster_status": "owned",
+      "season": {
+        "games": 117,
+        "fantasy_points": 379.5,
+        "per_game": 3.24
+      },
+      "windows": {
+        "last15": {
+          "games": 14,
+          "fantasy_points": 42.0,
+          "per_game": 3.0
+        },
+        "last30": {
+          "games": 24,
+          "fantasy_points": 70.5,
+          "per_game": 2.94
+        },
+        "last60": {
+          "games": 51,
+          "fantasy_points": 132.5,
+          "per_game": 2.6
+        }
+      }
+    },
+    {
+      "player_id": "03e5m",
+      "name": "Bryan Reynolds",
+      "mlb_team": "PIT",
+      "positions": "OF",
+      "role": "hitter",
+      "roster_status": "owned",
+      "season": {
+        "games": 120,
+        "fantasy_points": 394.0,
+        "per_game": 3.28
+      },
+      "windows": {
+        "last15": {
+          "games": 16,
+          "fantasy_points": 36.5,
+          "per_game": 2.28
+        },
+        "last30": {
+          "games": 26,
+          "fantasy_points": 54.5,
+          "per_game": 2.1
+        },
+        "last60": {
+          "games": 53,
+          "fantasy_points": 162.0,
+          "per_game": 3.06
+        }
+      }
+    },
+    {
+      "player_id": "04fhb",
+      "name": "Julio Rodriguez",
+      "mlb_team": "SEA",
+      "positions": "OF",
+      "role": "hitter",
+      "roster_status": "owned",
+      "season": {
+        "games": 108,
+        "fantasy_points": 313.5,
+        "per_game": 2.9
+      },
+      "windows": {
+        "last15": {
+          "games": 15,
+          "fantasy_points": 47.0,
+          "per_game": 3.13
+        },
+        "last30": {
+          "games": 21,
+          "fantasy_points": 66.0,
+          "per_game": 3.14
+        },
+        "last60": {
+          "games": 40,
+          "fantasy_points": 108.5,
+          "per_game": 2.71
+        }
+      }
+    },
+    {
+      "player_id": "04tjl",
+      "name": "Otto Lopez",
+      "mlb_team": "MIA",
+      "positions": "2B,SS",
+      "role": "hitter",
+      "roster_status": "owned",
+      "season": {
+        "games": 116,
+        "fantasy_points": 390.0,
+        "per_game": 3.36
+      },
+      "windows": {
+        "last15": {
+          "games": 15,
+          "fantasy_points": 45.5,
+          "per_game": 3.03
+        },
+        "last30": {
+          "games": 23,
+          "fantasy_points": 56.5,
+          "per_game": 2.46
+        },
+        "last60": {
+          "games": 49,
+          "fantasy_points": 177.0,
+          "per_game": 3.61
+        }
+      }
+    },
+    {
+      "player_id": "041q8",
+      "name": "Brandon Marsh",
+      "mlb_team": "PHI",
+      "positions": "OF",
+      "role": "hitter",
+      "roster_status": "owned",
+      "season": {
+        "games": 114,
+        "fantasy_points": 290.0,
+        "per_game": 2.54
+      },
+      "windows": {
+        "last15": {
+          "games": 15,
+          "fantasy_points": 28.0,
+          "per_game": 1.87
+        },
+        "last30": {
+          "games": 25,
+          "fantasy_points": 37.0,
+          "per_game": 1.48
+        },
+        "last60": {
+          "games": 52,
+          "fantasy_points": 114.0,
+          "per_game": 2.19
+        }
+      }
+    },
+    {
+      "player_id": "03120",
+      "name": "Cody Bellinger",
+      "mlb_team": "NYY",
+      "positions": "OF",
+      "role": "hitter",
+      "roster_status": "injured reserve",
+      "season": {
+        "games": 102,
+        "fantasy_points": 324.5,
+        "per_game": 3.18
+      },
+      "windows": {
+        "last15": {
+          "games": 1,
+          "fantasy_points": 7.0,
+          "per_game": 7.0
+        },
+        "last30": {
+          "games": 11,
+          "fantasy_points": 25.5,
+          "per_game": 2.32
+        },
+        "last60": {
+          "games": 37,
+          "fantasy_points": 81.5,
+          "per_game": 2.2
+        }
+      }
+    },
+    {
+      "player_id": "05jp7",
+      "name": "Gavin Williams",
+      "mlb_team": "CLE",
+      "positions": "SP",
+      "role": "starter",
+      "roster_status": "owned",
+      "season": {
+        "games": 24,
+        "fantasy_points": 740.0,
+        "per_game": 30.83
+      },
+      "windows": {
+        "last15": {
+          "games": 3,
+          "fantasy_points": 119.75,
+          "per_game": 39.92
+        },
+        "last30": {
+          "games": 5,
+          "fantasy_points": 200.0,
+          "per_game": 40.0
+        },
+        "last60": {
+          "games": 10,
+          "fantasy_points": 311.5,
+          "per_game": 31.15
+        }
+      }
+    },
+    {
+      "player_id": "05r3a",
+      "name": "Brandon Young",
+      "mlb_team": "BAL",
+      "positions": "SP",
+      "role": "starter",
+      "roster_status": "owned",
+      "season": {
+        "games": 19,
+        "fantasy_points": 460.75,
+        "per_game": 24.25
+      },
+      "windows": {
+        "last15": {
+          "games": 3,
+          "fantasy_points": 66.25,
+          "per_game": 22.08
+        },
+        "last30": {
+          "games": 5,
+          "fantasy_points": 136.75,
+          "per_game": 27.35
+        },
+        "last60": {
+          "games": 10,
+          "fantasy_points": 258.25,
+          "per_game": 25.82
+        }
+      }
+    },
+    {
+      "player_id": "041w4",
+      "name": "Bryan Baker",
+      "mlb_team": "TB",
+      "positions": "RP",
+      "role": "reliever",
+      "roster_status": "owned",
+      "season": {
+        "games": 48,
+        "fantasy_points": 533.75,
+        "per_game": 11.12
+      },
+      "windows": {
+        "last15": {
+          "games": 8,
+          "fantasy_points": 109.5,
+          "per_game": 13.69
+        },
+        "last30": {
+          "games": 10,
+          "fantasy_points": 127.5,
+          "per_game": 12.75
+        },
+        "last60": {
+          "games": 19,
+          "fantasy_points": 243.25,
+          "per_game": 12.8
+        }
+      }
+    },
+    {
+      "player_id": "051eh",
+      "name": "Kevin Kelly",
+      "mlb_team": "TB",
+      "positions": "RP",
+      "role": "reliever",
+      "roster_status": "owned",
+      "season": {
+        "games": 50,
+        "fantasy_points": 368.0,
+        "per_game": 7.36
+      },
+      "windows": {
+        "last15": {
+          "games": 7,
+          "fantasy_points": 54.25,
+          "per_game": 7.75
+        },
+        "last30": {
+          "games": 11,
+          "fantasy_points": 90.0,
+          "per_game": 8.18
+        },
+        "last60": {
+          "games": 21,
+          "fantasy_points": 172.25,
+          "per_game": 8.2
+        }
+      }
+    },
+    {
+      "player_id": "066er",
+      "name": "Grant Taylor",
+      "mlb_team": "CHW",
+      "positions": "RP",
+      "role": "reliever",
+      "roster_status": "owned",
+      "season": {
+        "games": 43,
+        "fantasy_points": 393.5,
+        "per_game": 9.15
+      },
+      "windows": {
+        "last15": {
+          "games": 5,
+          "fantasy_points": 58.0,
+          "per_game": 11.6
+        },
+        "last30": {
+          "games": 8,
+          "fantasy_points": 109.0,
+          "per_game": 13.62
+        },
+        "last60": {
+          "games": 17,
+          "fantasy_points": 164.0,
+          "per_game": 9.65
+        }
+      }
+    },
+    {
+      "player_id": "05nso",
+      "name": "Abner Uribe",
+      "mlb_team": "MIL",
+      "positions": "RP",
+      "role": "reliever",
+      "roster_status": "owned",
+      "season": {
+        "games": 49,
+        "fantasy_points": 343.75,
+        "per_game": 7.02
+      },
+      "windows": {
+        "last15": {
+          "games": 7,
+          "fantasy_points": 47.5,
+          "per_game": 6.79
+        },
+        "last30": {
+          "games": 11,
+          "fantasy_points": 77.5,
+          "per_game": 7.05
+        },
+        "last60": {
+          "games": 24,
+          "fantasy_points": 180.0,
+          "per_game": 7.5
+        }
+      }
+    },
+    {
+      "player_id": "03df2",
+      "name": "Dylan Cease",
+      "mlb_team": "TOR",
+      "positions": "SP",
+      "role": "starter",
+      "roster_status": "owned",
+      "season": {
+        "games": 21,
+        "fantasy_points": 751.25,
+        "per_game": 35.77
+      },
+      "windows": {
+        "last15": {
+          "games": 3,
+          "fantasy_points": 162.0,
+          "per_game": 54.0
+        },
+        "last30": {
+          "games": 4,
+          "fantasy_points": 190.0,
+          "per_game": 47.5
+        },
+        "last60": {
+          "games": 9,
+          "fantasy_points": 372.75,
+          "per_game": 41.42
+        }
+      }
+    },
+    {
+      "player_id": "02hjp",
+      "name": "Jacob deGrom",
+      "mlb_team": "TEX",
+      "positions": "SP",
+      "role": "starter",
+      "roster_status": "owned",
+      "season": {
+        "games": 22,
+        "fantasy_points": 576.0,
+        "per_game": 26.18
+      },
+      "windows": {
+        "last15": {
+          "games": 3,
+          "fantasy_points": 50.0,
+          "per_game": 16.67
+        },
+        "last30": {
+          "games": 4,
+          "fantasy_points": 59.5,
+          "per_game": 14.88
+        },
+        "last60": {
+          "games": 9,
+          "fantasy_points": 209.0,
+          "per_game": 23.22
+        }
+      }
+    },
+    {
+      "player_id": "04g1x",
+      "name": "David Peterson",
+      "mlb_team": "CHC",
+      "positions": "SP",
+      "role": "starter",
+      "roster_status": "owned",
+      "season": {
+        "games": 23,
+        "fantasy_points": 354.5,
+        "per_game": 15.41
+      },
+      "windows": {
+        "last15": {
+          "games": 3,
+          "fantasy_points": 81.25,
+          "per_game": 27.08
+        },
+        "last30": {
+          "games": 4,
+          "fantasy_points": 121.25,
+          "per_game": 30.31
+        },
+        "last60": {
+          "games": 10,
+          "fantasy_points": 151.5,
+          "per_game": 15.15
+        }
+      }
+    },
+    {
+      "player_id": "04ptt",
+      "name": "Tarik Skubal",
+      "mlb_team": "LAD",
+      "positions": "SP",
+      "role": "starter",
+      "roster_status": "owned",
+      "season": {
+        "games": 17,
+        "fantasy_points": 558.0,
+        "per_game": 32.82
+      },
+      "windows": {
+        "last15": {
+          "games": 2,
+          "fantasy_points": 64.5,
+          "per_game": 32.25
+        },
+        "last30": {
+          "games": 5,
+          "fantasy_points": 185.0,
+          "per_game": 37.0
+        },
+        "last60": {
+          "games": 10,
+          "fantasy_points": 329.0,
+          "per_game": 32.9
+        }
+      }
+    },
+    {
+      "player_id": "02i2j",
+      "name": "Max Fried",
+      "mlb_team": "NYY",
+      "positions": "SP",
+      "role": "starter",
+      "roster_status": "injured reserve",
+      "season": {
+        "games": 14,
+        "fantasy_points": 401.5,
+        "per_game": 28.68
+      },
+      "windows": {
+        "last15": {
+          "games": 3,
+          "fantasy_points": 80.0,
+          "per_game": 26.67
+        },
+        "last30": {
+          "games": 4,
+          "fantasy_points": 114.75,
+          "per_game": 28.69
+        },
+        "last60": {
+          "games": 4,
+          "fantasy_points": 114.75,
+          "per_game": 28.69
+        }
+      }
+    },
+    {
+      "player_id": "02bqr",
+      "name": "Blake Snell",
+      "mlb_team": "LAD",
+      "positions": "SP",
+      "role": "starter",
+      "roster_status": "injured reserve",
+      "season": {
+        "games": 1,
+        "fantasy_points": 3.25,
+        "per_game": 3.25
+      },
+      "windows": {
+        "last15": {
+          "games": 0,
+          "fantasy_points": 0.0,
+          "per_game": 0.0
+        },
+        "last30": {
+          "games": 0,
+          "fantasy_points": 0.0,
+          "per_game": 0.0
+        },
+        "last60": {
+          "games": 0,
+          "fantasy_points": 0.0,
+          "per_game": 0.0
+        }
+      }
     }
   ]
 }
