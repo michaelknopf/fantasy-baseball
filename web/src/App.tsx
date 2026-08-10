@@ -3,7 +3,9 @@ import { DropPicker } from '@/components/DropPicker'
 import { MoveLedger } from '@/components/MoveLedger'
 import { PeriodRail } from '@/components/PeriodRail'
 import { PitcherTable } from '@/components/PitcherTable'
+import { Timeline } from '@/components/Timeline'
 import boardData from '@/data/board.json'
+import { burn as projectBurn } from '@/lib/burn'
 import { pitcherRows, ramps as buildRamps } from '@/lib/rows'
 import type { SortKey } from '@/lib/rows'
 import {
@@ -18,6 +20,17 @@ import type { Board } from '@/lib/types'
 
 const board = boardData as Board
 const ramps = buildRamps(board)
+
+/**
+ * The last day of our playoff run.
+ *
+ * Fantrax reports the start cap but never the date it has to last until, and
+ * every projection scales with it — so it lives here, as the one number the
+ * league office told us and the API did not.
+ */
+const FINAL_ON = '2026-09-20'
+
+const burn = projectBurn(board, FINAL_ON)
 
 /** A move waiting on a drop to pay for it. */
 interface Pending {
@@ -94,16 +107,25 @@ export function App() {
     moves.filter((m) => m.period === period.starts_on).map((m) => m.playerId),
   )
 
+  const selectPeriod = (startsOn: string) =>
+    setPeriodIndex(board.periods.findIndex((p) => p.starts_on === startsOn))
+
   return (
     <div className="mx-auto flex max-w-[1600px] flex-col gap-8 px-6 py-8">
       <Header />
 
+      <Timeline
+        plans={plans}
+        burn={burn}
+        finalOn={FINAL_ON}
+        selected={period.starts_on}
+        onSelect={selectPeriod}
+      />
+
       <PeriodRail
         plans={plans}
         selected={period}
-        onSelect={(p) =>
-          setPeriodIndex(board.periods.findIndex((x) => x.starts_on === p.starts_on))
-        }
+        onSelect={(p) => selectPeriod(p.starts_on)}
       />
 
       <MoveLedger
@@ -190,14 +212,9 @@ function Header() {
       </div>
       <dl className="flex flex-wrap gap-8">
         <Figure
-          label="My starts left"
-          value={String(board.starts_remaining ?? '—')}
-          hint={`of ${board.starts_max ?? '—'} season cap`}
-        />
-        <Figure
           label="Best rival"
           value={String(rival?.starts_remaining ?? '—')}
-          hint={rival?.team ?? ''}
+          hint={`starts left · ${rival?.team ?? ''}`}
         />
         <Figure
           label="My edge"
