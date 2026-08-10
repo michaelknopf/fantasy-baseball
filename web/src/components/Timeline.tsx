@@ -92,7 +92,7 @@ export function Timeline({
                     key={`${pitcher.player_id}-${start.date}`}
                     className="flex items-baseline gap-2 text-xs"
                   >
-                    <span className="tnum w-14 shrink-0 text-ink-3">
+                    <span className="num w-14 shrink-0 text-ink-3">
                       {start.label}
                     </span>
                     <span
@@ -144,7 +144,7 @@ function Stat({
         {label}
       </span>
       <span
-        className={`tnum text-base ${tone === 'bad' ? 'text-bad' : ''}`}
+        className={`num text-base ${tone === 'bad' ? 'text-bad' : ''}`}
       >
         {value}
       </span>

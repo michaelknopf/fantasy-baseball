@@ -1,30 +1,127 @@
 @import 'tailwindcss';
 
+/*
+ * Broadcast: a control-room palette, dark by default.
+ *
+ * Tailwind's tokens point at `:root` variables rather than at literals, so a
+ * theme is a redefinition of that one block — every `bg-panel` and `text-ink-2`
+ * in the app follows without being touched.
+ */
+:root {
+  --studio: #0b0f14;
+  --surface: #151b23;
+  --surface-2: #1d252f;
+  --broadcast: #f2f4f7;
+  --muted: #8a97a6;
+  --dim: #5f6b7a;
+  --rule: #26303b;
+  --onair: #00e0a4;
+  --chyron: #3b7dff;
+  --alert: #ff4b2b;
+  --amber: #ffb020;
+
+  /* Diverging ramp: orange is the weak end, green the strong one, with a
+     neutral middle so an ordinary number stays quiet. */
+  --mag-1: #f59a5e;
+  --mag-2: #d9743f;
+  --mag-3: #6b7686;
+  --mag-4: #1e9e74;
+  --mag-5: #2fc48f;
+}
+
+:root[data-theme='light'] {
+  --studio: #ffffff;
+  --surface: #f4f6f8;
+  --surface-2: #e9edf1;
+  --broadcast: #0b0f14;
+  --muted: #5c6875;
+  --dim: #8a97a6;
+  --rule: #d4dbe2;
+  --onair: #007a5a;
+  --chyron: #1d5fd6;
+  --alert: #c42d14;
+  --amber: #8a5a00;
+
+  --mag-1: #8e3a10;
+  --mag-2: #c06a28;
+  --mag-3: #98a2ae;
+  --mag-4: #2e8a6d;
+  --mag-5: #00694d;
+}
+
 @theme {
-  --color-ground: #10120f;
-  --color-panel: #191c17;
-  --color-sunk: #21251e;
-  --color-line: #2e332a;
-  --color-ink: #e9ece5;
-  --color-ink-2: #a3a99c;
-  --color-ink-3: #6f7568;
-  --color-mine: #d7a13b;
-  --color-free: #63b3e0;
-  --color-good: #6cc48d;
-  --color-bad: #de7d5f;
+  --color-ground: var(--studio);
+  --color-panel: var(--surface);
+  --color-sunk: var(--surface-2);
+  --color-line: var(--rule);
+  --color-ink: var(--broadcast);
+  --color-ink-2: var(--muted);
+  --color-ink-3: var(--dim);
+  --color-good: var(--onair);
+  --color-free: var(--chyron);
+  --color-bad: var(--alert);
+  --color-mine: var(--amber);
+
+  --font-display:
+    'DIN Condensed', 'DIN Condensed Bold', 'Avenir Next Condensed',
+    'Arial Narrow', Impact, sans-serif;
+  --font-body: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 }
 
 html {
   color-scheme: dark;
 }
 
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
 body {
   background: var(--color-ground);
   color: var(--color-ink);
-  font-family:
-    ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  font-family: var(--font-body);
 }
 
-.tnum {
-  font-variant-numeric: tabular-nums;
+@layer components {
+  /* Every column of digits, so rows scan down as well as across. */
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Broadcast furniture: condensed, wide-tracked, upper-case. */
+  .chyron {
+    font-family: var(--font-display);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /*
+   * A graded cell. The tint is mixed rather than picked so the five steps stay
+   * perceptually even, and only the two outer steps carry enough colour to
+   * pull the eye — the middle band is deliberately almost unpainted.
+   */
+  .mag-1,
+  .mag-2,
+  .mag-3,
+  .mag-4,
+  .mag-5 {
+    border-radius: 3px;
+  }
+  .mag-1 {
+    background: color-mix(in oklab, var(--mag-1) 26%, transparent);
+  }
+  .mag-2 {
+    background: color-mix(in oklab, var(--mag-2) 15%, transparent);
+  }
+  .mag-3 {
+    background: color-mix(in oklab, var(--mag-3) 8%, transparent);
+  }
+  .mag-4 {
+    background: color-mix(in oklab, var(--mag-4) 18%, transparent);
+  }
+  .mag-5 {
+    background: color-mix(in oklab, var(--mag-5) 30%, transparent);
+  }
 }

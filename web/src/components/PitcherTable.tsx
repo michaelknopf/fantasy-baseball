@@ -161,7 +161,7 @@ export function PitcherTable({
                     ) : (
                       <div className="flex flex-col gap-0.5">
                         {periodStarts.map((s) => (
-                          <span key={s.date} className="tnum text-xs">
+                          <span key={s.date} className="num text-xs">
                             {s.label}{' '}
                             <span className="text-ink-2">
                               {s.is_away ? '@' : 'vs '}
@@ -178,22 +178,22 @@ export function PitcherTable({
                       </div>
                     )}
                   </td>
-                  <td className="tnum px-3 py-2 text-right">
+                  <td className="num px-3 py-2 text-right">
                     {form.toFixed(1)}
                     <span className="block text-[10px] text-ink-3">
                       {formBasis(pitcher)}
                     </span>
                   </td>
-                  <td className="tnum px-3 py-2 text-right text-ink-2">
+                  <td className="num px-3 py-2 text-right text-ink-2">
                     {pitcher.season ? pitcher.season.per_game.toFixed(1) : '—'}
                     <span className="block text-[10px] text-ink-3">
                       {pitcher.season?.games ?? 0} starts
                     </span>
                   </td>
-                  <td className="tnum px-3 py-2 text-right text-ink-2">
+                  <td className="num px-3 py-2 text-right text-ink-2">
                     {pitcher.stats.ERA ?? '—'}
                   </td>
-                  <td className="tnum px-3 py-2 text-right text-ink-2">
+                  <td className="num px-3 py-2 text-right text-ink-2">
                     {pitcher.stats.Ros ?? '—'}
                   </td>
                   <td className="px-3 py-2 text-right">

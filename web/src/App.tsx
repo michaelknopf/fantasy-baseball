@@ -159,7 +159,7 @@ function Headline({
   return (
     <div className="flex flex-col">
       <dt className="text-xs uppercase tracking-wide text-ink-3">{label}</dt>
-      <dd className="tnum text-2xl font-semibold">{value}</dd>
+      <dd className="num text-2xl font-semibold">{value}</dd>
       <dd className="text-xs text-ink-3">{hint}</dd>
     </div>
   )
