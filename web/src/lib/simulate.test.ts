@@ -23,6 +23,8 @@ function pitcher(over: Partial<Pitcher> & { player_id: string }): Pitcher {
     positions: 'SP',
     ownership: 'free_agent',
     roster_status: null,
+    rostered_pct: null,
+    owned_by: null,
     starts: [],
     season: { games: 20, fantasy_points: 400, per_game: 20 },
     windows: {},
@@ -100,6 +102,8 @@ const BOARD: Board = {
     }),
   ],
   rivals: [],
+  slots: null,
+  roster: [],
 }
 
 describe('isInjuredReserve', () => {

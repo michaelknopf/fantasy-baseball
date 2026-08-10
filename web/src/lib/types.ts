@@ -38,11 +38,35 @@ export interface Pitcher {
   positions: string | null
   ownership: Ownership
   roster_status: string | null
+  /** Share of Fantrax leagues rostering him, e.g. '43%'. */
+  rostered_pct: string | null
+  owned_by: string | null
   starts: StartSlot[]
   season: Form | null
   windows: Record<string, Form>
   stats: Record<string, string>
   recent_games: GameLogEntry[]
+}
+
+/** Scoring rates are only comparable inside a role, never across them. */
+export type RosterRole = 'starter' | 'reliever' | 'hitter'
+
+/** One of our roster spots — a hitter is as droppable as an arm. */
+export interface RosterEntry {
+  player_id: string
+  name: string
+  mlb_team: string | null
+  positions: string | null
+  role: RosterRole
+  roster_status: string | null
+  season: Form | null
+  windows: Record<string, Form>
+}
+
+export interface RosterSlots {
+  active: number
+  reserve: number
+  injured_reserve: number
 }
 
 /** The value `_simplify_status` in `board.py` emits for an IR player. */
@@ -78,4 +102,6 @@ export interface Board {
   periods: WaiverPeriod[]
   pitchers: Pitcher[]
   rivals: Rival[]
+  slots: RosterSlots | null
+  roster: RosterEntry[]
 }
