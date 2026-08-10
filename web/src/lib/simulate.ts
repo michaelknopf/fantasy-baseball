@@ -11,8 +11,17 @@ import type { Board, Pitcher, StartSlot, WaiverPeriod } from './types'
 export interface Move {
   /** `starts_on` of the period the move takes effect in. */
   period: string
-  action: 'add' | 'drop'
+  /** `activate` restores an injured-reserve player to a usable slot. */
+  action: 'add' | 'drop' | 'activate'
   playerId: string
+  /**
+   * The move this one paid for, if any.
+   *
+   * The roster is full, so an add or an activation only happens alongside a
+   * drop. The drop is a `Move` in its own right — this only records the pairing
+   * so undoing one offers to undo the other.
+   */
+  pairedWith?: string
 }
 
 export interface PlannedStart {
@@ -50,10 +59,19 @@ export function rosterDuring(
   for (const move of moves) {
     // A move applies from its own period onward.
     if (move.period > period.starts_on) continue
-    if (move.action === 'add') held.add(move.playerId)
-    else held.delete(move.playerId)
+    if (move.action === 'drop') held.delete(move.playerId)
+    else held.add(move.playerId)
   }
   return held
+}
+
+/** Who we have taken off injured reserve by the time a period runs. */
+export function activatedBy(moves: Move[], period: WaiverPeriod): Set<string> {
+  return new Set(
+    moves
+      .filter((m) => m.action === 'activate' && m.period <= period.starts_on)
+      .map((m) => m.playerId),
+  )
 }
 
 /**
@@ -69,12 +87,14 @@ export function simulate(board: Board, moves: Move[]): PeriodPlan[] {
 
   return board.periods.map((period) => {
     const held = rosterDuring(board, moves, period)
+    const activated = activatedBy(moves, period)
     const starts: PlannedStart[] = []
 
     for (const playerId of held) {
       const pitcher = byId.get(playerId)
       if (!pitcher) continue
-      const usable = !isInjuredReserve(pitcher.roster_status)
+      const usable =
+        !isInjuredReserve(pitcher.roster_status) || activated.has(playerId)
       for (const start of pitcher.starts) {
         if (start.date < period.starts_on) continue
         if (start.date > period.ends_on) continue

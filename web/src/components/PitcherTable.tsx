@@ -1,104 +1,76 @@
-import { useMemo, useState } from 'react'
-import { expectedPoints, formBasis } from '@/lib/simulate'
-import type { Move } from '@/lib/simulate'
-import { IR_STATUS, isInjuredReserve } from '@/lib/types'
-import type { Board, Pitcher, WaiverPeriod } from '@/lib/types'
+import { MatchupCell } from '@/components/MatchupCell'
+import { Sparkline } from '@/components/Sparkline'
+import { StatCell } from '@/components/StatCell'
+import { numeric } from '@/lib/rows'
+import type { PitcherRow, Ramps, SortKey } from '@/lib/rows'
+import { isInjuredReserve } from '@/lib/types'
+import type { Pitcher, WaiverPeriod } from '@/lib/types'
 
-type SortKey = 'form' | 'season' | 'name' | 'next'
+const SORTS: { key: SortKey; label: string }[] = [
+  { key: 'last30', label: '30d' },
+  { key: 'last60', label: '60d' },
+  { key: 'season', label: 'Season' },
+  { key: 'starts', label: 'Starts' },
+  { key: 'name', label: 'Name' },
+]
 
 /**
- * Everyone who could start for us: our own arms and every claimable free agent,
- * in one list so they compare directly. Ownership is a column, not a separate
- * table — the question is always "who should hold this slot", and splitting the
- * two apart is what makes that hard to answer.
+ * The pitchers who start inside the open period, ours and claimable together.
+ *
+ * One table rather than two, because the question is always "who should hold
+ * this slot" — splitting our arms from the pool is what makes that hard to
+ * answer. Ownership is a column and an action, not a separate list.
  */
 export function PitcherTable({
-  board,
+  title,
+  rows,
+  ramps,
   period,
-  moves,
-  heldNow,
+  held,
+  activated,
+  sort,
+  onSort,
   onAdd,
   onDrop,
+  onActivate,
+  pendingIds,
+  empty,
 }: {
-  board: Board
+  title: string
+  rows: PitcherRow[]
+  ramps: Ramps
   period: WaiverPeriod
-  moves: Move[]
-  heldNow: Set<string>
+  held: Set<string>
+  /** Planned off injured reserve, so the row reads as usable already. */
+  activated: Set<string>
+  sort: SortKey
+  onSort: (key: SortKey) => void
   onAdd: (playerId: string) => void
   onDrop: (playerId: string) => void
+  onActivate: (playerId: string) => void
+  pendingIds: Set<string>
+  empty: string
 }) {
-  const [sort, setSort] = useState<SortKey>('form')
-  const [query, setQuery] = useState('')
-  const [onlyStarting, setOnlyStarting] = useState(true)
-
-  const rows = useMemo(() => {
-    const startsInPeriod = (p: Pitcher) =>
-      p.starts.filter(
-        (s) => s.date >= period.starts_on && s.date <= period.ends_on,
-      )
-
-    return board.pitchers
-      .filter((p) => {
-        if (query && !p.name.toLowerCase().includes(query.toLowerCase()))
-          return false
-        if (onlyStarting && startsInPeriod(p).length === 0) return false
-        return true
-      })
-      .map((p) => ({
-        pitcher: p,
-        periodStarts: startsInPeriod(p),
-        form: expectedPoints(p),
-      }))
-      .sort((a, b) => {
-        if (sort === 'name') return a.pitcher.name.localeCompare(b.pitcher.name)
-        if (sort === 'season')
-          return (b.pitcher.season?.per_game ?? 0) - (a.pitcher.season?.per_game ?? 0)
-        if (sort === 'next')
-          return (a.periodStarts[0]?.date ?? '9').localeCompare(
-            b.periodStarts[0]?.date ?? '9',
-          )
-        return b.form - a.form
-      })
-  }, [board.pitchers, period, sort, query, onlyStarting])
-
   return (
     <section className="flex flex-col gap-3">
-      <header className="flex flex-wrap items-center gap-3">
-        <h2 className="text-lg font-semibold">Who can start</h2>
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Find a pitcher"
-          className="rounded border border-line bg-sunk px-2 py-1 text-sm outline-none focus:border-free"
-        />
-        <label className="flex items-center gap-2 text-sm text-ink-2">
-          <input
-            type="checkbox"
-            checked={onlyStarting}
-            onChange={(e) => setOnlyStarting(e.target.checked)}
-          />
-          Only pitchers starting in {period.label}
-        </label>
-        <div className="ml-auto flex items-center gap-1 text-sm">
-          <span className="text-ink-3">Sort</span>
-          {(['form', 'season', 'next', 'name'] as SortKey[]).map((key) => (
+      <header className="flex flex-wrap items-baseline gap-3">
+        <h2 className="chyron text-lg">{title}</h2>
+        <span className="text-xs text-ink-3">
+          {rows.length} pitching in {period.label}
+        </span>
+        <div className="ml-auto flex items-center gap-1 text-xs">
+          <span className="chyron text-ink-3">Sort</span>
+          {SORTS.map(({ key, label }) => (
             <button
               key={key}
               type="button"
-              onClick={() => setSort(key)}
+              onClick={() => onSort(key)}
+              aria-pressed={sort === key}
               className={`rounded px-2 py-1 ${
-                sort === key
-                  ? 'bg-free/20 text-free'
-                  : 'text-ink-2 hover:text-ink'
+                sort === key ? 'bg-good/15 text-good' : 'text-ink-3 hover:text-ink'
               }`}
             >
-              {key === 'form'
-                ? 'Recent form'
-                : key === 'season'
-                  ? 'Season'
-                  : key === 'next'
-                    ? 'Start date'
-                    : 'Name'}
+              {label}
             </button>
           ))}
         </div>
@@ -107,159 +79,169 @@ export function PitcherTable({
       <div className="overflow-x-auto rounded border border-line">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-line bg-sunk text-left text-xs text-ink-2">
-              <th className="px-3 py-2 font-medium">Pitcher</th>
-              <th className="px-3 py-2 font-medium">Status</th>
-              <th className="px-3 py-2 font-medium">
-                Starts in {period.label}
-              </th>
-              <th className="px-3 py-2 text-right font-medium">
-                Recent form
-                <span className="block text-[10px] text-ink-3">
-                  points per start
-                </span>
-              </th>
-              <th className="px-3 py-2 text-right font-medium">
-                Season
-                <span className="block text-[10px] text-ink-3">
-                  points per start
-                </span>
-              </th>
-              <th className="px-3 py-2 text-right font-medium">ERA</th>
-              <th className="px-3 py-2 text-right font-medium">
-                Owned
-                <span className="block text-[10px] text-ink-3">
-                  other leagues
-                </span>
-              </th>
+            <tr className="chyron border-b border-line bg-sunk text-left text-[10px] text-ink-3">
+              <th className="px-3 py-2">Pitcher</th>
+              <th className="px-3 py-2">Matchup</th>
+              <th className="px-2 py-2 text-right">30d</th>
+              <th className="px-2 py-2 text-right">60d</th>
+              <th className="px-2 py-2 text-right">Season</th>
+              <th className="px-2 py-2 text-right">ERA</th>
+              <th className="px-2 py-2 text-right">WHIP</th>
+              <th className="px-2 py-2 text-right">K</th>
+              <th className="px-2 py-2 text-right">Own</th>
+              <th className="px-3 py-2">Last 6</th>
               <th className="px-3 py-2" />
             </tr>
           </thead>
           <tbody>
-            {rows.map(({ pitcher, periodStarts, form }) => {
-              const held = heldNow.has(pitcher.player_id)
-              const pending = moves.some(
-                (m) => m.playerId === pitcher.player_id,
-              )
-              return (
-                <tr
-                  key={pitcher.player_id}
-                  className="border-b border-line/60 last:border-0 hover:bg-sunk/60"
-                >
-                  <td className="px-3 py-2">
-                    <span className="font-medium">{pitcher.name}</span>
-                    <span className="ml-2 text-xs text-ink-3">
-                      {pitcher.mlb_team}
-                    </span>
-                  </td>
-                  <td className="px-3 py-2">
-                    <OwnershipChip pitcher={pitcher} held={held} />
-                  </td>
-                  <td className="px-3 py-2">
-                    {periodStarts.length === 0 ? (
-                      <span className="text-ink-3">—</span>
-                    ) : (
-                      <div className="flex flex-col gap-0.5">
-                        {periodStarts.map((s) => (
-                          <span key={s.date} className="num text-xs">
-                            {s.label}{' '}
-                            <span className="text-ink-2">
-                              {s.is_away ? '@' : 'vs '}
-                              {s.opponent}
-                            </span>
-                            {s.opposing_pitcher && (
-                              <span className="text-ink-3">
-                                {' '}
-                                · opp {s.opposing_pitcher}
-                              </span>
-                            )}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </td>
-                  <td className="num px-3 py-2 text-right">
-                    {form.toFixed(1)}
-                    <span className="block text-[10px] text-ink-3">
-                      {formBasis(pitcher)}
-                    </span>
-                  </td>
-                  <td className="num px-3 py-2 text-right text-ink-2">
-                    {pitcher.season ? pitcher.season.per_game.toFixed(1) : '—'}
-                    <span className="block text-[10px] text-ink-3">
-                      {pitcher.season?.games ?? 0} starts
-                    </span>
-                  </td>
-                  <td className="num px-3 py-2 text-right text-ink-2">
-                    {pitcher.stats.ERA ?? '—'}
-                  </td>
-                  <td className="num px-3 py-2 text-right text-ink-2">
-                    {pitcher.stats.Ros ?? '—'}
-                  </td>
-                  <td className="px-3 py-2 text-right">
-                    {held ? (
-                      <button
-                        type="button"
-                        onClick={() => onDrop(pitcher.player_id)}
-                        className="rounded border border-line px-2 py-1 text-xs text-ink-2 hover:border-bad hover:text-bad"
-                      >
-                        Drop
-                      </button>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => onAdd(pitcher.player_id)}
-                        className="rounded border border-line px-2 py-1 text-xs text-ink-2 hover:border-good hover:text-good"
-                      >
-                        Add
-                      </button>
-                    )}
-                    {pending && (
-                      <span className="ml-2 text-[10px] text-free">planned</span>
-                    )}
-                  </td>
-                </tr>
-              )
-            })}
+            {rows.map(({ pitcher, starts }) => (
+              <Row
+                key={pitcher.player_id}
+                pitcher={pitcher}
+                starts={starts}
+                ramps={ramps}
+                held={held.has(pitcher.player_id)}
+                activated={activated.has(pitcher.player_id)}
+                pending={pendingIds.has(pitcher.player_id)}
+                onAdd={onAdd}
+                onDrop={onDrop}
+                onActivate={onActivate}
+              />
+            ))}
           </tbody>
         </table>
       </div>
-      {rows.length === 0 && (
-        <p className="text-sm text-ink-2">
-          No pitchers match. Clear the search, or untick the filter to see
-          everyone.
-        </p>
-      )}
+      {rows.length === 0 && <p className="text-sm text-ink-3">{empty}</p>}
     </section>
   )
 }
 
-function OwnershipChip({
+function Row({
   pitcher,
+  starts,
+  ramps,
   held,
+  activated,
+  pending,
+  onAdd,
+  onDrop,
+  onActivate,
 }: {
   pitcher: Pitcher
+  starts: PitcherRow['starts']
+  ramps: Ramps
   held: boolean
+  activated: boolean
+  pending: boolean
+  onAdd: (playerId: string) => void
+  onDrop: (playerId: string) => void
+  onActivate: (playerId: string) => void
 }) {
-  if (isInjuredReserve(pitcher.roster_status)) {
-    return (
-      <span className="rounded bg-bad/15 px-2 py-0.5 text-xs text-bad">
-        {IR_STATUS}
-      </span>
-    )
-  }
-  if (held) {
-    return (
-      <span className="rounded bg-mine/15 px-2 py-0.5 text-xs text-mine">
-        {pitcher.ownership === 'mine'
-          ? (pitcher.roster_status ?? 'on my roster')
-          : 'added'}
-      </span>
-    )
-  }
+  const injured = isInjuredReserve(pitcher.roster_status) && !activated
+
   return (
-    <span className="rounded bg-free/15 px-2 py-0.5 text-xs text-free">
-      free agent
-    </span>
+    <tr className="border-b border-line/60 last:border-0 hover:bg-sunk/50">
+      <td className="px-3 py-2">
+        <div className="flex flex-col">
+          <span className="flex items-baseline gap-2">
+            <span className="font-medium">{pitcher.name}</span>
+            <span className="text-xs text-ink-3">{pitcher.mlb_team}</span>
+          </span>
+          <span className="text-[10px]">
+            {injured ? (
+              <span className="text-bad">injured reserve</span>
+            ) : activated ? (
+              <span className="text-free">activated</span>
+            ) : held ? (
+              <span className="text-mine">on my roster</span>
+            ) : (
+              <span className="text-free">free agent</span>
+            )}
+            <span className="ml-2 text-ink-3">
+              {starts.length} start{starts.length === 1 ? '' : 's'}
+            </span>
+          </span>
+        </div>
+      </td>
+
+      <MatchupCell starts={starts} />
+
+      <StatCell
+        value={pitcher.windows?.last30?.per_game}
+        games={pitcher.windows?.last30?.games}
+        ramp={ramps.last30}
+      />
+      <StatCell
+        value={pitcher.windows?.last60?.per_game}
+        games={pitcher.windows?.last60?.games}
+        ramp={ramps.last60}
+      />
+      <StatCell
+        value={pitcher.season?.per_game}
+        games={pitcher.season?.games}
+        ramp={ramps.season}
+        hint={`${pitcher.season?.games ?? 0} g`}
+      />
+      {/* Rate stats rest on the same games the season line does, so they are
+          held to the same sample floor — a 12.00 ERA off one start is noise. */}
+      <StatCell
+        value={numeric(pitcher.stats.ERA)}
+        games={pitcher.season?.games}
+        ramp={ramps.era}
+        digits={2}
+      />
+      <StatCell
+        value={numeric(pitcher.stats.WHIP)}
+        games={pitcher.season?.games}
+        ramp={ramps.whip}
+        digits={2}
+      />
+
+      <td className="num px-2 py-2 text-right text-ink-2">
+        {pitcher.stats.K ?? '—'}
+      </td>
+      <td className="num px-2 py-2 text-right text-ink-3">
+        {pitcher.rostered_pct ?? '—'}
+      </td>
+      <td className="px-3 py-2">
+        <Sparkline games={pitcher.recent_games} />
+      </td>
+
+      <td className="px-3 py-2 text-right whitespace-nowrap">
+        {injured ? (
+          <Action label="Activate" tone="free" onClick={() => onActivate(pitcher.player_id)} />
+        ) : held ? (
+          <Action label="Drop" tone="bad" onClick={() => onDrop(pitcher.player_id)} />
+        ) : (
+          <Action label="Add" tone="good" onClick={() => onAdd(pitcher.player_id)} />
+        )}
+        {pending && <span className="ml-2 text-[10px] text-free">planned</span>}
+      </td>
+    </tr>
+  )
+}
+
+function Action({
+  label,
+  tone,
+  onClick,
+}: {
+  label: string
+  tone: 'good' | 'bad' | 'free'
+  onClick: () => void
+}) {
+  const hover = {
+    good: 'hover:border-good hover:text-good',
+    bad: 'hover:border-bad hover:text-bad',
+    free: 'hover:border-free hover:text-free',
+  }[tone]
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`rounded border border-line px-2 py-1 text-xs text-ink-2 ${hover}`}
+    >
+      {label}
+    </button>
   )
 }

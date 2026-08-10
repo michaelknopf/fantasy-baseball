@@ -38,3 +38,4 @@ junit.xml
 /web/node_modules/
 /web/dist/
 /web/.playwright-mcp/
+/web/*.tsbuildinfo
