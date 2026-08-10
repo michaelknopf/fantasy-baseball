@@ -158,7 +158,13 @@ function Key({ className, label }: { className: string; label: string }) {
   )
 }
 
-/** One waiver period, sized by the starts it actually holds. */
+/**
+ * One waiver period, sized by the starts it actually holds.
+ *
+ * Past the probable-start horizon the count covers only pitchers we already
+ * hold, so it is dimmed rather than captioned — a caption on every tick repeats
+ * itself five times to say what the dimming says once.
+ */
 function PeriodTick({
   plan,
   first,
@@ -177,6 +183,11 @@ function PeriodTick({
       type="button"
       onClick={onSelect}
       aria-pressed={open}
+      title={
+        beyondHorizon
+          ? 'Past the probable-start horizon — counts only pitchers I already hold'
+          : undefined
+      }
       className={`flex min-w-[5.5rem] flex-1 flex-col gap-1 rounded border px-3 py-2 text-left transition ${
         open
           ? 'border-good bg-sunk'
@@ -187,11 +198,12 @@ function PeriodTick({
         {plan.period.label}
         {first && ' · now'}
       </span>
-      <span className={`num text-xl ${plan.startsUsed === 0 ? 'text-ink-3' : ''}`}>
+      <span
+        className={`num text-xl ${
+          plan.startsUsed === 0 || beyondHorizon ? 'text-ink-3' : ''
+        }`}
+      >
         {plan.startsUsed}
-      </span>
-      <span className="text-xs text-ink-3">
-        {beyondHorizon ? 'mine only' : `${plan.startsUsed === 1 ? 'start' : 'starts'}`}
       </span>
     </button>
   )
@@ -218,7 +230,6 @@ function BeyondTick({
     <div className="flex min-w-[7rem] flex-1 flex-col gap-1 rounded border border-dashed border-line px-3 py-2">
       <span className="chyron text-xs text-ink-3">After {pretty(after)}</span>
       <span className="num text-xl text-ink-3">≈{remaining}</span>
-      <span className="text-xs text-ink-3">estimated</span>
     </div>
   )
 }
