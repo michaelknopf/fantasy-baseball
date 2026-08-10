@@ -1,26 +1,37 @@
+import { matchupOf } from './score'
 import type { StartSlot } from './types'
 
 export type MatchupTier = 'tough' | 'even' | 'soft' | 'unknown'
 
+/** Where a matchup stops being a coin flip, on the −1…+1 scale. */
+const EDGE = 0.33
+
 /**
- * How hard the offense a start faces is, from its league rank in runs.
+ * How favourable a start's matchup is, as a word.
  *
- * Rank 1 is the best-hitting team in baseball, so a high rank is the soft draw
- * a streamer wants. Thirds of the league rather than percentiles: the rank is
- * already the ordering, and thirds are what a reader can hold in their head.
+ * Reads the same two-axis figure the score does, rather than runs alone: a row
+ * labelled "soft" while the score marked it down would be two answers to one
+ * question. The Angels are the case — 26th in runs, but they rarely strike out.
  */
-export function matchupTier(runsRank: number | null): MatchupTier {
-  if (runsRank === null) return 'unknown'
-  if (runsRank <= 10) return 'tough'
-  if (runsRank <= 20) return 'even'
-  return 'soft'
+export function matchupTier(start: StartSlot | undefined): MatchupTier {
+  if (!start) return 'unknown'
+  if (start.opponent_runs_rank === null && start.opponent_strikeouts_rank === null) {
+    return 'unknown'
+  }
+  const value = matchupOf(start)
+  if (value <= -EDGE) return 'tough'
+  if (value >= EDGE) return 'soft'
+  return 'even'
 }
 
 /** The hardest offense a pitcher faces in a period, which is what bounds his floor. */
 export function toughestTier(starts: StartSlot[]): MatchupTier {
-  const ranks = starts
-    .map((s) => s.opponent_runs_rank)
-    .filter((r): r is number => r !== null)
-  if (ranks.length === 0) return 'unknown'
-  return matchupTier(Math.min(...ranks))
+  const rated = starts.filter(
+    (s) => s.opponent_runs_rank !== null || s.opponent_strikeouts_rank !== null,
+  )
+  if (rated.length === 0) return 'unknown'
+  const hardest = rated.reduce((worst, s) =>
+    matchupOf(s) < matchupOf(worst) ? s : worst,
+  )
+  return matchupTier(hardest)
 }

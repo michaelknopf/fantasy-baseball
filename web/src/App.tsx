@@ -41,7 +41,7 @@ interface Pending {
 export function App() {
   const [moves, setMoves] = useState<Move[]>([])
   const [periodIndex, setPeriodIndex] = useState(0)
-  const [sort, setSort] = useState<SortKey>('last30')
+  const [sort, setSort] = useState<SortKey>('score')
   const [query, setQuery] = useState('')
   const [pending, setPending] = useState<Pending | null>(null)
 

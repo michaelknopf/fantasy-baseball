@@ -182,3 +182,76 @@ describe('ramps', () => {
     expect(best).toBeGreaterThan(worst)
   })
 })
+
+describe('score column', () => {
+  it('ranks by the composite rather than raw last-30 when they disagree', () => {
+    const soft = (date: string): StartSlot => ({
+      ...start(date),
+      opponent_runs_rank: 30,
+      opponent_strikeouts_rank: 1,
+    })
+    const tough = (date: string): StartSlot => ({
+      ...start(date),
+      opponent_runs_rank: 1,
+      opponent_strikeouts_rank: 30,
+    })
+    const b = board([
+      pitcher({
+        player_id: 'slightly-better-arm',
+        starts: [tough('2026-08-11')],
+        windows: { last30: { games: 6, fantasy_points: 126, per_game: 21 } },
+        season: { games: 20, fantasy_points: 420, per_game: 21 },
+      }),
+      pitcher({
+        player_id: 'great-draw',
+        starts: [soft('2026-08-11')],
+        windows: { last30: { games: 6, fantasy_points: 120, per_game: 20 } },
+        season: { games: 20, fantasy_points: 400, per_game: 20 },
+      }),
+    ])
+    expect(pitcherRows(b, PERIOD, { sort: 'last30' })[0]?.pitcher.player_id).toBe(
+      'slightly-better-arm',
+    )
+    // 21 × 0.85 = 17.9 against 20 × 1.15 = 23 — the draw overturns a 1-point gap.
+    expect(pitcherRows(b, PERIOD, { sort: 'score' })[0]?.pitcher.player_id).toBe(
+      'great-draw',
+    )
+  })
+
+  it('sorts an unscorable pitcher last rather than treating him as zero', () => {
+    const b = board([
+      pitcher({
+        player_id: 'thin',
+        starts: [start('2026-08-11')],
+        windows: { last30: { games: 1, fantasy_points: 99, per_game: 99 } },
+      }),
+      pitcher({
+        player_id: 'real',
+        starts: [start('2026-08-11')],
+        windows: { last30: { games: 6, fantasy_points: 60, per_game: 10 } },
+        season: { games: 20, fantasy_points: 200, per_game: 10 },
+      }),
+    ])
+    const ids = pitcherRows(b, PERIOD, { sort: 'score' }).map((r) => r.pitcher.player_id)
+    expect(ids).toEqual(['real', 'thin'])
+  })
+
+  it('grades the score cell on form alone, so a shade never shifts with the period', () => {
+    const b = board([
+      pitcher({
+        player_id: 'a',
+        season: { games: 20, fantasy_points: 200, per_game: 10 },
+        windows: { last30: { games: 6, fantasy_points: 60, per_game: 10 } },
+      }),
+      pitcher({
+        player_id: 'b',
+        season: { games: 20, fantasy_points: 600, per_game: 30 },
+        windows: { last30: { games: 6, fantasy_points: 180, per_game: 30 } },
+      }),
+    ])
+    const sorted = ramps(b).score.sorted
+    expect(sorted).toHaveLength(2)
+    expect(sorted[0]).toBeCloseTo(10)
+    expect(sorted[1]).toBeCloseTo(30)
+  })
+})

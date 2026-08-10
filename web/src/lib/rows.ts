@@ -1,5 +1,7 @@
 import { distribution } from './magnitude'
 import type { Distribution } from './magnitude'
+import { formOf, score } from './score'
+import type { Score } from './score'
 import type { Board, Form, Pitcher, StartSlot, WaiverPeriod } from './types'
 
 /** Fewer than this and a rate is noise, so it is shown but never graded. */
@@ -9,6 +11,13 @@ export interface PitcherRow {
   pitcher: Pitcher
   /** Only the starts falling inside the selected period. */
   starts: StartSlot[]
+  /**
+   * Form and matchup as one number, for the start in this period.
+   *
+   * Null when no window has enough games behind it — the score declines to
+   * guess rather than ranking on a single outing.
+   */
+  score: Score | null
 }
 
 /** One graded column's spread, computed once for the whole board. */
@@ -18,9 +27,10 @@ export interface Ramps {
   season: Distribution
   era: Distribution
   whip: Distribution
+  score: Distribution
 }
 
-export type SortKey = 'last30' | 'last60' | 'season' | 'starts' | 'name'
+export type SortKey = 'score' | 'last30' | 'last60' | 'season' | 'starts' | 'name'
 
 export function startsInPeriod(
   pitcher: Pitcher,
@@ -48,12 +58,15 @@ export function pitcherRows(
   } = {},
 ): PitcherRow[] {
   const query = opts.query?.trim().toLowerCase() ?? ''
-  const sort = opts.sort ?? 'last30'
+  const sort = opts.sort ?? 'score'
 
   const rows = board.pitchers
     .filter((p) => !opts.ownership || p.ownership === opts.ownership)
     .filter((p) => !query || p.name.toLowerCase().includes(query))
-    .map((p) => ({ pitcher: p, starts: startsInPeriod(p, period) }))
+    .map((p) => {
+      const starts = startsInPeriod(p, period)
+      return { pitcher: p, starts, score: score(p, starts[0]) }
+    })
     .filter((r) => r.starts.length > 0)
     .sort((a, b) => compare(a, b, sort))
 
@@ -70,6 +83,14 @@ export function ramps(board: Board): Ramps {
   const rate = (p: Pitcher, key: 'last30' | 'last60') =>
     graded(p.windows?.[key]?.games, p.windows?.[key]?.per_game)
   return {
+    // Graded on form alone, deliberately. The matchup shifts a pitcher by at
+    // most 15%, so folding it in would make a cell's shade depend on which
+    // period is open — the same objection that keeps every other ramp
+    // board-wide rather than per-period.
+    score: distribution(
+      board.pitchers.map((p) => formOf(p)),
+      'high-good',
+    ),
     last30: distribution(board.pitchers.map((p) => rate(p, 'last30')), 'high-good'),
     last60: distribution(board.pitchers.map((p) => rate(p, 'last60')), 'high-good'),
     season: distribution(
@@ -103,6 +124,10 @@ export function numeric(raw: string | undefined): number | null {
 
 function compare(a: PitcherRow, b: PitcherRow, sort: SortKey): number {
   switch (sort) {
+    case 'score':
+      // An unscored pitcher sorts last rather than as zero, so a thin sample
+      // never lands mid-table where it reads as a real ranking.
+      return (b.score?.value ?? -1) - (a.score?.value ?? -1)
     case 'name':
       return a.pitcher.name.localeCompare(b.pitcher.name)
     case 'starts':

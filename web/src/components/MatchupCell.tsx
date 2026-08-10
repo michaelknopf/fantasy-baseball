@@ -26,7 +26,7 @@ export function MatchupCell({ starts }: { starts: StartSlot[] }) {
 }
 
 function Matchup({ start }: { start: StartSlot }) {
-  const tier = matchupTier(start.opponent_runs_rank)
+  const tier = matchupTier(start)
   return (
     <div className="flex items-baseline gap-2 text-xs whitespace-nowrap">
       <span className="num w-14 shrink-0 text-ink-3">{start.label}</span>
@@ -37,10 +37,20 @@ function Matchup({ start }: { start: StartSlot }) {
       <span className={`w-10 shrink-0 ${TONE[tier]}`}>
         {tier === 'unknown' ? '' : tier}
       </span>
+      {/* Both axes, because the tier reads both: an offense can be quiet and
+          still be a bad draw by never striking out. */}
       {start.opponent_runs_per_game !== null && (
         <span className="num text-ink-3">
           {start.opponent_runs_per_game.toFixed(2)} r/g
           {start.opponent_runs_rank !== null && ` · ${ordinal(start.opponent_runs_rank)}`}
+        </span>
+      )}
+      {start.opponent_strikeouts_rank !== null && (
+        <span
+          className="num text-ink-3"
+          title={`${ordinal(start.opponent_strikeouts_rank)} in strikeouts drawn — rank 1 whiffs most`}
+        >
+          K {start.opponent_strikeouts_rank}/30
         </span>
       )}
     </div>

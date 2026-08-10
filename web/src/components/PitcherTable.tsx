@@ -1,4 +1,5 @@
 import { MatchupCell } from '@/components/MatchupCell'
+import { ScoreCell } from '@/components/ScoreCell'
 import { Sparkline } from '@/components/Sparkline'
 import { StatCell } from '@/components/StatCell'
 import { numeric } from '@/lib/rows'
@@ -7,6 +8,7 @@ import { isInjuredReserve } from '@/lib/types'
 import type { Pitcher, WaiverPeriod } from '@/lib/types'
 
 const SORTS: { key: SortKey; label: string }[] = [
+  { key: 'score', label: 'Score' },
   { key: 'last30', label: '30d' },
   { key: 'last60', label: '60d' },
   { key: 'season', label: 'Season' },
@@ -81,6 +83,7 @@ export function PitcherTable({
           <thead>
             <tr className="chyron border-b border-line bg-sunk text-left text-sm text-ink-2">
               <th className="px-3 py-2">Pitcher</th>
+              <th className="px-2 py-2 text-right">Score</th>
               <th className="px-3 py-2">Matchup</th>
               <th className="px-2 py-2 text-right">30d</th>
               <th className="px-2 py-2 text-right">60d</th>
@@ -94,11 +97,12 @@ export function PitcherTable({
             </tr>
           </thead>
           <tbody>
-            {rows.map(({ pitcher, starts }) => (
+            {rows.map(({ pitcher, starts, score }) => (
               <Row
                 key={pitcher.player_id}
                 pitcher={pitcher}
                 starts={starts}
+                score={score}
                 ramps={ramps}
                 held={held.has(pitcher.player_id)}
                 activated={activated.has(pitcher.player_id)}
@@ -119,6 +123,7 @@ export function PitcherTable({
 function Row({
   pitcher,
   starts,
+  score,
   ramps,
   held,
   activated,
@@ -129,6 +134,7 @@ function Row({
 }: {
   pitcher: Pitcher
   starts: PitcherRow['starts']
+  score: PitcherRow['score']
   ramps: Ramps
   held: boolean
   activated: boolean
@@ -163,6 +169,8 @@ function Row({
           </span>
         </div>
       </td>
+
+      <ScoreCell score={score} ramp={ramps.score} />
 
       <MatchupCell starts={starts} />
 
