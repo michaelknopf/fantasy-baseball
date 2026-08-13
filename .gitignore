@@ -39,3 +39,6 @@ junit.xml
 /web/dist/
 /web/.playwright-mcp/
 /web/*.tsbuildinfo
+
+# git worktrees created by `savi-git worktree`
+.worktrees/
