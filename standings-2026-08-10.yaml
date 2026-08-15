@@ -1,0 +1,54 @@
+# Season point totals when the playoffs opened on 2026-08-10.
+#
+# Fantrax serves only a team's *current* total -- there is no historical
+# standings call -- and our first snapshot is 2026-08-13, three days late.
+# Teams scored 65-140 points over those three days, so the opening totals
+# cannot be derived from any snapshot we hold. They are transcribed by hand
+# from the league's standings page and recorded here as the source of truth
+# that playoffs.yaml reads its round-1 baselines from.
+#
+# The four totals below were transcribed when the winners' bracket was built and
+# match its scores against the league's own spreadsheet. The rest are still
+# outstanding: fill in `total` for each and rerun `just board` to score them.
+# Seeds 1 and 2 took byes, so no baseline was ever captured for them either --
+# they need one before their round 2 can score.
+
+collected_on: 2026-08-10
+source: fantrax-standings-screenshot
+
+teams:
+  # Outstanding -- byes in round 1, so nothing recorded their opening total.
+  - team: Asian Invasion 2.0
+    seed: 1
+    total: null
+  - team: Just A Bit Outside
+    seed: 2
+    total: null
+
+  - team: Randy
+    seed: 3
+    total: 7891.25
+  - team: Rally Season
+    seed: 4
+    total: 7781.00
+  - team: Jake/Jeff
+    seed: 5
+    total: 7750.25
+  - team: MK
+    seed: 6
+    total: 7596.25
+
+  # Outstanding -- until these carry a number their round scores every side as
+  # its seed advantage alone.
+  - team: No Name Pitchers
+    seed: 7
+    total: null
+  - team: Juicers
+    seed: 8
+    total: null
+  - team: Harry/Sam
+    seed: 9
+    total: null
+  - team: Kyle
+    seed: 10
+    total: null
