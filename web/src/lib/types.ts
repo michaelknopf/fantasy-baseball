@@ -92,6 +92,52 @@ export interface Rival {
   is_mine: boolean
 }
 
+export type RoundState = 'done' | 'live' | 'upcoming'
+
+/**
+ * One team in a playoff matchup.
+ *
+ * A round scores only what is earned inside it, so `matchup_points` — earned
+ * plus the seed spot — is what decides it. `team` is null while the slot waits
+ * on the matchup that feeds it, and `awaiting` names what that is.
+ */
+export interface PlayoffSide {
+  seed: number | null
+  team: string | null
+  awaiting: string | null
+  advantage: number
+  starting_points: number | null
+  current_points: number | null
+  earned: number | null
+  matchup_points: number | null
+  is_mine: boolean
+}
+
+export interface PlayoffMatchup {
+  a: PlayoffSide
+  b: PlayoffSide
+  /** Positive when `a` leads. Null until both sides are known and scoring. */
+  margin: number | null
+  leader: string | null
+  is_bye: boolean
+}
+
+export interface PlayoffRound {
+  label: string
+  starts_on: string
+  ends_on: string
+  state: RoundState
+  /** The round's best score, so every bar shares one axis. */
+  peak_points: number | null
+  matchups: PlayoffMatchup[]
+}
+
+export interface PlayoffBracket {
+  key: string
+  label: string
+  rounds: PlayoffRound[]
+}
+
 export interface Board {
   generated_at: string
   collected_through: string
@@ -104,4 +150,6 @@ export interface Board {
   rivals: Rival[]
   slots: RosterSlots | null
   roster: RosterEntry[]
+  /** Empty until a bracket is configured, so older boards still parse. */
+  playoffs?: PlayoffBracket[]
 }

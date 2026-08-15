@@ -30500,5 +30500,316 @@
         }
       }
     }
+  ],
+  "playoffs": [
+    {
+      "key": "winners",
+      "label": "Winners'",
+      "rounds": [
+        {
+          "label": "Round 1",
+          "starts_on": "2026-08-10",
+          "ends_on": "2026-08-23",
+          "state": "live",
+          "peak_points": 348.75,
+          "matchups": [
+            {
+              "a": {
+                "seed": 3,
+                "team": "Randy",
+                "awaiting": null,
+                "advantage": 50.0,
+                "starting_points": 7891.25,
+                "current_points": 8141.25,
+                "earned": 250.0,
+                "matchup_points": 300.0,
+                "is_mine": false
+              },
+              "b": {
+                "seed": 6,
+                "team": "MK",
+                "awaiting": null,
+                "advantage": 0.0,
+                "starting_points": 7596.25,
+                "current_points": 7876.5,
+                "earned": 280.25,
+                "matchup_points": 280.25,
+                "is_mine": true
+              },
+              "margin": 19.75,
+              "leader": "Randy",
+              "is_bye": false
+            },
+            {
+              "a": {
+                "seed": 4,
+                "team": "Rally Season",
+                "awaiting": null,
+                "advantage": 50.0,
+                "starting_points": 7781.0,
+                "current_points": 7978.0,
+                "earned": 197.0,
+                "matchup_points": 247.0,
+                "is_mine": false
+              },
+              "b": {
+                "seed": 5,
+                "team": "Jake/Jeff",
+                "awaiting": null,
+                "advantage": 0.0,
+                "starting_points": 7750.25,
+                "current_points": 8099.0,
+                "earned": 348.75,
+                "matchup_points": 348.75,
+                "is_mine": false
+              },
+              "margin": -101.75,
+              "leader": "Jake/Jeff",
+              "is_bye": false
+            },
+            {
+              "a": {
+                "seed": 1,
+                "team": "Asian Invasion 2.0",
+                "awaiting": null,
+                "advantage": 0.0,
+                "starting_points": null,
+                "current_points": 8408.75,
+                "earned": null,
+                "matchup_points": null,
+                "is_mine": false
+              },
+              "b": {
+                "seed": 2,
+                "team": "Just A Bit Outside",
+                "awaiting": null,
+                "advantage": 0.0,
+                "starting_points": null,
+                "current_points": 8439.25,
+                "earned": null,
+                "matchup_points": null,
+                "is_mine": false
+              },
+              "margin": null,
+              "leader": null,
+              "is_bye": true
+            }
+          ]
+        },
+        {
+          "label": "Round 2",
+          "starts_on": "2026-08-24",
+          "ends_on": "2026-09-06",
+          "state": "upcoming",
+          "peak_points": null,
+          "matchups": [
+            {
+              "a": {
+                "seed": 1,
+                "team": "Asian Invasion 2.0",
+                "awaiting": null,
+                "advantage": 50.0,
+                "starting_points": null,
+                "current_points": 8408.75,
+                "earned": null,
+                "matchup_points": null,
+                "is_mine": false
+              },
+              "b": {
+                "seed": null,
+                "team": null,
+                "awaiting": "Winner of Randy / MK",
+                "advantage": 0.0,
+                "starting_points": null,
+                "current_points": null,
+                "earned": null,
+                "matchup_points": null,
+                "is_mine": false
+              },
+              "margin": null,
+              "leader": null,
+              "is_bye": false
+            },
+            {
+              "a": {
+                "seed": 2,
+                "team": "Just A Bit Outside",
+                "awaiting": null,
+                "advantage": 50.0,
+                "starting_points": null,
+                "current_points": 8439.25,
+                "earned": null,
+                "matchup_points": null,
+                "is_mine": false
+              },
+              "b": {
+                "seed": null,
+                "team": null,
+                "awaiting": "Winner of Rally Season / Jake/Jeff",
+                "advantage": 0.0,
+                "starting_points": null,
+                "current_points": null,
+                "earned": null,
+                "matchup_points": null,
+                "is_mine": false
+              },
+              "margin": null,
+              "leader": null,
+              "is_bye": false
+            }
+          ]
+        },
+        {
+          "label": "Championship",
+          "starts_on": "2026-09-07",
+          "ends_on": "2026-09-20",
+          "state": "upcoming",
+          "peak_points": null,
+          "matchups": [
+            {
+              "a": {
+                "seed": null,
+                "team": null,
+                "awaiting": "Winner of round 2",
+                "advantage": 0.0,
+                "starting_points": null,
+                "current_points": null,
+                "earned": null,
+                "matchup_points": null,
+                "is_mine": false
+              },
+              "b": {
+                "seed": null,
+                "team": null,
+                "awaiting": "Winner of round 2",
+                "advantage": 0.0,
+                "starting_points": null,
+                "current_points": null,
+                "earned": null,
+                "matchup_points": null,
+                "is_mine": false
+              },
+              "margin": null,
+              "leader": null,
+              "is_bye": false
+            }
+          ]
+        },
+        {
+          "label": "3rd Place",
+          "starts_on": "2026-09-07",
+          "ends_on": "2026-09-20",
+          "state": "upcoming",
+          "peak_points": null,
+          "matchups": [
+            {
+              "a": {
+                "seed": null,
+                "team": null,
+                "awaiting": "Loser of round 2",
+                "advantage": 0.0,
+                "starting_points": null,
+                "current_points": null,
+                "earned": null,
+                "matchup_points": null,
+                "is_mine": false
+              },
+              "b": {
+                "seed": null,
+                "team": null,
+                "awaiting": "Loser of round 2",
+                "advantage": 0.0,
+                "starting_points": null,
+                "current_points": null,
+                "earned": null,
+                "matchup_points": null,
+                "is_mine": false
+              },
+              "margin": null,
+              "leader": null,
+              "is_bye": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "losers",
+      "label": "Losers'",
+      "rounds": [
+        {
+          "label": "Round 1",
+          "starts_on": "2026-08-10",
+          "ends_on": "2026-08-30",
+          "state": "live",
+          "peak_points": null,
+          "matchups": [
+            {
+              "a": {
+                "seed": null,
+                "team": null,
+                "awaiting": "Loser of Randy / MK",
+                "advantage": 0.0,
+                "starting_points": null,
+                "current_points": null,
+                "earned": null,
+                "matchup_points": null,
+                "is_mine": false
+              },
+              "b": {
+                "seed": null,
+                "team": null,
+                "awaiting": "Loser of Rally Season / Jake/Jeff",
+                "advantage": 0.0,
+                "starting_points": null,
+                "current_points": null,
+                "earned": null,
+                "matchup_points": null,
+                "is_mine": false
+              },
+              "margin": null,
+              "leader": null,
+              "is_bye": false
+            }
+          ]
+        },
+        {
+          "label": "Championship",
+          "starts_on": "2026-08-31",
+          "ends_on": "2026-09-20",
+          "state": "upcoming",
+          "peak_points": null,
+          "matchups": [
+            {
+              "a": {
+                "seed": null,
+                "team": null,
+                "awaiting": "Winner of round 1",
+                "advantage": 0.0,
+                "starting_points": null,
+                "current_points": null,
+                "earned": null,
+                "matchup_points": null,
+                "is_mine": false
+              },
+              "b": {
+                "seed": null,
+                "team": null,
+                "awaiting": "Loser of round 1",
+                "advantage": 0.0,
+                "starting_points": null,
+                "current_points": null,
+                "earned": null,
+                "matchup_points": null,
+                "is_mine": false
+              },
+              "margin": null,
+              "leader": null,
+              "is_bye": false
+            }
+          ]
+        }
+      ]
+    }
   ]
 }

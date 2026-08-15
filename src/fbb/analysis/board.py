@@ -10,6 +10,10 @@ from datetime import date, timedelta
 
 from pydantic import BaseModel
 
+from fbb.analysis.playoffs import Matchup as ConfiguredMatchup
+from fbb.analysis.playoffs import PlayoffConfig, SlotRef
+from fbb.analysis.playoffs import Round as ConfiguredRound
+from fbb.analysis.playoffs import Side as ConfiguredSide
 from fbb.fantrax.models import (
     GameLogEntry,
     LeagueSnapshot,
@@ -17,6 +21,15 @@ from fbb.fantrax.models import (
     TeamStartsBudget,
 )
 from fbb.fantrax.waivers import WaiverSchedule
+
+
+class UnknownPlayoffTeamError(ValueError):
+    """A bracket names a team the snapshot does not have.
+
+    Fantrax team names are user-editable, so a rename would otherwise leave the
+    matchup silently blank instead of pointing at the line to fix.
+    """
+
 
 # Trailing windows shown beside the season figure. Form matters more than the
 # season average for a streaming call, so these are computed from the game log.
@@ -131,6 +144,57 @@ class Rival(BaseModel):
     is_mine: bool = False
 
 
+class PlayoffSide(BaseModel):
+    """One team in a playoff matchup.
+
+    Only points scored inside the round count, so `matchup_points` — not the
+    season total — is what the round is decided on. `team` is None while the slot
+    is still waiting on the matchup that feeds it.
+    """
+
+    seed: int | None = None
+    team: str | None = None
+    awaiting: str | None = None  # 'Winner of Randy / MK'
+    advantage: float = 0.0
+    starting_points: float | None = None
+    current_points: float | None = None
+    earned: float | None = None
+    matchup_points: float | None = None
+    is_mine: bool = False
+
+
+class PlayoffMatchup(BaseModel):
+    """A pairing, and who is ahead in it."""
+
+    a: PlayoffSide
+    b: PlayoffSide
+    # Positive when `a` leads. None until both sides are known and scoring.
+    margin: float | None = None
+    leader: str | None = None
+    is_bye: bool = False
+
+
+class PlayoffRound(BaseModel):
+    """One round of a bracket.
+
+    `peak_points` is the best matchup score in the round, so every bar on the
+    page can share one axis and lengths mean the same thing across matchups.
+    """
+
+    label: str
+    starts_on: date
+    ends_on: date
+    state: str  # 'done' | 'live' | 'upcoming'
+    peak_points: float | None = None
+    matchups: list[PlayoffMatchup] = []
+
+
+class PlayoffBracket(BaseModel):
+    key: str
+    label: str
+    rounds: list[PlayoffRound] = []
+
+
 class Board(BaseModel):
     """Everything the app renders."""
 
@@ -145,16 +209,24 @@ class Board(BaseModel):
     rivals: list[Rival] = []
     slots: RosterSlots | None = None
     roster: list[RosterEntry] = []
+    playoffs: list[PlayoffBracket] = []
 
 
 class BoardBuilder:
     """Derives the board from a collected snapshot."""
 
-    def __init__(self, snapshot: LeagueSnapshot, horizon_days: int = 21) -> None:
+    def __init__(
+        self,
+        snapshot: LeagueSnapshot,
+        horizon_days: int = 21,
+        playoffs: PlayoffConfig | None = None,
+    ) -> None:
         self._snapshot = snapshot
         self._horizon = horizon_days
+        self._playoff_config = playoffs
         self._details = {d.player_id: d for d in snapshot.player_details}
         self._batting = {t.abbreviation: t for t in snapshot.team_batting}
+        self._points = {b.team_name: b.fantasy_points for b in snapshot.starts_budgets}
         self._today = snapshot.collected_at.date()
 
     def build(self) -> Board:
@@ -171,6 +243,7 @@ class BoardBuilder:
             rivals=self._rivals(),
             slots=self._slots(roster),
             roster=self._roster(roster),
+            playoffs=self._playoffs(),
         )
 
     def _my_roster_id(self) -> str | None:
@@ -451,6 +524,170 @@ class BoardBuilder:
                 reverse=True,
             )
         ]
+
+    def _playoffs(self) -> list[PlayoffBracket]:
+        """The bracket, with each matchup scored against its own round."""
+        if not self._playoff_config:
+            return []
+
+        my_team = self._my_team_name()
+        # Later rounds read the results of earlier ones to fill their slots, so
+        # rounds are walked in order and finished matchups carried forward. Only
+        # a round that has ended settles anything: whoever leads a live matchup
+        # has not won it yet, and advancing them would put a team in the next
+        # round that may never get there.
+        settled: dict[str, PlayoffMatchup] = {}
+        brackets: list[PlayoffBracket] = []
+
+        for bracket in self._playoff_config.brackets:
+            rounds: list[PlayoffRound] = []
+            for index, rnd in enumerate(bracket.rounds):
+                state = self._round_state(rnd.start, rnd.end)
+                matchups = [
+                    self._playoff_matchup(source, my_team, settled)
+                    for source in rnd.matchups
+                ]
+                if state == 'done':
+                    for slot, built in enumerate(matchups):
+                        settled[f'{bracket.key}.{index}.{slot}'] = built
+                scores = [
+                    side.matchup_points
+                    for built in matchups
+                    for side in (built.a, built.b)
+                    if side.matchup_points is not None
+                ]
+                rounds.append(
+                    PlayoffRound(
+                        label=rnd.label,
+                        starts_on=rnd.start,
+                        ends_on=rnd.end,
+                        state=state,
+                        peak_points=max(scores) if scores else None,
+                        matchups=matchups,
+                    )
+                )
+            brackets.append(
+                PlayoffBracket(key=bracket.key, label=bracket.label, rounds=rounds)
+            )
+        return brackets
+
+    def _round_state(self, starts_on: date, ends_on: date) -> str:
+        if self._today < starts_on:
+            return 'upcoming'
+        return 'done' if self._today > ends_on else 'live'
+
+    def _playoff_matchup(
+        self,
+        source: ConfiguredMatchup,
+        my_team: str | None,
+        settled: dict[str, PlayoffMatchup],
+    ) -> PlayoffMatchup:
+        a = self._playoff_side(source.a, my_team, settled)
+        b = self._playoff_side(source.b, my_team, settled)
+        margin: float | None = None
+        leader: str | None = None
+        if (
+            not source.bye
+            and a.matchup_points is not None
+            and b.matchup_points is not None
+        ):
+            margin = round(a.matchup_points - b.matchup_points, 2)
+            if margin:
+                leader = (a if margin > 0 else b).team
+        return PlayoffMatchup(a=a, b=b, margin=margin, leader=leader, is_bye=source.bye)
+
+    def _playoff_side(
+        self,
+        side: ConfiguredSide,
+        my_team: str | None,
+        settled: dict[str, PlayoffMatchup],
+    ) -> PlayoffSide:
+        team, awaiting = self._occupant(side, settled)
+        current = self._points.get(team) if team else None
+        earned: float | None = None
+        matchup_points: float | None = None
+        if current is not None and side.starting_points is not None:
+            earned = round(current - side.starting_points, 2)
+            matchup_points = round(earned + side.advantage, 2)
+        return PlayoffSide(
+            seed=side.seed,
+            team=team,
+            awaiting=awaiting,
+            advantage=side.advantage,
+            starting_points=side.starting_points,
+            current_points=current,
+            earned=earned,
+            matchup_points=matchup_points,
+            is_mine=bool(team and team == my_team),
+        )
+
+    def _occupant(
+        self, side: ConfiguredSide, settled: dict[str, PlayoffMatchup]
+    ) -> tuple[str | None, str | None]:
+        """The team in a slot, or a label naming what it is waiting on."""
+        if side.team:
+            if side.team not in self._points:
+                known = ', '.join(sorted(self._points))
+                raise UnknownPlayoffTeamError(
+                    f'{side.team!r} is not a team in this league. Known teams: {known}'
+                )
+            return side.team, None
+
+        ref = side.feeds_from
+        if not ref:
+            return None, None
+
+        verb = 'Winner' if ref.take_winner else 'Loser'
+        feeder = settled.get(ref.key)
+        if feeder:
+            decided = feeder.leader if ref.take_winner else _trailer(feeder)
+            if decided:
+                return decided, None
+
+        # The feeding round has not finished, so name where the team will come
+        # from — reading its current leader would advance a team that has not
+        # actually won yet.
+        return None, f'{verb} of {self._feeder_label(ref)}'
+
+    def _feeder_label(self, ref: SlotRef) -> str:
+        """What to call the matchup a pending slot is waiting on.
+
+        Both contenders named when both are known ('Randy / MK'); otherwise the
+        round itself, since half a pairing reads as though the other side were
+        already settled.
+        """
+        source = self._configured_matchup(ref)
+        if not source:
+            return 'an earlier round'
+        rnd = self._configured_round(ref)
+        if source.a.team and source.b.team:
+            return f'{source.a.team} / {source.b.team}'
+        return rnd.label.lower() if rnd else 'an earlier round'
+
+    def _configured_round(self, ref: SlotRef) -> ConfiguredRound | None:
+        for bracket in self._playoff_config.brackets if self._playoff_config else []:
+            if bracket.key == ref.bracket and ref.round_index < len(bracket.rounds):
+                return bracket.rounds[ref.round_index]
+        return None
+
+    def _configured_matchup(self, ref: SlotRef) -> ConfiguredMatchup | None:
+        rnd = self._configured_round(ref)
+        if rnd and ref.matchup_index < len(rnd.matchups):
+            return rnd.matchups[ref.matchup_index]
+        return None
+
+    def _my_team_name(self) -> str | None:
+        for team in self._snapshot.teams:
+            if team.is_mine:
+                return team.name
+        return None
+
+
+def _trailer(matchup: PlayoffMatchup) -> str | None:
+    """The side that is behind, once a leader is settled."""
+    if not matchup.leader:
+        return None
+    return matchup.b.team if matchup.leader == matchup.a.team else matchup.a.team
 
 
 def _is_pitcher(positions: str | None) -> bool:

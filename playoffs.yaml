@@ -1,0 +1,70 @@
+# The league's playoff bracket.
+#
+# Fantrax serves none of this — no seeds, no pairings, no round dates — so it is
+# maintained by hand. Team names must match Fantrax exactly; a mismatch fails the
+# board build rather than rendering a blank row.
+#
+# `starting_points` is each team's season total at the moment a round opened, and
+# only points scored after it count toward the round. Leave it out and the first
+# `fbb board build` on or after `start` records it into playoffs.baselines.yaml.
+# Round 1 predates our first snapshot, so its values are entered here by hand.
+#
+# `winner_of` names the matchup a slot is waiting on, as
+# <bracket key>.<round index>.<matchup index>, both zero-based.
+
+brackets:
+  - key: winners
+    label: Winners'
+    rounds:
+      - label: Round 1
+        start: 2026-08-10
+        end: 2026-08-23
+        matchups:
+          - a: { seed: 3, team: Randy, advantage: 50.0, starting_points: 7891.25 }
+            b: { seed: 6, team: MK, advantage: 0.0, starting_points: 7596.25 }
+          - a: { seed: 4, team: Rally Season, advantage: 50.0, starting_points: 7781.00 }
+            b: { seed: 5, team: Jake/Jeff, advantage: 0.0, starting_points: 7750.25 }
+          # Seeds 1 and 2 sit out, and carry a 50-point spot into round 2.
+          - bye: true
+            a: { seed: 1, team: Asian Invasion 2.0 }
+            b: { seed: 2, team: Just A Bit Outside }
+
+      - label: Round 2
+        start: 2026-08-24
+        end: 2026-09-06
+        matchups:
+          - a: { seed: 1, team: Asian Invasion 2.0, advantage: 50.0 }
+            b: { winner_of: winners.0.0 }
+          - a: { seed: 2, team: Just A Bit Outside, advantage: 50.0 }
+            b: { winner_of: winners.0.1 }
+
+      - label: Championship
+        start: 2026-09-07
+        end: 2026-09-20
+        matchups:
+          - a: { winner_of: winners.1.0 }
+            b: { winner_of: winners.1.1 }
+
+      - label: 3rd Place
+        start: 2026-09-07
+        end: 2026-09-20
+        matchups:
+          - a: { loser_of: winners.1.0 }
+            b: { loser_of: winners.1.1 }
+
+  - key: losers
+    label: Losers'
+    rounds:
+      - label: Round 1
+        start: 2026-08-10
+        end: 2026-08-30
+        matchups:
+          - a: { loser_of: winners.0.0 }
+            b: { loser_of: winners.0.1 }
+
+      - label: Championship
+        start: 2026-08-31
+        end: 2026-09-20
+        matchups:
+          - a: { winner_of: losers.0.0 }
+            b: { loser_of: losers.0.0 }
