@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BracketMap } from '@/components/BracketMap'
 import { RoundSection } from '@/components/RoundSection'
 import boardData from '@/data/board.json'
 import type { Board } from '@/lib/types'
@@ -46,6 +47,8 @@ export function PlayoffBoard() {
           ))}
         </div>
       )}
+
+      <BracketMap bracket={bracket} />
 
       {bracket.rounds.map((round) => (
         <RoundSection key={round.label} round={round} today={board.generated_at} />

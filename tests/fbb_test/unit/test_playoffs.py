@@ -169,6 +169,34 @@ class TestUnresolvedSlots:
         assert rounds[1].matchups[0].margin is None
         assert rounds[1].matchups[0].leader is None
 
+    def test_slots_fed_by_one_round_are_told_apart(self, tmp_path: Path) -> None:
+        """Both would read 'winner of round 2' with no seed to tell them apart."""
+        body = (
+            _TWO_ROUNDS
+            + """
+      - label: Championship
+        start: 2026-09-07
+        end: 2026-09-20
+        matchups:
+          - a: {winner_of: winners.1.0}
+            b: {winner_of: winners.1.1}
+"""
+        )
+        # Round 2 needs a second matchup for the final to draw from two sources.
+        body = body.replace(
+            '          - a: {seed: 1, team: Randy, advantage: 50.0}\n'
+            '            b: {winner_of: winners.0.0}\n',
+            '          - a: {seed: 1, team: Randy, advantage: 50.0}\n'
+            '            b: {winner_of: winners.0.0}\n'
+            '          - a: {seed: 2, team: MK, advantage: 50.0}\n'
+            '            b: {winner_of: winners.0.0}\n',
+        )
+        final = _brackets(body, tmp_path)[0].rounds[2].matchups[0]
+
+        assert final.a.awaiting != final.b.awaiting
+        assert 'Randy' in str(final.a.awaiting)
+        assert 'MK' in str(final.b.awaiting)
+
     def test_a_baselined_side_scores_nothing_until_its_round_opens(
         self, tmp_path: Path
     ) -> None:

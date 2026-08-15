@@ -663,7 +663,8 @@ class BoardBuilder:
 
         Both contenders named when both are known ('Randy / MK'); otherwise the
         round itself, since half a pairing reads as though the other side were
-        already settled.
+        already settled. A round feeding several slots names the seed anchoring
+        each, or every one of them reads identically.
         """
         source = self._configured_matchup(ref)
         if not source:
@@ -671,7 +672,10 @@ class BoardBuilder:
         rnd = self._configured_round(ref)
         if source.a.team and source.b.team:
             return f'{source.a.team} / {source.b.team}'
-        return rnd.label.lower() if rnd else 'an earlier round'
+        if not rnd:
+            return 'an earlier round'
+        anchor = source.a.team or source.b.team
+        return f'{rnd.label.lower()}, {anchor}’s side' if anchor else rnd.label.lower()
 
     def _configured_round(self, ref: SlotRef) -> ConfiguredRound | None:
         for bracket in self._playoff_config.brackets if self._playoff_config else []:
