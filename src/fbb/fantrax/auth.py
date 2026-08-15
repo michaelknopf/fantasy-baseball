@@ -7,7 +7,7 @@ DEFAULT_COOKIE_PATH = Path('.fantrax_cookies.json')
 
 # Fantrax ties a session to `ui`/`uig`/`FX_RM`; `cf_clearance` satisfies Cloudflare.
 # Everything else the browser holds is ad tracking and is deliberately not persisted.
-_REQUIRED = ('ui', 'uig', 'FX_RM')
+REQUIRED_COOKIES = ('ui', 'uig', 'FX_RM')
 
 
 class MissingCookiesError(RuntimeError):
@@ -18,7 +18,7 @@ class FantraxSession:
     """Cookie jar for the Fantrax web API, captured from a logged-in browser."""
 
     def __init__(self, cookies: dict[str, str]) -> None:
-        missing = [name for name in _REQUIRED if not cookies.get(name)]
+        missing = [name for name in REQUIRED_COOKIES if not cookies.get(name)]
         if missing:
             names = ', '.join(missing)
             msg = f'Cookie file is missing required cookies: {names}.'
@@ -40,7 +40,7 @@ class FantraxSession:
     @classmethod
     def save(cls, cookies: dict[str, str], path: Path = DEFAULT_COOKIE_PATH) -> None:
         """Persist cookies, keeping only the ones the API actually needs."""
-        keep = (*_REQUIRED, 'cf_clearance', 'fsuid')
+        keep = (*REQUIRED_COOKIES, 'cf_clearance', 'fsuid')
         subset = {k: v for k, v in cookies.items() if k in keep}
         path.write_text(json.dumps(subset, indent=2) + '\n')
 

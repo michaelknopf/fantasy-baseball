@@ -1,14 +1,15 @@
 """CLI subcommands for collecting Fantrax data."""
 
+import time
 from pathlib import Path
 from typing import Annotated
 
 import typer
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import BrowserContext, sync_playwright
 from rich.console import Console
 from rich.table import Table
 
-from fbb.fantrax.auth import DEFAULT_COOKIE_PATH, FantraxSession
+from fbb.fantrax.auth import DEFAULT_COOKIE_PATH, REQUIRED_COOKIES, FantraxSession
 from fbb.fantrax.client import FantraxClient
 from fbb.fantrax.collector import SnapshotCollector
 from fbb.fantrax.models import LeagueSnapshot
@@ -25,6 +26,17 @@ app = typer.Typer(
 console = Console()
 
 DEFAULT_LEAGUE_ID = 'vbh2q8ffmng9ekc0'
+
+LOGIN_TIMEOUT_SECONDS = 300.0
+
+
+def _fantrax_cookies(context: BrowserContext) -> dict[str, str]:
+    return {
+        str(c.get('name')): str(c.get('value'))
+        for c in context.cookies()
+        if 'fantrax.com' in str(c.get('domain'))
+    }
+
 
 LeagueOption = Annotated[str, typer.Option('--league', help='Fantrax league ID.')]
 OutOption = Annotated[Path, typer.Option('--out', help='Directory for snapshots.')]
@@ -48,15 +60,24 @@ def login(league: LeagueOption = DEFAULT_LEAGUE_ID) -> None:
         page.goto(f'https://www.fantrax.com/fantasy/league/{league}/team/roster')
 
         console.print('[bold]Log in to Fantrax in the browser window.[/bold]')
-        console.print('Waiting for the roster page to load...')
-        page.wait_for_url('**/team/roster**', timeout=300_000)
-        page.wait_for_timeout(3_000)
+        console.print('Waiting for you to finish logging in...')
 
-        cookies = {
-            str(c.get('name')): str(c.get('value'))
-            for c in context.cookies()
-            if 'fantrax.com' in str(c.get('domain'))
-        }
+        # Fantrax redirects to its login page client-side, so the roster URL matches
+        # before authentication happens. The session cookies are the only reliable
+        # signal that the login actually went through.
+        deadline = time.monotonic() + LOGIN_TIMEOUT_SECONDS
+        while True:
+            cookies = _fantrax_cookies(context)
+            if all(cookies.get(name) for name in REQUIRED_COOKIES):
+                break
+            if time.monotonic() > deadline:
+                browser.close()
+                console.print(
+                    '[red]Timed out waiting for login; no cookies saved.[/red]'
+                )
+                raise typer.Exit(1)
+            page.wait_for_timeout(1_000)
+
         browser.close()
 
     FantraxSession.save(cookies)
