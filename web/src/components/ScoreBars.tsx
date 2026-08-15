@@ -6,8 +6,8 @@ import type { PlayoffMatchup, PlayoffSide } from '@/lib/types'
  *
  * The gap between the bar ends is the margin, which saves the reader the
  * subtraction the spreadsheet made them do. The seed spot is a lighter segment
- * at the head of the bar it belongs to, so a head start reads as territory
- * already held rather than as a number to reconcile.
+ * at the end of the bar it belongs to, so the earned runs all start at the same
+ * edge and compare directly, with the spot reading as what it adds on top.
  */
 export function ScoreBars({
   matchup,
@@ -53,16 +53,16 @@ function Bar({
       >
         {segments && (
           <>
+            <span
+              className={`absolute inset-y-0 left-0 ${leading ? 'bg-good/85' : 'bg-ink-2/50'}`}
+              style={{ width: `${segments.earned}%` }}
+            />
             {segments.spot > 0 && (
               <span
-                className={`absolute inset-y-0 left-0 ${leading ? 'bg-good/40' : 'bg-ink-2/25'}`}
-                style={{ width: `${segments.spot}%` }}
+                className={`absolute inset-y-0 ${leading ? 'bg-good/40' : 'bg-ink-2/25'}`}
+                style={{ left: `${segments.earned}%`, width: `${segments.spot}%` }}
               />
             )}
-            <span
-              className={`absolute inset-y-0 ${leading ? 'bg-good/85' : 'bg-ink-2/50'}`}
-              style={{ left: `${segments.spot}%`, width: `${segments.earned}%` }}
-            />
           </>
         )}
       </div>

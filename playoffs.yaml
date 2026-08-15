@@ -14,7 +14,7 @@
 
 brackets:
   - key: winners
-    label: Winners'
+    label: Winners
     rounds:
       - label: Round 1
         start: 2026-08-10
@@ -57,7 +57,7 @@ brackets:
   # Seeds 7-10, who miss the winners' bracket entirely rather than dropping into
   # this one, so these are named teams and the round opens on 8/10 alongside it.
   - key: losers
-    label: Losers'
+    label: Losers
     rounds:
       # Re-seeded 1-4 within this bracket rather than carrying the league's 7-10.
       # The sheet charges the lower seed -50; this credits the higher seed +50

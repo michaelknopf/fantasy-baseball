@@ -30504,7 +30504,7 @@
   "playoffs": [
     {
       "key": "winners",
-      "label": "Winners'",
+      "label": "Winners",
       "rounds": [
         {
           "label": "Round 1",
@@ -30735,7 +30735,7 @@
     },
     {
       "key": "losers",
-      "label": "Losers'",
+      "label": "Losers",
       "rounds": [
         {
           "label": "Round 1",
