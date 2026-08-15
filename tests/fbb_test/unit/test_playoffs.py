@@ -169,6 +169,20 @@ class TestUnresolvedSlots:
         assert rounds[1].matchups[0].margin is None
         assert rounds[1].matchups[0].leader is None
 
+    def test_a_baselined_side_scores_nothing_until_its_round_opens(
+        self, tmp_path: Path
+    ) -> None:
+        """A bye's baseline is known early, but its round has not been played."""
+        body = _TWO_ROUNDS.replace(
+            'a: {seed: 1, team: Randy, advantage: 50.0}',
+            'a: {seed: 1, team: Randy, advantage: 50.0, starting_points: 7891.25}',
+        )
+        rounds = _brackets(body, tmp_path)[0].rounds
+
+        assert rounds[1].state == 'upcoming'
+        assert rounds[1].matchups[0].a.matchup_points is None
+        assert rounds[1].peak_points is None
+
 
 _BYE = """
 brackets:

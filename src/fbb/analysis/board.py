@@ -544,7 +544,7 @@ class BoardBuilder:
             for index, rnd in enumerate(bracket.rounds):
                 state = self._round_state(rnd.start, rnd.end)
                 matchups = [
-                    self._playoff_matchup(source, my_team, settled)
+                    self._playoff_matchup(source, my_team, settled, state)
                     for source in rnd.matchups
                 ]
                 if state == 'done':
@@ -581,9 +581,10 @@ class BoardBuilder:
         source: ConfiguredMatchup,
         my_team: str | None,
         settled: dict[str, PlayoffMatchup],
+        state: str,
     ) -> PlayoffMatchup:
-        a = self._playoff_side(source.a, my_team, settled)
-        b = self._playoff_side(source.b, my_team, settled)
+        a = self._playoff_side(source.a, my_team, settled, state)
+        b = self._playoff_side(source.b, my_team, settled, state)
         margin: float | None = None
         leader: str | None = None
         if (
@@ -601,12 +602,20 @@ class BoardBuilder:
         side: ConfiguredSide,
         my_team: str | None,
         settled: dict[str, PlayoffMatchup],
+        state: str,
     ) -> PlayoffSide:
         team, awaiting = self._occupant(side, settled)
         current = self._points.get(team) if team else None
         earned: float | None = None
         matchup_points: float | None = None
-        if current is not None and side.starting_points is not None:
+        # A bye carries its baseline into the round it feeds, so a side can hold
+        # one before its round opens; scoring it then would show points for a
+        # round nobody has played.
+        if (
+            state != 'upcoming'
+            and current is not None
+            and side.starting_points is not None
+        ):
             earned = round(current - side.starting_points, 2)
             matchup_points = round(earned + side.advantage, 2)
         return PlayoffSide(

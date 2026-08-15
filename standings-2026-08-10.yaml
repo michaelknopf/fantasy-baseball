@@ -7,23 +7,24 @@
 # from the league's standings page and recorded here as the source of truth
 # that playoffs.yaml reads its round-1 baselines from.
 #
-# The four totals below were transcribed when the winners' bracket was built and
-# match its scores against the league's own spreadsheet. The rest are still
-# outstanding: fill in `total` for each and rerun `just board` to score them.
-# Seeds 1 and 2 took byes, so no baseline was ever captured for them either --
-# they need one before their round 2 can score.
+# Transcribed from the league's playoff spreadsheet, whose "Starting Total
+# Points" column is the same figure this file records. The four winners'-bracket
+# values it shares with playoffs.yaml agree exactly, which is what vouches for
+# the rest.
+#
+# `seed` is the league seeding. The consolation bracket re-seeds its four teams
+# 1-4 internally; that ordering lives in playoffs.yaml, not here.
 
 collected_on: 2026-08-10
-source: fantrax-standings-screenshot
+source: league playoff spreadsheet, "Starting Total Points"
 
 teams:
-  # Outstanding -- byes in round 1, so nothing recorded their opening total.
   - team: Asian Invasion 2.0
     seed: 1
-    total: null
+    total: 8259.00
   - team: Just A Bit Outside
     seed: 2
-    total: null
+    total: 8248.50
 
   - team: Randy
     seed: 3
@@ -38,17 +39,15 @@ teams:
     seed: 6
     total: 7596.25
 
-  # Outstanding -- until these carry a number their round scores every side as
-  # its seed advantage alone.
   - team: No Name Pitchers
     seed: 7
-    total: null
+    total: 7398.75
   - team: Juicers
     seed: 8
-    total: null
+    total: 7478.25
   - team: Harry/Sam
     seed: 9
-    total: null
+    total: 7176.75
   - team: Kyle
     seed: 10
-    total: null
+    total: 7091.00
