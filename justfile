@@ -4,6 +4,10 @@ import '.venv/lib/python3.13/site-packages/savi_python_base/justfiles/python.jus
 # Override the unit test path
 unit_tests_path := "tests/fbb_test/unit"
 
+# Where GitHub Pages serves the site from. A custom domain serves from the root,
+# so pointing one at the site means setting this back to "/".
+site_base := "/fantasy-baseball/"
+
 # Install source & dependency packages into venv
 [group('setup')]
 install:
@@ -42,3 +46,17 @@ refresh: collect board
 [group('web')]
 dev:
     cd web && pnpm dev
+
+# Build the static site into web/dist
+[group('web')]
+build-web:
+    cd web && SITE_BASE="{{ site_base }}" pnpm build
+
+# Push web/dist to the deploy repo's gh-pages branch
+[group('publish')]
+deploy:
+    ./scripts/deploy.sh
+
+# Collect a fresh snapshot, rebuild, and publish the site
+[group('publish')]
+publish: refresh build-web deploy
