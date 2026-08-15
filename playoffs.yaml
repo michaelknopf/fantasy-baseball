@@ -59,17 +59,18 @@ brackets:
   - key: losers
     label: Losers'
     rounds:
-      # Re-seeded 1-4 within this bracket rather than carrying the league's 7-10,
-      # and the spot is charged to the lower seed as -50 instead of credited to
-      # the higher as +50. Both follow the league's sheet.
+      # Re-seeded 1-4 within this bracket rather than carrying the league's 7-10.
+      # The sheet charges the lower seed -50; this credits the higher seed +50
+      # instead, which leaves every margin identical and matches how the winners'
+      # bracket states the same 50-point gap.
       - label: Round 1
         start: 2026-08-10
         end: 2026-08-30
         matchups:
-          - a: { seed: 1, team: Juicers, advantage: 0.0, starting_points: 7478.25 }
-            b: { seed: 4, team: Kyle, advantage: -50.0, starting_points: 7091.00 }
-          - a: { seed: 2, team: No Name Pitchers, advantage: 0.0, starting_points: 7398.75 }
-            b: { seed: 3, team: Harry/Sam, advantage: -50.0, starting_points: 7176.75 }
+          - a: { seed: 1, team: Juicers, advantage: 50.0, starting_points: 7478.25 }
+            b: { seed: 4, team: Kyle, advantage: 0.0, starting_points: 7091.00 }
+          - a: { seed: 2, team: No Name Pitchers, advantage: 50.0, starting_points: 7398.75 }
+            b: { seed: 3, team: Harry/Sam, advantage: 0.0, starting_points: 7176.75 }
 
       - label: Championship
         start: 2026-08-31
