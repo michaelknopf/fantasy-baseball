@@ -30740,15 +30740,78 @@
         {
           "label": "Round 1",
           "starts_on": "2026-08-10",
-          "ends_on": "2026-08-30",
+          "ends_on": "2026-08-23",
           "state": "live",
+          "peak_points": 50.0,
+          "matchups": [
+            {
+              "a": {
+                "seed": 7,
+                "team": "No Name Pitchers",
+                "awaiting": null,
+                "advantage": 50.0,
+                "starting_points": 7745.5,
+                "current_points": 7745.5,
+                "earned": 0.0,
+                "matchup_points": 50.0,
+                "is_mine": false
+              },
+              "b": {
+                "seed": 10,
+                "team": "Kyle",
+                "awaiting": null,
+                "advantage": 0.0,
+                "starting_points": 7320.0,
+                "current_points": 7320.0,
+                "earned": 0.0,
+                "matchup_points": 0.0,
+                "is_mine": false
+              },
+              "margin": 50.0,
+              "leader": "No Name Pitchers",
+              "is_bye": false
+            },
+            {
+              "a": {
+                "seed": 8,
+                "team": "Juicers",
+                "awaiting": null,
+                "advantage": 50.0,
+                "starting_points": 7707.5,
+                "current_points": 7707.5,
+                "earned": 0.0,
+                "matchup_points": 50.0,
+                "is_mine": false
+              },
+              "b": {
+                "seed": 9,
+                "team": "Harry/Sam",
+                "awaiting": null,
+                "advantage": 0.0,
+                "starting_points": 7444.25,
+                "current_points": 7444.25,
+                "earned": 0.0,
+                "matchup_points": 0.0,
+                "is_mine": false
+              },
+              "margin": 50.0,
+              "leader": "Juicers",
+              "is_bye": false
+            }
+          ]
+        },
+        {
+          "label": "Championship",
+          "starts_on": "2026-08-24",
+          "ends_on": "2026-09-20",
+          "state": "upcoming",
           "peak_points": null,
           "matchups": [
             {
               "a": {
                 "seed": null,
                 "team": null,
-                "awaiting": "Loser of Randy / MK",
+                "awaiting": "Winner of No Name Pitchers / Kyle",
                 "advantage": 0.0,
                 "starting_points": null,
                 "current_points": null,
@@ -30759,7 +30822,7 @@
               "b": {
                 "seed": null,
                 "team": null,
-                "awaiting": "Loser of Rally Season / Jake/Jeff",
+                "awaiting": "Winner of Juicers / Harry/Sam",
                 "advantage": 0.0,
                 "starting_points": null,
                 "current_points": null,
@@ -30774,8 +30837,8 @@
           ]
         },
         {
-          "label": "Championship",
-          "starts_on": "2026-08-31",
+          "label": "9th Place",
+          "starts_on": "2026-08-24",
           "ends_on": "2026-09-20",
           "state": "upcoming",
           "peak_points": null,
@@ -30784,7 +30847,7 @@
               "a": {
                 "seed": null,
                 "team": null,
-                "awaiting": "Winner of round 1",
+                "awaiting": "Loser of No Name Pitchers / Kyle",
                 "advantage": 0.0,
                 "starting_points": null,
                 "current_points": null,
@@ -30795,7 +30858,7 @@
               "b": {
                 "seed": null,
                 "team": null,
-                "awaiting": "Loser of round 1",
+                "awaiting": "Loser of Juicers / Harry/Sam",
                 "advantage": 0.0,
                 "starting_points": null,
                 "current_points": null,

@@ -52,19 +52,30 @@ brackets:
           - a: { loser_of: winners.1.0 }
             b: { loser_of: winners.1.1 }
 
+  # Seeds 7-10, who miss the winners' bracket entirely rather than dropping into
+  # this one, so these are named teams and the round opens on 8/10 alongside it.
   - key: losers
     label: Losers'
     rounds:
       - label: Round 1
         start: 2026-08-10
-        end: 2026-08-30
+        end: 2026-08-23
         matchups:
-          - a: { loser_of: winners.0.0 }
-            b: { loser_of: winners.0.1 }
+          - a: { seed: 7, team: No Name Pitchers, advantage: 50.0 }
+            b: { seed: 10, team: Kyle, advantage: 0.0 }
+          - a: { seed: 8, team: Juicers, advantage: 50.0 }
+            b: { seed: 9, team: Harry/Sam, advantage: 0.0 }
 
       - label: Championship
-        start: 2026-08-31
+        start: 2026-08-24
         end: 2026-09-20
         matchups:
           - a: { winner_of: losers.0.0 }
-            b: { loser_of: losers.0.0 }
+            b: { winner_of: losers.0.1 }
+
+      - label: 9th Place
+        start: 2026-08-24
+        end: 2026-09-20
+        matchups:
+          - a: { loser_of: losers.0.0 }
+            b: { loser_of: losers.0.1 }
