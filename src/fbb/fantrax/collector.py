@@ -1,7 +1,7 @@
 """Collects a full league snapshot from the Fantrax API."""
 
 import re
-from datetime import UTC, date, datetime
+from datetime import date, datetime
 
 from fbb.espn.team_batting import TeamBattingClient
 from fbb.fantrax import payload
@@ -73,7 +73,10 @@ class SnapshotCollector:
         self._periods_ahead = periods_ahead
         self._schedule = schedule or WaiverSchedule()
         self._batting = batting or TeamBattingClient((now or datetime.now()).year)
-        # Local time, because waiver deadlines are league-local wall-clock times.
+        # Local time throughout, including `collected_at`: waiver deadlines and
+        # playoff round boundaries are league-local wall-clock dates, so an
+        # evening collect stamped in UTC lands on tomorrow and reads a round as
+        # over a day early.
         self._now = now or datetime.now()
         self.raw: dict[str, object] = {}
         self._rosters_raw: dict[str, Json] = {}
@@ -91,7 +94,7 @@ class SnapshotCollector:
         free_agents = self._free_agent_pitchers(collect_through)
         return LeagueSnapshot(
             league_id=self._league_id,
-            collected_at=datetime.now(UTC),
+            collected_at=self._now,
             periods_ahead=self._periods_ahead,
             collected_through=collect_through,
             teams=teams,

@@ -372,6 +372,21 @@ def snapshot(collector: SnapshotCollector) -> LeagueSnapshot:
     return collector.collect()
 
 
+def test_stamps_the_local_date_not_the_utc_one(client: StubClient) -> None:
+    """An evening collect belongs to the day the league is still playing.
+
+    Stamped in UTC, a Pacific evening run lands on tomorrow, which retires a
+    waiver period and ends a playoff round a day early.
+    """
+    evening = datetime(2026, 8, 9, 21, 30)
+    collected = SnapshotCollector(
+        client, LEAGUE_ID, now=evening, batting=StubBattingClient()
+    ).collect()
+
+    assert collected.collected_at == evening
+    assert collected.collected_at.date() == date(2026, 8, 9)
+
+
 def test_parses_starts_cap(snapshot: LeagueSnapshot) -> None:
     budget = snapshot.starts_budgets[0]
     assert budget.starts_used == 62

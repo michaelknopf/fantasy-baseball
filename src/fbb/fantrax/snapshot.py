@@ -19,6 +19,8 @@ class SnapshotWriter:
         self._root = root
 
     def write(self, snapshot: LeagueSnapshot, raw: dict[str, Any]) -> Path:
+        # Local time, despite the Z-shaped suffix kept for continuity with the
+        # directories already on disk. The name only has to sort and be unique.
         stamp = snapshot.collected_at.strftime('%Y-%m-%dT%H-%M-%SZ')
         run_dir = self._root / stamp
         run_dir.mkdir(parents=True, exist_ok=True)
