@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { LastSync } from '@/components/LastSync'
 import boardData from '@/data/board.json'
 import { PlayoffBoard } from '@/pages/PlayoffBoard'
 import { StreamingBoard } from '@/pages/StreamingBoard'
@@ -48,7 +49,7 @@ export function App() {
       <header className="flex flex-col gap-4">
         <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
           <h1 className="chyron text-3xl">{current.title}</h1>
-          <span className="text-sm text-ink-3">snapshot {board.generated_at}</span>
+          <LastSync iso={board.synced_at} />
         </div>
         {unlocked && (
           <nav className="flex gap-1" role="tablist" aria-label="Page">

@@ -140,6 +140,8 @@ export interface PlayoffBracket {
 
 export interface Board {
   generated_at: string
+  /** ISO instant of the collect, with offset once collected by a zone-aware run. */
+  synced_at: string
   collected_through: string
   starts_remaining: number | null
   starts_max: number | null

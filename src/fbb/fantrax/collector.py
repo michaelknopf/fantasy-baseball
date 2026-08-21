@@ -76,8 +76,8 @@ class SnapshotCollector:
         # Local time throughout, including `collected_at`: waiver deadlines and
         # playoff round boundaries are league-local wall-clock dates, so an
         # evening collect stamped in UTC lands on tomorrow and reads a round as
-        # over a day early.
-        self._now = now or datetime.now()
+        # over a day early. Zone-aware so the page can name the zone it shows.
+        self._now = now or datetime.now().astimezone()
         self.raw: dict[str, object] = {}
         self._rosters_raw: dict[str, Json] = {}
         self._my_team_ids: set[str] = set()

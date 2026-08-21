@@ -77,6 +77,7 @@ function pitcher(player_id: string, starts: StartSlot[]): Pitcher {
 /** Three active spots and one on IR, so capacity is 3 and it is full. */
 const BOARD: Board = {
   generated_at: '2026-08-09',
+  synced_at: '2026-08-09T12:00:00-07:00',
   collected_through: '2026-08-14',
   starts_remaining: 63,
   starts_max: 125,

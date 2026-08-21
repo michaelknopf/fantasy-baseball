@@ -6,7 +6,7 @@ you compare across them.
 """
 
 from collections import Counter, defaultdict
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 
 from pydantic import BaseModel
 
@@ -199,6 +199,9 @@ class Board(BaseModel):
     """Everything the app renders."""
 
     generated_at: date
+    # The same instant as `generated_at`, kept whole and zone-aware so the page
+    # can show how stale it is; the date alone cannot say "two hours ago".
+    synced_at: datetime
     collected_through: date
     starts_remaining: int | None = None
     starts_max: int | None = None
@@ -234,6 +237,7 @@ class BoardBuilder:
         roster = self._my_roster()
         return Board(
             generated_at=self._today,
+            synced_at=self._snapshot.collected_at,
             collected_through=self._snapshot.collected_through,
             starts_remaining=budget.starts_remaining if budget else None,
             starts_max=budget.starts_max if budget else None,

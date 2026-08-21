@@ -23,6 +23,7 @@ function entry(
 function board(roster: RosterEntry[], startsRemaining: number | null): Board {
   return {
     generated_at: '2026-08-09',
+    synced_at: '2026-08-09T12:00:00-07:00',
     collected_through: '2026-08-14',
     starts_remaining: startsRemaining,
     starts_max: 125,
