@@ -33,14 +33,12 @@ brackets:
         start: 2026-08-24
         end: 2026-09-06
         matchups:
-          # The byes' totals at the 8/10 opening, from the league's sheet; their
-          # round 2 scores from there rather than from a fresh capture on 8/24.
           # Seed 1 draws the lowest surviving seed, so it takes the 4v5 winner
           # and seed 2 takes the 3v6 winner. Pairing 1 with the 3v6 winner would
           # stack both byes on one half and let them meet before the final.
-          - a: { seed: 1, team: Asian Invasion 2.0, advantage: 50.0, starting_points: 8259.00 }
+          - a: { seed: 1, team: Asian Invasion 2.0, advantage: 50.0 }
             b: { winner_of: winners.0.1 }
-          - a: { seed: 2, team: Just A Bit Outside, advantage: 50.0, starting_points: 8248.50 }
+          - a: { seed: 2, team: Just A Bit Outside, advantage: 50.0 }
             b: { winner_of: winners.0.0 }
 
       - label: Championship

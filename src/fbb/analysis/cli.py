@@ -7,7 +7,7 @@ from typing import Annotated
 import typer
 from rich.console import Console
 
-from fbb.analysis.board import BoardBuilder
+from fbb.analysis.board import Board, BoardBuilder
 from fbb.analysis.playoffs import (
     DEFAULT_BASELINE_PATH,
     DEFAULT_CONFIG_PATH,
@@ -46,10 +46,13 @@ def build(
     )
 
     bracket = PlayoffConfig.load(playoffs) if playoffs.exists() else None
-    if bracket:
-        _capture_baselines(bracket, loaded)
-
     board = BoardBuilder(loaded, playoffs=bracket).build()
+
+    # A round's opening totals are only knowable while they are still current —
+    # Fantrax serves no history — so they are caught here and the board rebuilt
+    # to score against them.
+    if bracket and _capture_baselines(bracket, board):
+        board = BoardBuilder(loaded, playoffs=bracket).build()
 
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(json.loads(board.model_dump_json()), indent=2) + '\n')
@@ -63,32 +66,40 @@ def build(
     console.print(f'[green]Wrote {out}[/green] ({counts})')
 
 
-def _capture_baselines(bracket: PlayoffConfig, snapshot: LeagueSnapshot) -> None:
-    """Record where each team stood when a round opened.
+def _capture_baselines(bracket: PlayoffConfig, board: Board) -> bool:
+    """Record where each team stood when a round opened. True if anything was new.
 
-    A round scores only the points earned inside it, so the totals at its start
-    have to be caught while they are still current — they cannot be recovered
-    from a later snapshot.
+    Reads the built board rather than the config: a slot fed by `winner_of` names
+    no team until the builder resolves it, so capturing off the config silently
+    skips every team that advanced into a round.
     """
-    points = {b.team_name: b.fantasy_points for b in snapshot.starts_budgets}
     store = BaselineStore.load(DEFAULT_BASELINE_PATH)
-    today = snapshot.collected_at.date()
-    captured = 0
+    captured: dict[str, float] = {}
 
-    for key, index, rnd in bracket.rounds_open_by(today):
-        for slot, matchup in enumerate(rnd.matchups):
-            # A bye is not played, so it has no baseline to catch.
-            if matchup.bye:
+    for built in board.playoffs:
+        for r, rnd in enumerate(built.rounds):
+            if rnd.state == 'upcoming':
                 continue
-            for name, side in (('a', matchup.a), ('b', matchup.b)):
-                total = points.get(side.team) if side.team else None
-                if side.starting_points is not None or total is None:
+            for m, matchup in enumerate(rnd.matchups):
+                if matchup.is_bye:  # not played, so it has no baseline to catch
                     continue
-                if store.record(f'{key}.{index}.{slot}.{name}', total):
-                    side.starting_points = total
-                    captured += 1
+                for slot, side in (('a', matchup.a), ('b', matchup.b)):
+                    if side.starting_points is not None or side.team is None:
+                        continue
+                    if side.current_points is None:
+                        continue
+                    key = f'{built.key}.{r}.{m}.{slot}'
+                    if store.record(key, side.current_points):
+                        captured[key] = side.current_points
 
-    if captured:
-        store.save(DEFAULT_BASELINE_PATH)
-        note = f'Captured {captured} starting total(s) to {DEFAULT_BASELINE_PATH}'
-        console.print(f'[green]{note}[/green]')
+    if not captured:
+        return False
+
+    # Saved only after the whole walk: `_occupant` raises on a renamed team, and
+    # `record` is write-once, so a mid-walk save could permanently freeze half a
+    # round against totals nothing can recover.
+    store.save(DEFAULT_BASELINE_PATH)
+    bracket.apply_baselines(store)
+    note = f'Captured {len(captured)} starting total(s) to {DEFAULT_BASELINE_PATH}'
+    console.print(f'[green]{note}[/green]')
+    return True

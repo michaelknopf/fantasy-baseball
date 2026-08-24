@@ -22,8 +22,17 @@ export function BracketMap({ bracket }: { bracket: PlayoffBracket }) {
     <div className="overflow-x-auto">
       <div className="flex min-w-max gap-3 pb-1">
         {rounds.map((round) => (
-          <div key={round.label} className="flex min-w-[11rem] flex-1 flex-col gap-2">
-            <div className="chyron truncate text-[0.6rem] text-ink-3">
+          <div
+            key={round.label}
+            className={`flex min-w-[11rem] flex-1 flex-col gap-2 ${
+              round.state === 'done' ? 'opacity-50' : ''
+            }`}
+          >
+            <div
+              className={`chyron truncate text-[0.6rem] ${
+                round.state === 'live' ? 'text-good' : 'text-ink-3'
+              }`}
+            >
               {round.label}
             </div>
             <div className="flex flex-1 flex-col justify-around gap-2">

@@ -7,11 +7,18 @@ the season gap leak in still produces a plausible-looking number.
 
 from datetime import date, datetime
 from pathlib import Path
+from unittest.mock import patch
 
 import pytest
 from pydantic import ValidationError
 
-from fbb.analysis.board import BoardBuilder, PlayoffBracket, UnknownPlayoffTeamError
+from fbb.analysis.board import (
+    Board,
+    BoardBuilder,
+    PlayoffBracket,
+    UnknownPlayoffTeamError,
+)
+from fbb.analysis.cli import _capture_baselines
 from fbb.analysis.playoffs import BaselineStore, PlayoffConfig
 from fbb.fantrax.models import FantasyTeam, LeagueSnapshot, TeamStartsBudget
 
@@ -270,6 +277,65 @@ class TestConfigErrors:
 
         with pytest.raises(ValidationError, match='not a matchup reference'):
             _config(body, tmp_path)
+
+
+class TestCapture:
+    """Capture reads the built board, not the config it was built from."""
+
+    @staticmethod
+    def _captured(config: PlayoffConfig, board: Board, tmp_path: Path) -> BaselineStore:
+        """Capture into a sidecar under `tmp_path`, then read it back."""
+        path = tmp_path / 'baselines.yaml'
+        with patch('fbb.analysis.cli.DEFAULT_BASELINE_PATH', path):
+            _capture_baselines(config, board)
+        return BaselineStore.load(path)
+
+    def test_captures_a_team_that_advanced_into_the_round(self, tmp_path: Path) -> None:
+        """The bug: a `winner_of` slot names no team until the builder resolves it.
+
+        Walking the config instead skips every advanced team silently, which left
+        two rounds unscorable and never wrote a baseline at all.
+        """
+        after = _snapshot(datetime(2026, 8, 25, 12, 0))
+        config = _config(_TWO_ROUNDS, tmp_path)
+        board = BoardBuilder(after, playoffs=config).build()
+
+        store = self._captured(config, board, tmp_path)
+
+        # Randy won round 1, so his round 2 slot banks his total on arrival.
+        assert store.get('winners.1.0.b') == 8141.25
+
+    def test_does_not_capture_a_round_that_has_not_opened(self, tmp_path: Path) -> None:
+        """Recording early would freeze a baseline weeks before the round runs."""
+        config = _config(_TWO_ROUNDS, tmp_path)
+        board = BoardBuilder(_snapshot(), playoffs=config).build()
+
+        store = self._captured(config, board, tmp_path)
+
+        assert store.get('winners.1.0.a') is None
+
+    def test_does_not_capture_a_bye(self, tmp_path: Path) -> None:
+        """A bye is not played, so it has no baseline to catch."""
+        config = _config(_BYE, tmp_path)
+        board = BoardBuilder(_snapshot(), playoffs=config).build()
+
+        store = self._captured(config, board, tmp_path)
+
+        assert store.get('winners.0.0.a') is None
+
+    def test_a_second_build_cannot_move_the_goalposts(self, tmp_path: Path) -> None:
+        """Round totals are only knowable live, so the first capture is final."""
+        after = _snapshot(datetime(2026, 8, 25, 12, 0))
+        config = _config(_TWO_ROUNDS, tmp_path)
+        self._captured(config, BoardBuilder(after, playoffs=config).build(), tmp_path)
+
+        # A later snapshot with the teams further along must not overwrite it.
+        later = _snapshot(datetime(2026, 8, 26, 12, 0), Randy=9000.00, MK=8500.00)
+        store = self._captured(
+            config, BoardBuilder(later, playoffs=config).build(), tmp_path
+        )
+
+        assert store.get('winners.1.0.b') == 8141.25
 
 
 class TestBaselineStore:

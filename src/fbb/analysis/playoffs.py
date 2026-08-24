@@ -167,10 +167,11 @@ class PlayoffConfig(BaseModel):
             raise PlayoffConfigError(f'No bracket file at {path}.')
         config = cls.model_validate(_read_yaml(path))
         if baselines and baselines.exists():
-            config._apply(BaselineStore.load(baselines))
+            config.apply_baselines(BaselineStore.load(baselines))
         return config
 
-    def _apply(self, store: 'BaselineStore') -> None:
+    def apply_baselines(self, store: 'BaselineStore') -> None:
+        """Fill in any slot the store has a baseline for, leaving the rest alone."""
         for bracket in self.brackets:
             for r, rnd in enumerate(bracket.rounds):
                 for m, matchup in enumerate(rnd.matchups):
@@ -178,15 +179,6 @@ class PlayoffConfig(BaseModel):
                         captured = store.get(f'{bracket.key}.{r}.{m}.{slot}')
                         if captured is not None and side.starting_points is None:
                             side.starting_points = captured
-
-    def rounds_open_by(self, today: date) -> list[tuple[str, int, Round]]:
-        """Every round that has started, newest last."""
-        return [
-            (bracket.key, index, rnd)
-            for bracket in self.brackets
-            for index, rnd in enumerate(bracket.rounds)
-            if rnd.start <= today
-        ]
 
 
 class BaselineStore:

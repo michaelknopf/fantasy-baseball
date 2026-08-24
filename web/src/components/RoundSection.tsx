@@ -11,11 +11,14 @@ export function RoundSection({
   today: string
 }) {
   const timing = roundTiming(round, today)
+  // A finished round is still worth reading, but it should not compete with the
+  // one being played for the eye landing on the page.
+  const settled = round.state === 'done'
 
   return (
-    <section className="flex flex-col gap-3">
+    <section className={`flex flex-col gap-3 ${settled ? 'opacity-60' : ''}`}>
       <header className="flex flex-wrap items-baseline gap-3">
-        <h2 className="chyron text-lg">{round.label}</h2>
+        <h2 className={`chyron text-lg ${settled ? 'text-ink-3' : ''}`}>{round.label}</h2>
         <span className="num text-xs text-ink-3">
           {short(round.starts_on)} → {short(round.ends_on)}
         </span>
